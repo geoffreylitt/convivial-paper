@@ -4,6 +4,7 @@ Todos for the introduction:
 
 * hook with Airbnb sort
 * add more bigger picture reasons, less focus on the affordances
+* assembling our own software: starts with _tweaks_
 * make this shorter
 
 People have complaints about web apps they use, but they rarely modify those apps to meet their needs. Why not? Some guesses:
@@ -19,9 +20,9 @@ I know how to do web programming, and yet I rarely modify my apps. Sometimes it 
 
 A disheartening explanation might be that most people just don't care enough to make changes. This claim might be true in the current context, but it's also important to remember that motivation is connected to culture and to the space of possibilities provided by our tools. Most people probably didn't want to write letters before mass literacy.
 
-One interesting explanation is that **people can't estimate the difficulty of a change**. It's not motivating to think about what changes I might want when I don't know whether they would take a few minutes or are completely impossible. For me, an engineer, this gets at the heart of the issue. I know I could probably implement the change, but it's so hard to estimate how long it would take (minutes? months?) that I don't even bother trying. In general, when something seems expensive to do (or even possibly expensive), it can discourage casual lightweight experimentation.
+One interesting explanation is that people can't estimate the difficulty of a change. It's not motivating to think about what changes I might want when I don't know whether they would take a few minutes or are completely impossible. For me, an engineer, this gets at the heart of the issue. I know I could probably implement the change, but it's so hard to estimate how long it would take (minutes? months?) that I don't even bother trying. In general, when something seems expensive to do (or even possibly expensive), it can discourage casual lightweight experimentation.
 
-So, perhaps to encourage people to casually modify software, **apps need to provide more consistent affordances indicating what changes are possible and easy.** Maybe if it were more obvious that certain types of changes could be achieved in mere minutes, programmers and non-programmers would end up modifying our software more.
+So, perhaps to encourage people to casually modify software, apps need to provide more consistent affordances indicating what changes are possible and easy. Maybe if it were more obvious that certain types of changes could be achieved in mere minutes, programmers and non-programmers would end up modifying our software more.
 
 ### The Wildcard platform
 
@@ -82,9 +83,11 @@ A more advanced way would be to make these wrappers partially or totally automat
 
 # Design principles
 
-Here are some of the ideas behind the design of Wildcard. We hope these can be useful principles not only for Wildcard, but also for other tools that enable end users to modify software.
+Here are some of the ideas behind the current design of Wildcard. We hope that these principles are also useful for thinking more broadly about enabling end users to modify software. 
 
 ## Expose unified structure across applications
+
+Todo: diagram?
 
 In *Changing Minds* [@disessa2000], Andrea diSessa critiques the design of modern software with a story about a hypothetical "nightmare bike." Each gear on the nightmare bike is labeled not with a number, but with an icon describing its intended use: smooth pavement uphill, smooth pavement downhill, gravel, etc. By some logic, this is more "user-friendly" than numbered gears, but in fact, hiding orderly structure from the user makes it more difficult to operate the bike. Many modern software designs fall into this trap, teaching users to use isolated modes rather than coherent structure, and the problem gets far worse when operating across multiple applications. Unlike the UNIX philosophy of small tools interoperating through shared abstractions, in modern computing each application is in its own silo of data and functionality.
 
@@ -94,26 +97,24 @@ Exposing a unified higher-level abstraction is a deliberate choice, and is not t
 
 ## Direct manipulation by proxy
 
-In Wildcard, users don't interact with the original page to modify it; instead they manipulate an alternate representation of the data in the page. We considered other approaches where the user would interact more directly with the original UI, e.g. injecting sort controls into the page, but decided that the consistency and affordances of the table view outweighed the potential confusion of a new layer of indirection.
+In Wildcard, users manipulate a data table added to the page, rather than the original page. Although the interaction with the table is direct like using a spreadsheet, the interaction with the page is indirectly mediated through the table.
+
+We considered other approaches where the user would interact more directly with the original UI, e.g. injecting sort controls into the page, but decided that the consistency and affordances of the table view outweighed the potential confusion of a new layer of indirection.
 
 Making this design successful requires maintaining a close mapping in the user's mind between the new representation and the original page (cite Norman? Cognitive Dimensions?). Wildcard provides live visual cues as the user navigates the data table, similar to the highlighting provided by browser developer tools to indicate the mapping between HTML and the original page.
 
 ![The Chrome Dev Tools use highlighting to show the mapping between HTML code and the page](media/devtools.png){#fig:devtools}
 
-## First party optional
+## First party cooperation optional
 
-* 3p-only is enough. 1p help is optional.
-* Can even do things the 1p didn't want to expose.
-* make it easy for 1p: just ask for a data table, no fancy schema.
-* eventually we hope for 1p support
+The Web is an unusually extensible platform. On many other platforms (e.g. smartphone operating systems), software is locked down unless first-party developers explicitly provide hooks for plugins and interoperability, but on the Web, all client-side code is available for browser extensions to modify. Application authors can use practices that make it easier to modify their apps (e.g. clean semantic markup), or more difficult (e.g. code obfuscation), but the default state is openness. This gives extensions freedom to modify applications in creative ways that the original developers did not plan for.
 
-## Built for the web
+Wildcard takes advantage of this openness, and does not depend on cooperation from first-party website developers. Any programmer can add support for any website to Wildcard by building a third party adapter. This design acknowledges the pragmatic reality that most sites today will not have Wildcard support built in, and more broadly do not prioritize client side extensibility.
 
-* web has the right foundations:
-	* the right platform
-	* open platform
-	* dev tools
-	* originally intended to be 
+However, we also hope that first party website developers eventually build in Wildcard support to their applications, which would reduce the burden of maintaining adapters and make Wildcard plugins more stable. While this might seem optimistic, implementing the Wildcard adapter API could be straightforward in a typical client-side application that already has access to a structured version of the data in the page. There is also precedent for first parties implementing an official client extension API in response to user demand: for several years, Google exposed an extension API in Gmail for Greasemonkey scripts to use. (Since then, third parties have created well-maintained alternatives [@streak; @talwar2019], illustrating the value of sharing even third party adapters.)
+
+## In-place toolchain
+
 * in-place toolchain: meet the user where they are, in the page
 
 ## Decouple UI from data
@@ -132,13 +133,13 @@ Making this design successful requires maintaining a close mapping in the user's
 
 # Future work
 
+* still early: plan to release
 * How far does functionality go? 
   * workflows? triggers?
   * what can and can't be done
 * automated wrappers?
   * lean on existing tech
 * usability studies
-* plan to release
 * sign up for future updates
 
 # meta: todos

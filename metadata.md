@@ -3,7 +3,7 @@ title: "Wildcard: Modifying web applications by directly manipulating a data tab
 author: Geoffrey Litt and Daniel Jackson
 bibliography: references.bib
 link-citations: true
-csl: templates/acm.csl
+csl: templates/acm-sig-proceedings.csl
 reference-section-title: References
 abstract: |
   Browser extensions and user scripts can modify web applications in useful ways, but many people have unique needs that aren’t met by existing extensions. Today, most of them are stuck—they can’t build their own browser extensions without learning how to program in Javascript.
