@@ -68,15 +68,20 @@
 <p>So, perhaps to encourage people to casually modify software, <strong>apps need to provide more consistent affordances indicating what changes are possible and easy.</strong> Maybe if it were more obvious that certain types of changes could be achieved in mere minutes, programmers and non-programmers would end up modifying our software more.</p>
 <h3 id="the-wildcard-platform">The Wildcard platform</h3>
 <p>Wildcard adds a panel to the bottom of a web page that shows a structured table view of some of the core data in the page. When the user manipulates the table, the original page also gets modified. We aim to make the mapping between the table and the page as direct and intuitive as possible.</p>
-<p>For example, here we open up a table view that corresponds to search results on the Airbnb travel site.</p>
 <p>Todos here:</p>
 <ul>
 <li>a better demo is actually sorting too at this point too, to show the bidirectional nature</li>
 <li>hint at future possibilities</li>
 <li>introduce an image fallback for the PDF version</li>
 </ul>
+<div class="html-only">
+<p>For example, here we open up a table view that corresponds to search results on the Airbnb travel site.</p>
 <video width="100%" src="media/opentable.mp4" autoplay loop muted playsinline controls class>
 </video>
+</div>
+<div class="pdf-only">
+
+</div>
 <p>There’s somewhat of a tension here between directness and structure. Manipulating the original page itself might seem most “direct.” But the whole problem we’re dealing with is that the original web page doesn’t provide affordances for end-user modification, and there’s no consistent structure that people can learn to work with across many sites.</p>
 <h3 id="directness">Directness</h3>
 <p>The table view is perhaps one hop less “direct,” but in turn provides other benefits. Because many people are already familiar with spreadsheets, they can quickly intuit which changes are easy to make in this system. Also, people can learn to work with the same consistent spreadsheet view across many sites. This consistency is very important—learning a generic tool that can be applied to many different specific cases is very powerful, and connected to the idea of literacy in a medium (just ask anyone who has used vim, or spreadsheets, or a pencil and paper). Wildcard aims to balance this tension, with a workflow that involves both the table view and the original webpage.</p>

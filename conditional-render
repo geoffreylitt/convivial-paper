@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+# Number all figures in a document and prefix the caption with "Figure".
+require "paru/filter"
+
+figure_counter = 0;
+
+Paru::Filter.run do 
+    with "Div.html-only" do |div|
+      div.inner_markdown = "" unless metadata["format"] == "html" 
+    end
+
+    with "Div.pdf-only" do |div|
+      div.inner_markdown = "" unless metadata["format"] == "pdf" 
+    end
+end

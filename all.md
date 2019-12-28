@@ -31,7 +31,7 @@ So, perhaps to encourage people to casually modify software, **apps need to prov
 
 Wildcard adds a panel to the bottom of a web page that shows a structured table view of some of the core data in the page. When the user manipulates the table, the original page also gets modified. We aim to make the mapping between the table and the page as direct and intuitive as possible.
 
-For example, here we open up a table view that corresponds to search results on the Airbnb travel site.
+
 
 Todos here:
 
@@ -39,8 +39,19 @@ Todos here:
 * hint at future possibilities
 * introduce an image fallback for the PDF version
 
+<div class="html-only">
+For example, here we open up a table view that corresponds to search results on the Airbnb travel site.
+
 <video width="100%" src="media/opentable.mp4" autoplay loop muted playsinline controls class>
 </video>
+</div>
+
+<div class="pdf-only">
+For example, in @Fig:table we open up a table view that corresponds to search results on the Airbnb travel site.
+
+![Opening a table corresponding to search results on Airbnb](media/opentable.png){#fig:table}
+</div>
+
 
 There's somewhat of a tension here between directness and structure. Manipulating the original page itself might seem most "direct." But the whole problem we're dealing with is that the original web page doesn't provide affordances for end-user modification, and there's no consistent structure that people can learn to work with across many sites.
 

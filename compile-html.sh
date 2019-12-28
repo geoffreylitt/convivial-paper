@@ -2,6 +2,8 @@ set -e
 
 cat html.sections | xargs pandoc \
   --filter pandoc-citeproc \
+  --filter conditional-render \
+  --metadata=format:html \
   -s \
   -o paper.html \
   --css basic.css \
@@ -11,4 +13,4 @@ cat html.sections | xargs pandoc \
   --template=templates/pandoc-template-html.html
 
 cp ./paper.html ~/dev/homepage/source/wildcard/index.html
-cp ./wildcard/basic.css ~/dev/homepage/source/wildcard
+cp ./basic.css ~/dev/homepage/source/wildcard
