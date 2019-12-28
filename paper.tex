@@ -12,8 +12,8 @@
 
 \begin{document}
 
-\title{{[}DRAFT, please don't distribute{]} Wildcard: a tool for
-modifying websites by directly manipulating data tables}
+\title{Wildcard: Modifying web applications by directly manipulating a
+data table}
 \subtitle{}% optional
 
 \author{Geoffrey Litt}
@@ -86,37 +86,32 @@ modifying websites by directly manipulating data tables}
 % Failure to adhere to the abstract directives may result in the paper
 % being returned to the authors.
 \begin{abstract}
-Browser extensions and user scripts can modify websites in useful
-ways---ranging from blocking ads to adding entire new features to
-Gmail---but many people have unique needs that aren't met by existing
-extensions. Today, most of those people are stuck. They can't build
-their own browser extensions without learning how to program, so they
-have no choice but to accept the way the software was built. What if
-things were different?
+Browser extensions and user scripts can modify web applications in
+useful ways, but many people have unique needs that aren't met by
+existing extensions. Today, most of them are stuck---they can't build
+their own browser extensions without learning how to program in
+Javascript.
 
 Wildcard is a platform that empowers anyone to build browser extensions
-and modify websites to meet their own specific needs. Wildcard shows a
-simplified view of the data in a web page as a familiar table view.
-People can directly manipulate the table to sort/filter content, add
-annotations, and even use spreadsheet-style formulas to pull in data
-from other websites. The key idea is that a table is a powerful, simple,
-and familiar paradigm for modifying a website.
+without doing traditional programming. Wildcard shows the main data from
+a web page in a table with a bidirectional connection to the original
+page. People can directly manipulate the table to sort/filter content,
+add private annotations, and use spreadsheet formulas to fetch data from
+other websites.
 \end{abstract}
 
 
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-Todos in intro:
-
-Do somes tuff
+Todos for the introduction:
 
 \begin{itemize}
 \tightlist
 \item
   hook with Airbnb sort
 \item
-  add more reasons
+  add more bigger picture reasons, less focus on the affordances
 \item
   make this shorter
 \end{itemize}
@@ -137,14 +132,10 @@ those apps to meet their needs. Why not? Some guesses:
 These seem reasonable but they might not tell the whole story.
 
 There have been many research projects that try to address these
-hurdles. For example, Chickenfoot \autocite{miller2010} allows for
-people to more quickly modify sites without using Javascript or dealing
-with the DOM, directly addressing both of these barriers. But, a decade
+hurdles. For example, Chickenfoot \autocite{bolin2005} allows for people
+to more quickly modify sites without using Javascript or dealing with
+the DOM, directly addressing both of these barriers. But, a decade
 later, not many people have ended up using systems like this.
-
-\hypertarget{why-dont-people-tweak-websites}{%
-\subsubsection{Why don't people tweak
-websites?}\label{why-dont-people-tweak-websites}}
 
 I know how to do web programming, and yet I rarely modify my apps.
 Sometimes it actually turns out to be pretty easy to hack on a site once
@@ -207,27 +198,6 @@ Airbnb}\label{fig:table}
 }
 \end{figure}
 
-There's somewhat of a tension here between directness and structure.
-Manipulating the original page itself might seem most ``direct.'' But
-the whole problem we're dealing with is that the original web page
-doesn't provide affordances for end-user modification, and there's no
-consistent structure that people can learn to work with across many
-sites.
-
-\hypertarget{directness}{%
-\subsubsection{Directness}\label{directness}}
-
-The table view is perhaps one hop less ``direct,'' but in turn provides
-other benefits. Because many people are already familiar with
-spreadsheets, they can quickly intuit which changes are easy to make in
-this system. Also, people can learn to work with the same consistent
-spreadsheet view across many sites. This consistency is very
-important---learning a generic tool that can be applied to many
-different specific cases is very powerful, and connected to the idea of
-literacy in a medium (just ask anyone who has used vim, or spreadsheets,
-or a pencil and paper). Wildcard aims to balance this tension, with a
-workflow that involves both the table view and the original webpage.
-
 Wildcard is fairly general and can support many useful changes to
 websites, which will be demoed later:
 
@@ -256,39 +226,9 @@ it aims to provide a useful, simple subset of modifications, and to
 provide consistent affordances so that users confidently understand
 which modifications they can make.
 
-\hypertarget{the-big-picture}{%
-\subsubsection{The big picture}\label{the-big-picture}}
-
-Eventually web apps might provide the structured data table themselves.
-In the meantime, we need some sort of adapter to make this system work
-with existing sites.
-
-Wildcard provides a system for creating a wrapper on top of existing
-websites. This wrapper defines how structured data can be extracted out
-of the page, and also how manipulating the table should modify the page.
-
-The most basic way of building these wrappers is for skilled programmers
-to manually build and maintain them for popular sites. This approach
-beats the status quo because many people, including end users, can
-benefit from the generic wrapper and use it in many ways. This is
-different from the current world where programmers build
-use-case-specific browser extensions, and each extension has to
-implement its own interactions with the low-level DOM of a page. There's
-also a greater incentive for many people to collectively maintain a
-wrapper if it's shared.
-
-A more advanced way would be to make these wrappers partially or totally
-automated, and enable end users to create them. This future work could
-leverage existing research on wrapper induction but isn't the focus of
-the current work.
-
-Again, ultimately we hope that first-party sites would find it
-beneficial and straightforward to provide a structured data view
-themselves. Wildcard doesn't require sites to expose some complex
-Semantic Web schema; it merely asks for a simple structured data view.
-
-\hypertarget{demo}{%
-\section{Demo}\label{demo}}
+\hypertarget{demo-booking-a-trip-with-wildcard}{%
+\section{Demo: Booking a trip with
+Wildcard}\label{demo-booking-a-trip-with-wildcard}}
 
 \begin{itemize}
 \tightlist
@@ -326,22 +266,125 @@ Semantic Web schema; it merely asks for a simple structured data view.
   Using a custom date picker
 \end{itemize}
 
+\hypertarget{implementation}{%
+\section{Implementation}\label{implementation}}
+
+Eventually web apps might provide the structured data table themselves.
+In the meantime, we need some sort of adapter to make this system work
+with existing sites.
+
+Wildcard provides a system for creating a wrapper on top of existing
+websites. This wrapper defines how structured data can be extracted out
+of the page, and also how manipulating the table should modify the page.
+
+The most basic way of building these wrappers is for skilled programmers
+to manually build and maintain them for popular sites. This approach
+beats the status quo because many people, including end users, can
+benefit from the generic wrapper and use it in many ways. This is
+different from the current world where programmers build
+use-case-specific browser extensions, and each extension has to
+implement its own interactions with the low-level DOM of a page. There's
+also a greater incentive for many people to collectively maintain a
+wrapper if it's shared.
+
+A more advanced way would be to make these wrappers partially or totally
+automated, and enable end users to create them. This future work could
+leverage existing research on wrapper induction but isn't the focus of
+the current work.
+
 \hypertarget{design-principles}{%
 \section{Design principles}\label{design-principles}}
 
-\hypertarget{expose-generic-structure}{%
-\subsection{Expose generic structure}\label{expose-generic-structure}}
+Here are some of the ideas behind the design of Wildcard. We hope these
+can be useful principles not only for Wildcard, but also for other tools
+that enable end users to modify software.
+
+\hypertarget{expose-unified-structure-across-applications}{%
+\subsection{Expose unified structure across
+applications}\label{expose-unified-structure-across-applications}}
+
+In \emph{Changing Minds} \autocite{disessa2000}, Andrea diSessa
+critiques the design of modern software with a story about a
+hypothetical ``nightmare bike.'' Each gear on the nightmare bike is
+labeled not with a number, but with an icon describing its intended use:
+smooth pavement uphill, smooth pavement downhill, gravel, etc. By some
+logic, this is more ``user-friendly'' than numbered gears, but in fact,
+hiding orderly structure from the user makes it more difficult to
+operate the bike. Many modern software designs fall into this trap,
+teaching users to use isolated modes rather than coherent structure, and
+the problem gets far worse when operating across multiple applications.
+Unlike the UNIX philosophy of small tools interoperating through shared
+abstractions, in modern computing each application is in its own silo of
+data and functionality.
+
+Wildcard helps people understand and modify the behavior of applications
+through the lens of a consistent abstraction: a data table. This
+abstraction strikes a balance between being both simple and generic. A
+data table is simpler than the DOM tree that describes the details of
+the UI, but is also generic enough to describe the essence of many
+different kinds of applications.
+
+Exposing a unified higher-level abstraction is a deliberate choice, and
+is not the only way to enable users to program without directly using
+the DOM. Chickenfoot \autocite{bolin2005} and CoScripter
+\autocite{leshed2008} allow users to create scripts that resemble
+natural language and ``sloppily'' match queries to elements in the DOM.
+These designs allow for a wide range of operations, but don't explicitly
+indicate what operations are possible---the user must look at the
+original page and imagine the possibilities. In contrast, Wildcard
+provides affordances that clearly suggest the availability of certain
+types of modifications. In addition to giving users more certainty about
+whether a modification is possible, these affordances might give users
+new ideas for things to try. Because people are not used to modifying
+web applications, providing inspiration is an important goal. (Todo:
+Perhaps something to cite here, re: discoverability in GUIs vs CLIs?)
+
+\hypertarget{direct-manipulation-by-proxy}{%
+\subsection{Direct manipulation by
+proxy}\label{direct-manipulation-by-proxy}}
+
+In Wildcard, users don't interact with the original page to modify it;
+instead they manipulate an alternate representation of the data in the
+page. The tool uses visual cues to indicate the mapping between the
+table representation and the original page. This is similar to the way
+that browser developer tools use in-page highlighting to indicate the
+mapping between HTML and the original page.
+
+\begin{figure}
+\hypertarget{fig:devtools}{%
+\centering
+\includegraphics{media/devtools.png}
+\caption{The Chrome Dev Tools use highlighting to show the mapping
+between HTML code and the page}\label{fig:devtools}
+}
+\end{figure}
+
+We considered alternate approaches where the user would interact more
+directly with the original page, but decided that the table view
+provided a consistent
 
 \begin{itemize}
 \tightlist
 \item
-  Consistent across all sites, can gain familiarity
+  True DM might be right on the page itself
+
+  \begin{itemize}
+  \tightlist
+  \item
+    There are good UIs for this, eg Chrome DevTools element picker
+  \end{itemize}
 \item
-  Nightmare bike: users learn the structure they can exploit
+  Considered for Wildcard, but went with an indirect proxy. Still
+  maintain a close mapping.
+\item
+  Pros: consistency across sites. Avoid site-specific styling issues.
+\item
+  Cons: maybe less intuitive? More work to do the mapping, might be a
+  source of confusion.
 \end{itemize}
 
-\hypertarget{no-api-needed}{%
-\subsection{No API needed}\label{no-api-needed}}
+\hypertarget{first-party-optional}{%
+\subsection{First party optional}\label{first-party-optional}}
 
 \begin{itemize}
 \tightlist
@@ -349,17 +392,31 @@ Semantic Web schema; it merely asks for a simple structured data view.
   3p-only is enough. 1p help is optional.
 \item
   Can even do things the 1p didn't want to expose.
+\item
+  make it easy for 1p: just ask for a data table, no fancy schema.
 \end{itemize}
 
-\hypertarget{in-place-toolchain}{%
-\subsection{In-place toolchain}\label{in-place-toolchain}}
+\hypertarget{built-for-the-web}{%
+\subsection{Built for the web}\label{built-for-the-web}}
 
 \begin{itemize}
 \tightlist
 \item
-  meet the user where they are, in the page
+  web has the right foundations:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    the right platform
+  \item
+    open platform
+  \item
+    dev tools
+  \item
+    originally intended to be
+  \end{itemize}
 \item
-  very native to the web style (dev tools is kinda like this)
+  in-place toolchain: meet the user where they are, in the page
 \end{itemize}
 
 \hypertarget{decouple-ui-from-data}{%
@@ -374,11 +431,6 @@ Semantic Web schema; it merely asks for a simple structured data view.
 \item
   instrumental interaction
 \end{itemize}
-
-\hypertarget{analysis}{%
-\section{Analysis}\label{analysis}}
-
-Cognitive dimensions?
 
 \hypertarget{related-work}{%
 \section{Related work}\label{related-work}}
@@ -397,9 +449,8 @@ Cognitive dimensions?
   Extension helpers
 \end{itemize}
 
-\hypertarget{future-work-open-questions}{%
-\section{Future work / Open
-Questions}\label{future-work-open-questions}}
+\hypertarget{future-work}{%
+\section{Future work}\label{future-work}}
 
 \begin{itemize}
 \tightlist
@@ -411,12 +462,7 @@ Questions}\label{future-work-open-questions}}
   \item
     workflows? triggers?
   \item
-    what can and can't be done?
-
-    \begin{itemize}
-    \tightlist
-    \item
-    \end{itemize}
+    what can and can't be done
   \end{itemize}
 \item
   automated wrappers?
@@ -430,16 +476,15 @@ Questions}\label{future-work-open-questions}}
   usability studies
 \end{itemize}
 
-\hypertarget{conclusions}{%
-\section{Conclusions}\label{conclusions}}
-
-\hypertarget{todos}{%
-\section{Todos}\label{todos}}
+\hypertarget{meta-todos}{%
+\section{meta: todos}\label{meta-todos}}
 
 \begin{itemize}
 \tightlist
 \item
   remove bold text for the proceedings version
+\item
+  go through the Programming proceedings template checklist
 \end{itemize}
 
 \acks

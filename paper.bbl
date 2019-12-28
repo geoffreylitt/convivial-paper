@@ -19,56 +19,151 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
-    \entry{miller2010}{inproceedings}{}
-      \name{author}{6}{}{%
-        {{hash=7b87d608ec2ce09a14734691e21ed730}{%
-           family={Miller},
-           familyi={M\bibinitperiod},
-           given={Robert\bibnamedelima C.},
-           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+    \entry{bolin2005}{inproceedings}{}
+      \name{author}{5}{}{%
         {{hash=3eaac4d2e4e04df16435156d70c52190}{%
            family={Bolin},
            familyi={B\bibinitperiod},
            given={Michael},
            giveni={M\bibinitperiod}}}%
-        {{hash=16aadd286918f776b535d7783710988e}{%
-           family={Chilton},
-           familyi={C\bibinitperiod},
-           given={Lydia\bibnamedelima B.},
-           giveni={L\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
-        {{hash=f053f12002e5862b5ec832cef9b10888}{%
-           family={Little},
-           familyi={L\bibinitperiod},
-           given={Greg},
-           giveni={G\bibinitperiod}}}%
-        {{hash=df84024955e8e0f02848385b0b966d59}{%
+        {{hash=1f3671e5c48282d34178d09af0de8665}{%
            family={Webber},
            familyi={W\bibinitperiod},
-           given={Matthew\bibnamedelima J.},
-           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
-        {{hash=7ddaaed58040551c18b2d77a7c49c4a6}{%
-           family={Yu},
-           familyi={Y\bibinitperiod},
-           given={Chen-Hsiang},
-           giveni={C\bibinithyphendelim H\bibinitperiod}}}%
+           given={Matthew},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5742c1814a6264bb2018eaf0ce3222d4}{%
+           family={Rha},
+           familyi={R\bibinitperiod},
+           given={Philip},
+           giveni={P\bibinitperiod}}}%
+        {{hash=2283ac69e1cf6d7833bbdaa39f0f6658}{%
+           family={Wilson},
+           familyi={W\bibinitperiod},
+           given={Tom},
+           giveni={T\bibinitperiod}}}%
+        {{hash=7b87d608ec2ce09a14734691e21ed730}{%
+           family={Miller},
+           familyi={M\bibinitperiod},
+           given={Robert\bibnamedelima C.},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
       }
-      \strng{namehash}{dac8fcc016549062cb924c901d9baba5}
-      \strng{fullhash}{dac8fcc016549062cb924c901d9baba5}
-      \strng{bibnamehash}{dac8fcc016549062cb924c901d9baba5}
-      \strng{authorbibnamehash}{dac8fcc016549062cb924c901d9baba5}
-      \strng{authornamehash}{dac8fcc016549062cb924c901d9baba5}
-      \strng{authorfullhash}{dac8fcc016549062cb924c901d9baba5}
-      \field{sortinit}{M}
-      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Seattle, WA, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM Press}%
+      }
+      \strng{namehash}{7dcd89ebe3e38ef7e0ebc3679ba2370f}
+      \strng{fullhash}{7dcd89ebe3e38ef7e0ebc3679ba2370f}
+      \strng{bibnamehash}{7dcd89ebe3e38ef7e0ebc3679ba2370f}
+      \strng{authorbibnamehash}{7dcd89ebe3e38ef7e0ebc3679ba2370f}
+      \strng{authornamehash}{7dcd89ebe3e38ef7e0ebc3679ba2370f}
+      \strng{authorfullhash}{7dcd89ebe3e38ef7e0ebc3679ba2370f}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Publisher Summary Unlike desktop applications, Web applications are much more exposed and open to modification. This chapter describes Chickenfoot, a programming system embedded in the Firefox Web browser, which enables end users to automate, customize, and integrate Web applications without examining their source code. One way Chickenfoot addresses this goal is a technique for identifying page components by keyword pattern matching. Web automation includes navigating pages, filling in forms, and clicking on links. For example, many conferences now use a Web site to receive papers, distribute them to reviewers, and collect the reviews. A reviewer assigned 10 papers must download each paper, print it, and (later) upload a review for it. Tedious repetition is a good argument for automation. While integrating multiple Web sites, the simplest kind of integration is just adding links from one site to another, but much richer integration is possible. Techniques are developed through studying how users name Web page components and present a heuristic keyword-matching algorithm that identifies the desired component from the user's name. It describes a range of applications that have been created using Chickenfoot and reflects on its advantages and limitations.}
-      \field{title}{Rewriting the {{Web}} with {{Chickenfoot}}}
-      \field{year}{2010}
+      \field{abstract}{On the desktop, an application can expect to control its user interface down to the last pixel, but on the World Wide Web, a content provider has no control over how the client will view the page, once delivered to the browser. This creates an opportunity for end-users who want to automate and customize their web experiences, but the growing complexity of web pages and standards prevents most users from realizing this opportunity. We describe Chickenfoot, a programming system embedded in the Firefox web browser, which enables end-users to automate, customize, and integrate web applications without examining their source code. One way Chickenfoot addresses this goal is a novel technique for identifying page components by keyword pattern matching. We motivate this technique by studying how users name web page components, and present a heuristic keyword matching algorithm that identifies the desired component from the user's name.}
+      \field{booktitle}{Proceedings of the 18th Annual {{ACM}} Symposium on {{User}} Interface Software and Technology - {{UIST}} '05}
+      \field{isbn}{978-1-59593-271-6}
+      \field{title}{Automation and Customization of Rendered Web Pages}
+      \field{year}{2005}
+      \field{pages}{163}
+      \range{pages}{1}
       \verb{doi}
-      \verb 10.1016/B978-0-12-381541-5.00003-1
+      \verb 10.1145/1095034.1095062
       \endverb
-      \keyw{Desktop computer,HTML,HTTP,Human-readable medium,Internet,Rewriting,Sprout (computer),User Interface Device Component,Web application,World Wide Web,XML,Wildcard}
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/JS89G2G2/Bolin et al. - 2005 - Automation and customization of rendered web pages.pdf
+      \endverb
+      \keyw{Wildcard}
+    \endentry
+    \entry{disessa2000}{book}{}
+      \name{author}{1}{}{%
+        {{hash=a04180e8a28aeb853a34fc7b344474cf}{%
+           family={{diSessa}},
+           familyi={d\bibinitperiod},
+           given={Andrea\bibnamedelima A.},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge, MA, USA}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{a04180e8a28aeb853a34fc7b344474cf}
+      \strng{fullhash}{a04180e8a28aeb853a34fc7b344474cf}
+      \strng{bibnamehash}{a04180e8a28aeb853a34fc7b344474cf}
+      \strng{authorbibnamehash}{a04180e8a28aeb853a34fc7b344474cf}
+      \strng{authornamehash}{a04180e8a28aeb853a34fc7b344474cf}
+      \strng{authorfullhash}{a04180e8a28aeb853a34fc7b344474cf}
+      \field{sortinit}{d}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{shorttitle}{Changing {{Minds}}}
+      \field{title}{Changing {{Minds}}: {{Computers}}, {{Learning}}, and {{Literacy}}}
+      \field{year}{2000}
+    \endentry
+    \entry{leshed2008}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=ba6a17ce749eab992f1434bd8188f50d}{%
+           family={Leshed},
+           familyi={L\bibinitperiod},
+           given={Gilly},
+           giveni={G\bibinitperiod}}}%
+        {{hash=6bc67d113735916650aa348ef0d3719e}{%
+           family={Haber},
+           familyi={H\bibinitperiod},
+           given={Eben\bibnamedelima M.},
+           giveni={E\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=bf3c226a1aac63293a65c2b4816630e2}{%
+           family={Matthews},
+           familyi={M\bibinitperiod},
+           given={Tara},
+           giveni={T\bibinitperiod}}}%
+        {{hash=7422eb37c3ab1c8abceb32074e3f8256}{%
+           family={Lau},
+           familyi={L\bibinitperiod},
+           given={Tessa},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{20ed95228a0103536e4f9711dad6ed6c}
+      \strng{fullhash}{20ed95228a0103536e4f9711dad6ed6c}
+      \strng{bibnamehash}{20ed95228a0103536e4f9711dad6ed6c}
+      \strng{authorbibnamehash}{20ed95228a0103536e4f9711dad6ed6c}
+      \strng{authornamehash}{20ed95228a0103536e4f9711dad6ed6c}
+      \strng{authorfullhash}{20ed95228a0103536e4f9711dad6ed6c}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Modern enterprises are replete with numerous online processes. Many must be performed frequently and are tedious, while others are done less frequently yet are complex or hard to remember. We present interviews with knowledge workers that reveal a need for mechanisms to automate the execution of and to share knowledge about these processes. In response, we have developed the CoScripter system (formerly Koala [11]), a collaborative scripting environment for recording, automating, and sharing web-based processes. We have deployed CoScripter within a large corporation for more than 10 months. Through usage log analysis and interviews with users, we show that CoScripter has addressed many user automation and sharing needs, to the extent that more than 50 employees have voluntarily incorporated it into their work practice. We also present ways people have used CoScripter and general issues for tools that support automation and sharing of how-to knowledge.}
+      \field{booktitle}{Proceedings of the {{SIGCHI Conference}} on {{Human Factors}} in {{Computing Systems}}}
+      \field{isbn}{978-1-60558-011-1}
+      \field{series}{{{CHI}} '08}
+      \field{shorttitle}{{{CoScripter}}}
+      \field{title}{{{CoScripter}}: {{Automating}} \& {{Sharing How}}-to {{Knowledge}} in the {{Enterprise}}}
+      \field{year}{2008}
+      \field{pages}{1719\bibrangedash 1728}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1145/1357054.1357323
+      \endverb
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/RHE55DIG/Leshed et al. - 2008 - CoScripter Automating & Sharing How-to Knowledge .pdf
+      \endverb
+      \keyw{automation,knowledge sharing,procedural knowledge,programming-by-demonstration,scripting,user study,wiki}
     \endentry
   \enddatalist
 \endrefsection

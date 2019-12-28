@@ -1,8 +1,8 @@
 set -e
 
 cat html.sections | xargs pandoc \
-  --filter pandoc-citeproc \
   --filter conditional-render \
+  --filter pandoc-citeproc \
   --metadata=format:html \
   -s \
   -o paper.html \

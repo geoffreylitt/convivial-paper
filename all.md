@@ -13,9 +13,7 @@ People have complaints about web apps they use, but they rarely modify those app
 
 These seem reasonable but they might not tell the whole story.
 
-There have been many research projects that try to address these hurdles. For example, Chickenfoot [@miller2010]  allows for people to more quickly modify sites without using Javascript or dealing with the DOM, directly addressing both of these barriers. But, a decade later, not many people have ended up using systems like this.
-
-### Why don't people tweak websites?
+There have been many research projects that try to address these hurdles. For example, Chickenfoot [@bolin2005]  allows for people to more quickly modify sites without using Javascript or dealing with the DOM, directly addressing both of these barriers. But, a decade later, not many people have ended up using systems like this.
 
 I know how to do web programming, and yet I rarely modify my apps. Sometimes it actually turns out to be pretty easy to hack on a site once I start doing it so the ROI is actually pretty high. These reasons don't seem to fully explain my behavior.
 
@@ -48,13 +46,6 @@ For example, in @Fig:table we open up a table view that corresponds to search re
 ![Opening a table corresponding to search results on Airbnb](media/opentable.png){#fig:table}
 </div>
 
-
-There's somewhat of a tension here between directness and structure. Manipulating the original page itself might seem most "direct." But the whole problem we're dealing with is that the original web page doesn't provide affordances for end-user modification, and there's no consistent structure that people can learn to work with across many sites.
-
-### Directness
-
-The table view is perhaps one hop less "direct," but in turn provides other benefits. Because many people are already familiar with spreadsheets, they can quickly intuit which changes are easy to make in this system. Also, people can learn to work with the same consistent spreadsheet view across many sites. This consistency is very important—learning a generic tool that can be applied to many different specific cases is very powerful, and connected to the idea of literacy in a medium (just ask anyone who has used vim, or spreadsheets, or a pencil and paper). Wildcard aims to balance this tension, with a workflow that involves both the table view and the original webpage.
-
 Wildcard is fairly general and can support many useful changes to websites, which will be demoed later:
 
 * sorting and filtering data: eg sorting shopping results
@@ -63,18 +54,6 @@ Wildcard is fairly general and can support many useful changes to websites, whic
 * using alternate UI widgets to enter data into a page: eg using a personal datepicker widget with private calendar data, to enter the right dates for taking a flight
 
 The overall goal is to provide generic tools that fit well with the table paradigm and enable many specific useful changes. But it's important to note that Wildcard doesn't aim to provide maximum coverage all the possible ways someone might want to modify a web page. Rather, it aims to provide a useful, simple subset of modifications, and to provide consistent affordances so that users confidently understand which modifications they can make.
-
-### The big picture
-
-Eventually web apps might provide the structured data table themselves. In the meantime, we need some sort of adapter to make this system work with existing sites.
-
-Wildcard provides a system for creating a wrapper on top of existing websites. This wrapper defines how structured data can be extracted out of the page, and also how manipulating the table should modify the page.
-
-The most basic way of building these wrappers is for skilled programmers to manually build and maintain them for popular sites. This approach beats the status quo because many people, including end users, can benefit from the generic wrapper and use it in many ways. This is different from the current world where programmers build use-case-specific browser extensions, and each extension has to implement its own interactions with the low-level DOM of a page. There's also a greater incentive for many people to collectively maintain a wrapper if it's shared.
-
-A more advanced way would be to make these wrappers partially or totally automated, and enable end users to create them. This future work could leverage existing research on wrapper induction but isn't the focus of the current work.
-
-Again, ultimately we hope that first-party sites would find it beneficial and straightforward to provide a structured data view themselves. Wildcard doesn't require sites to expose some complex Semantic Web schema; it merely asks for a simple structured data view.
 
 # Demo: Booking a trip with Wildcard
 
@@ -90,11 +69,20 @@ Again, ultimately we hope that first-party sites would find it beneficial and st
 
 # Implementation
 
-* programmer adapter API
-* eventually automated
-* meta: probably need this before design principles, just to ground the conversation.
+Eventually web apps might provide the structured data table themselves. In the meantime, we need some sort of adapter to make this system work with existing sites.
+
+Wildcard provides a system for creating a wrapper on top of existing websites. This wrapper defines how structured data can be extracted out of the page, and also how manipulating the table should modify the page.
+
+The most basic way of building these wrappers is for skilled programmers to manually build and maintain them for popular sites. This approach beats the status quo because many people, including end users, can benefit from the generic wrapper and use it in many ways. This is different from the current world where programmers build use-case-specific browser extensions, and each extension has to implement its own interactions with the low-level DOM of a page. There's also a greater incentive for many people to collectively maintain a wrapper if it's shared.
+
+A more advanced way would be to make these wrappers partially or totally automated, and enable end users to create them. This future work could leverage existing research on wrapper induction but isn't the focus of the current work.
+
+* Clarify what's real and fake currently
+* Next implementation goals
 
 # Design principles
+
+Here are some of the ideas behind the design of Wildcard. We hope these can be useful principles not only for Wildcard, but also for other tools that enable end users to modify software.
 
 ## Expose unified structure across applications
 
@@ -102,20 +90,22 @@ In *Changing Minds* [@disessa2000], Andrea diSessa critiques the design of moder
 
 Wildcard helps people understand and modify the behavior of applications through the lens of a consistent abstraction: a data table. This abstraction strikes a balance between being both simple and generic. A data table is simpler than the DOM tree that describes the details of the UI, but is also generic enough to describe the essence of many different kinds of applications.
 
-Exposing a unified higher-level abstraction is not the only way to enable users to program without directly using the DOM. Chickenfoot [@bolin2005] and CoScripter [@leshed2008] allow users to create scripts that resemble natural language and "sloppily" match queries to elements in the DOM. These designs allow for a wide range of operations, but don't explicitly indicate what operations are possible—the user must look at the original page and imagine the possibilities. In contrast, Wildcard provides affordances that clearly suggest the availability of certain types of modifications. In addition to giving users more certainty about whether a modification is possible, these affordances might give users new ideas for things to try. Because people are not used to modifying web applications, providing inspiration is an important goal. (Todo: Perhaps something to cite here, re: discoverability in GUIs vs CLIs?)
+Exposing a unified higher-level abstraction is a deliberate choice, and is not the only way to enable users to program without directly using the DOM. Chickenfoot [@bolin2005] and CoScripter [@leshed2008] allow users to create scripts that resemble natural language and "sloppily" match queries to elements in the DOM. These designs allow for a wide range of operations, but don't explicitly indicate what operations are possible—the user must look at the original page and imagine the possibilities. In contrast, Wildcard provides affordances that clearly suggest the availability of certain types of modifications. In addition to giving users more certainty about whether a modification is possible, these affordances might give users new ideas for things to try. Because people are not used to modifying web applications, providing inspiration is an important goal. (Todo: Perhaps something to cite here, re: discoverability in GUIs vs CLIs?)
 
 ## Direct manipulation by proxy
 
-* True DM might be right on the page itself
-	* There are good UIs for this, eg Chrome DevTools element picker
-* Considered for Wildcard, but went with an indirect proxy. Still maintain a close mapping.
-* Pros: consistency across sites. Avoid site-specific styling issues.
-* Cons: maybe less intuitive? More work to do the mapping, might be a source of confusion.
+In Wildcard, users don't interact with the original page to modify it; instead they manipulate an alternate representation of the data in the page. We considered other approaches where the user would interact more directly with the original UI, e.g. injecting sort controls into the page, but decided that the consistency and affordances of the table view outweighed the potential confusion of a new layer of indirection.
+
+Making this design successful requires maintaining a close mapping in the user's mind between the new representation and the original page (cite Norman? Cognitive Dimensions?). Wildcard provides live visual cues as the user navigates the data table, similar to the highlighting provided by browser developer tools to indicate the mapping between HTML and the original page.
+
+![The Chrome Dev Tools use highlighting to show the mapping between HTML code and the page](media/devtools.png){#fig:devtools}
 
 ## First party optional
 
 * 3p-only is enough. 1p help is optional.
 * Can even do things the 1p didn't want to expose.
+* make it easy for 1p: just ask for a data table, no fancy schema.
+* eventually we hope for 1p support
 
 ## Built for the web
 
@@ -148,8 +138,10 @@ Exposing a unified higher-level abstraction is not the only way to enable users 
 * automated wrappers?
   * lean on existing tech
 * usability studies
+* plan to release
+* sign up for future updates
 
-# Todos
+# meta: todos
 
 * remove bold text for the proceedings version
 * go through the Programming proceedings template checklist
