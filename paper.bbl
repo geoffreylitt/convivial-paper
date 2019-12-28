@@ -19,77 +19,6 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
-    \entry{bolin2005}{inproceedings}{}
-      \name{author}{5}{}{%
-        {{hash=3eaac4d2e4e04df16435156d70c52190}{%
-           family={Bolin},
-           familyi={B\bibinitperiod},
-           given={Michael},
-           giveni={M\bibinitperiod}}}%
-        {{hash=1f3671e5c48282d34178d09af0de8665}{%
-           family={Webber},
-           familyi={W\bibinitperiod},
-           given={Matthew},
-           giveni={M\bibinitperiod}}}%
-        {{hash=5742c1814a6264bb2018eaf0ce3222d4}{%
-           family={Rha},
-           familyi={R\bibinitperiod},
-           given={Philip},
-           giveni={P\bibinitperiod}}}%
-        {{hash=2283ac69e1cf6d7833bbdaa39f0f6658}{%
-           family={Wilson},
-           familyi={W\bibinitperiod},
-           given={Tom},
-           giveni={T\bibinitperiod}}}%
-        {{hash=7b87d608ec2ce09a14734691e21ed730}{%
-           family={Miller},
-           familyi={M\bibinitperiod},
-           given={Robert\bibnamedelima C.},
-           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Seattle, WA, USA}%
-      }
-      \list{publisher}{1}{%
-        {ACM Press}%
-      }
-      \strng{namehash}{7dcd89ebe3e38ef7e0ebc3679ba2370f}
-      \strng{fullhash}{7dcd89ebe3e38ef7e0ebc3679ba2370f}
-      \strng{bibnamehash}{7dcd89ebe3e38ef7e0ebc3679ba2370f}
-      \strng{authorbibnamehash}{7dcd89ebe3e38ef7e0ebc3679ba2370f}
-      \strng{authornamehash}{7dcd89ebe3e38ef7e0ebc3679ba2370f}
-      \strng{authorfullhash}{7dcd89ebe3e38ef7e0ebc3679ba2370f}
-      \field{sortinit}{B}
-      \field{sortinithash}{276475738cc058478c1677046f857703}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{On the desktop, an application can expect to control its user interface down to the last pixel, but on the World Wide Web, a content provider has no control over how the client will view the page, once delivered to the browser. This creates an opportunity for end-users who want to automate and customize their web experiences, but the growing complexity of web pages and standards prevents most users from realizing this opportunity. We describe Chickenfoot, a programming system embedded in the Firefox web browser, which enables end-users to automate, customize, and integrate web applications without examining their source code. One way Chickenfoot addresses this goal is a novel technique for identifying page components by keyword pattern matching. We motivate this technique by studying how users name web page components, and present a heuristic keyword matching algorithm that identifies the desired component from the user’s name.}
-      \field{booktitle}{Proceedings of the 18th Annual {{ACM}} Symposium on {{User}} Interface Software and Technology - {{UIST}} '05}
-      \field{eventtitle}{The 18th Annual {{ACM}} Symposium}
-      \field{isbn}{978-1-59593-271-6}
-      \field{langid}{english}
-      \field{title}{Automation and Customization of Rendered Web Pages}
-      \field{urlday}{27}
-      \field{urlmonth}{12}
-      \field{urlyear}{2019}
-      \field{year}{2005}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \field{pages}{163}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1145/1095034.1095062
-      \endverb
-      \verb{file}
-      \verb /Users/geoffreylitt/Zotero/storage/JS89G2G2/Bolin et al. - 2005 - Automation and customization of rendered web pages.pdf
-      \endverb
-      \verb{urlraw}
-      \verb http://portal.acm.org/citation.cfm?doid=1095034.1095062
-      \endverb
-      \verb{url}
-      \verb http://portal.acm.org/citation.cfm?doid=1095034.1095062
-      \endverb
-    \endentry
     \entry{miller2010}{inproceedings}{}
       \name{author}{6}{}{%
         {{hash=7b87d608ec2ce09a14734691e21ed730}{%
@@ -136,11 +65,10 @@
       \field{abstract}{Publisher Summary Unlike desktop applications, Web applications are much more exposed and open to modification. This chapter describes Chickenfoot, a programming system embedded in the Firefox Web browser, which enables end users to automate, customize, and integrate Web applications without examining their source code. One way Chickenfoot addresses this goal is a technique for identifying page components by keyword pattern matching. Web automation includes navigating pages, filling in forms, and clicking on links. For example, many conferences now use a Web site to receive papers, distribute them to reviewers, and collect the reviews. A reviewer assigned 10 papers must download each paper, print it, and (later) upload a review for it. Tedious repetition is a good argument for automation. While integrating multiple Web sites, the simplest kind of integration is just adding links from one site to another, but much richer integration is possible. Techniques are developed through studying how users name Web page components and present a heuristic keyword-matching algorithm that identifies the desired component from the user's name. It describes a range of applications that have been created using Chickenfoot and reflects on its advantages and limitations.}
       \field{title}{Rewriting the {{Web}} with {{Chickenfoot}}}
       \field{year}{2010}
-      \field{dateera}{ce}
       \verb{doi}
       \verb 10.1016/B978-0-12-381541-5.00003-1
       \endverb
-      \keyw{Desktop computer,HTML,HTTP,Human-readable medium,Internet,Rewriting,Sprout (computer),User Interface Device Component,Web application,World Wide Web,XML}
+      \keyw{Desktop computer,HTML,HTTP,Human-readable medium,Internet,Rewriting,Sprout (computer),User Interface Device Component,Web application,World Wide Web,XML,Wildcard}
     \endentry
   \enddatalist
 \endrefsection

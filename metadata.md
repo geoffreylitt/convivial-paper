@@ -1,5 +1,5 @@
 ---
-title: "Wildcard: a tool for modifying websites without programming"
+title: "Wildcard: a tool for modifying websites by directly manipulating data tables"
 author: Geoffrey Litt, Daniel Jackson
 bibliography: references.bib
 link-citations: true

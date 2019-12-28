@@ -5,3 +5,4 @@ pdflatex -interaction=batchmode paper.tex
 biber paper
 pdflatex -interaction=batchmode paper.tex
 pdflatex -interaction=batchmode paper.tex
+open paper.pdf

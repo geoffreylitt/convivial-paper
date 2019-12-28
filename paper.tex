@@ -7,9 +7,13 @@
 \usepackage[backend=biber]{biblatex}
 \addbibresource{references.bib}
 
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
 \begin{document}
 
-\title{Wildcard: a tool for modifying websites without programming}
+\title{Wildcard: a tool for modifying websites by directly manipulating
+data tables}
 \subtitle{}% optional
 
 \author{Geoffrey Litt}
@@ -103,6 +107,18 @@ and familiar paradigm for modifying a website.
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
+Todos in intro:
+
+\begin{itemize}
+\tightlist
+\item
+  hook with Airbnb sort
+\item
+  add more reasons
+\item
+  make this shorter
+\end{itemize}
+
 People have complaints about web apps they use, but they rarely modify
 those apps to meet their needs. Why not? Some guesses:
 
@@ -119,10 +135,14 @@ those apps to meet their needs. Why not? Some guesses:
 These seem reasonable but they might not tell the whole story.
 
 There have been many research projects that try to address these
-hurdles. For example, Chickenfoot allows for people to more quickly
-modify sites without using Javascript or dealing with the DOM, directly
-addressing both of these barriers. But, a decade later, not many people
-have ended up using systems like this.
+hurdles. For example, Chickenfoot \autocite{miller2010} allows for
+people to more quickly modify sites without using Javascript or dealing
+with the DOM, directly addressing both of these barriers. But, a decade
+later, not many people have ended up using systems like this.
+
+\hypertarget{why-dont-people-tweak-websites}{%
+\subsubsection{Why don't people tweak
+websites?}\label{why-dont-people-tweak-websites}}
 
 I know how to do web programming, and yet I rarely modify my apps.
 Sometimes it actually turns out to be pretty easy to hack on a site once
@@ -152,7 +172,7 @@ certain types of changes could be achieved in mere minutes, programmers
 and non-programmers would end up modifying our software more.
 
 \hypertarget{the-wildcard-platform}{%
-\subsection{The Wildcard platform}\label{the-wildcard-platform}}
+\subsubsection{The Wildcard platform}\label{the-wildcard-platform}}
 
 Wildcard adds a panel to the bottom of a web page that shows a
 structured table view of some of the core data in the page. When the
@@ -160,12 +180,31 @@ user manipulates the table, the original page also gets modified. We aim
 to make the mapping between the table and the page as direct and
 intuitive as possible.
 
+For example, here we open up a table view that corresponds to search
+results on the Airbnb travel site.
+
+Todos here:
+
+\begin{itemize}
+\tightlist
+\item
+  a better demo is actually sorting too at this point too, to show the
+  bidirectional nature
+\item
+  hint at future possibilities
+\item
+  introduce an image fallback for the PDF version
+\end{itemize}
+
 There's somewhat of a tension here between directness and structure.
 Manipulating the original page itself might seem most ``direct.'' But
 the whole problem we're dealing with is that the original web page
 doesn't provide affordances for end-user modification, and there's no
 consistent structure that people can learn to work with across many
 sites.
+
+\hypertarget{directness}{%
+\subsubsection{Directness}\label{directness}}
 
 The table view is perhaps one hop less ``direct,'' but in turn provides
 other benefits. Because many people are already familiar with
@@ -206,6 +245,9 @@ it aims to provide a useful, simple subset of modifications, and to
 provide consistent affordances so that users confidently understand
 which modifications they can make.
 
+\hypertarget{the-big-picture}{%
+\subsubsection{The big picture}\label{the-big-picture}}
+
 Eventually web apps might provide the structured data table themselves.
 In the meantime, we need some sort of adapter to make this system work
 with existing sites.
@@ -234,8 +276,160 @@ beneficial and straightforward to provide a structured data view
 themselves. Wildcard doesn't require sites to expose some complex
 Semantic Web schema; it merely asks for a simple structured data view.
 
-\hypertarget{example-use-cases}{%
-\section{Example use cases}\label{example-use-cases}}
+\hypertarget{demo}{%
+\section{Demo}\label{demo}}
+
+\begin{itemize}
+\tightlist
+\item
+  Sorting search results:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Airbnb took away search
+  \item
+    once you see the tabular view, there's an obvious interaction
+    available to anyone familiar with tables
+  \end{itemize}
+\item
+  Injecting new data into the page
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Take own custom notes, saved in the browser. Maybe shared in the
+    future
+  \end{itemize}
+\item
+  Formulas
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Compute values to inject into the page
+  \item
+    TBD: styling
+  \end{itemize}
+\item
+  Using a custom date picker
+\end{itemize}
+
+\hypertarget{design-principles}{%
+\section{Design principles}\label{design-principles}}
+
+\hypertarget{expose-generic-structure}{%
+\subsection{Expose generic structure}\label{expose-generic-structure}}
+
+\begin{itemize}
+\tightlist
+\item
+  Consistent across all sites, can gain familiarity
+\item
+  Nightmare bike: users learn the structure they can exploit
+\end{itemize}
+
+\hypertarget{no-api-needed}{%
+\subsection{No API needed}\label{no-api-needed}}
+
+\begin{itemize}
+\tightlist
+\item
+  3p-only is enough. 1p help is optional.
+\item
+  Can even do things the 1p didn't want to expose.
+\end{itemize}
+
+\hypertarget{in-place-toolchain}{%
+\subsection{In-place toolchain}\label{in-place-toolchain}}
+
+\begin{itemize}
+\tightlist
+\item
+  meet the user where they are, in the page
+\item
+  very native to the web style (dev tools is kinda like this)
+\end{itemize}
+
+\hypertarget{decouple-ui-from-data}{%
+\subsection{Decouple UI from data}\label{decouple-ui-from-data}}
+
+\begin{itemize}
+\tightlist
+\item
+  bring your own views of the data
+\item
+  bring your own widgets for data entry
+\item
+  instrumental interaction
+\end{itemize}
+
+\hypertarget{analysis}{%
+\section{Analysis}\label{analysis}}
+
+Cognitive dimensions?
+
+\hypertarget{related-work}{%
+\section{Related work}\label{related-work}}
+
+\begin{itemize}
+\tightlist
+\item
+  Instrumental interaction
+\item
+  Web automation
+\item
+  Wrapper induction
+\item
+  Personal data
+\item
+  Extension helpers
+\end{itemize}
+
+\hypertarget{future-work-open-questions}{%
+\section{Future work / Open
+Questions}\label{future-work-open-questions}}
+
+\begin{itemize}
+\tightlist
+\item
+  How far does functionality go?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    workflows? triggers?
+  \item
+    what can and can't be done?
+
+    \begin{itemize}
+    \tightlist
+    \item
+    \end{itemize}
+  \end{itemize}
+\item
+  automated wrappers?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    lean on existing tech
+  \end{itemize}
+\item
+  usability studies
+\end{itemize}
+
+\hypertarget{conclusions}{%
+\section{Conclusions}\label{conclusions}}
+
+\hypertarget{todos}{%
+\section{Todos}\label{todos}}
+
+\begin{itemize}
+\tightlist
+\item
+  remove bold text for the proceedings version
+\end{itemize}
 
 \acks
 \printbibliography

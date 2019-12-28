@@ -1,4 +1,14 @@
 set -e
 
 cat html.sections | xargs pandoc \
-  --filter pandoc-citeproc -s -o paper.html --css base.css --toc --variable=toc-title:"Contents" --template=templates/pandoc-template-html.html
+  --filter pandoc-citeproc \
+  -s \
+  -o paper.html \
+  --css wildcard/basic.css \
+  --toc \
+  --toc-depth=2 \
+  --variable=toc-title:"Contents" \
+  --template=templates/pandoc-template-html.html
+
+cp ./paper.html ~/dev/homepage/source/wildcard/index.html
+cp ./wildcard/basic.css ~/dev/homepage/source/wildcard

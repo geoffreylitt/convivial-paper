@@ -7,6 +7,9 @@
 \usepackage[backend=biber]{biblatex}
 \addbibresource{$bibliography$}
 
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
 \begin{document}
 
 \title{$title$}
