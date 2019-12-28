@@ -1,11 +1,9 @@
 # Introduction
 
-Todos in intro:
-
-Do somes tuff
+Todos for the introduction:
 
 * hook with Airbnb sort
-* add more reasons
+* add more bigger picture reasons, less focus on the affordances
 * make this shorter
 
 People have complaints about web apps they use, but they rarely modify those apps to meet their needs. Why not? Some guesses:
@@ -30,8 +28,6 @@ So, perhaps to encourage people to casually modify software, **apps need to prov
 ### The Wildcard platform
 
 Wildcard adds a panel to the bottom of a web page that shows a structured table view of some of the core data in the page. When the user manipulates the table, the original page also gets modified. We aim to make the mapping between the table and the page as direct and intuitive as possible.
-
-
 
 Todos here:
 
@@ -80,7 +76,7 @@ A more advanced way would be to make these wrappers partially or totally automat
 
 Again, ultimately we hope that first-party sites would find it beneficial and straightforward to provide a structured data view themselves. Wildcard doesn't require sites to expose some complex Semantic Web schema; it merely asks for a simple structured data view.
 
-# Demo
+# Demo: Booking a trip with Wildcard
 
 * Sorting search results:
   * Airbnb took away search
@@ -92,33 +88,49 @@ Again, ultimately we hope that first-party sites would find it beneficial and st
   * TBD: styling
 * Using a custom date picker
 
+# Implementation
+
+* programmer adapter API
+* eventually automated
+* meta: probably need this before design principles, just to ground the conversation.
 
 # Design principles
 
-## Expose generic structure
+## Expose unified structure across applications
 
-* Consistent across all sites, can gain familiarity
-* Nightmare bike: users learn the structure they can exploit
+In *Changing Minds* [@disessa2000], Andrea diSessa critiques the design of modern software with a story about a hypothetical "nightmare bike." Each gear on the nightmare bike is labeled not with a number, but with an icon describing its intended use: smooth pavement uphill, smooth pavement downhill, gravel, etc. By some logic, this is more "user-friendly" than numbered gears, but in fact, hiding orderly structure from the user makes it more difficult to operate the bike. Many modern software designs fall into this trap, teaching users to use isolated modes rather than coherent structure, and the problem gets far worse when operating across multiple applications. Unlike the UNIX philosophy of small tools interoperating through shared abstractions, in modern computing each application is in its own silo of data and functionality.
 
-## No API needed
+Wildcard helps people understand and modify the behavior of applications through the lens of a consistent abstraction: a data table. This abstraction strikes a balance between being both simple and generic. A data table is simpler than the DOM tree that describes the details of the UI, but is also generic enough to describe the essence of many different kinds of applications.
+
+Exposing a unified higher-level abstraction is not the only way to enable users to program without directly using the DOM. Chickenfoot [@bolin2005] and CoScripter [@leshed2008] allow users to create scripts that resemble natural language and "sloppily" match queries to elements in the DOM. These designs allow for a wide range of operations, but don't explicitly indicate what operations are possible—the user must look at the original page and imagine the possibilities. In contrast, Wildcard provides affordances that clearly suggest the availability of certain types of modifications. In addition to giving users more certainty about whether a modification is possible, these affordances might give users new ideas for things to try. Because people are not used to modifying web applications, providing inspiration is an important goal. (Todo: Perhaps something to cite here, re: discoverability in GUIs vs CLIs?)
+
+## Direct manipulation by proxy
+
+* True DM might be right on the page itself
+	* There are good UIs for this, eg Chrome DevTools element picker
+* Considered for Wildcard, but went with an indirect proxy. Still maintain a close mapping.
+* Pros: consistency across sites. Avoid site-specific styling issues.
+* Cons: maybe less intuitive? More work to do the mapping, might be a source of confusion.
+
+## First party optional
 
 * 3p-only is enough. 1p help is optional.
 * Can even do things the 1p didn't want to expose.
 
-## In-place toolchain
+## Built for the web
 
-* meet the user where they are, in the page
-* very native to the web style (dev tools is kinda like this)
+* web has the right foundations:
+	* the right platform
+	* open platform
+	* dev tools
+	* originally intended to be 
+* in-place toolchain: meet the user where they are, in the page
 
 ## Decouple UI from data
 
 * bring your own views of the data
 * bring your own widgets for data entry
 * instrumental interaction
-
-# Analysis
-
-Cognitive dimensions?
 
 # Related work
 
@@ -128,18 +140,16 @@ Cognitive dimensions?
 * Personal data
 * Extension helpers
 
-# Future work / Open Questions
+# Future work
 
 * How far does functionality go? 
   * workflows? triggers?
-  * what can and can't be done?
-	* 
+  * what can and can't be done
 * automated wrappers?
   * lean on existing tech
 * usability studies
 
-# Conclusions
-
 # Todos
 
 * remove bold text for the proceedings version
+* go through the Programming proceedings template checklist
