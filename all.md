@@ -2,6 +2,8 @@
 
 Todos in intro:
 
+Do somes tuff
+
 * hook with Airbnb sort
 * add more reasons
 * make this shorter
@@ -37,7 +39,7 @@ Todos here:
 * hint at future possibilities
 * introduce an image fallback for the PDF version
 
-<video width="100%" src="wildcard/media/opentable.mp4" autoplay loop muted playsinline controls class>
+<video width="100%" src="media/opentable.mp4" autoplay loop muted playsinline controls class>
 </video>
 
 There's somewhat of a tension here between directness and structure. Manipulating the original page itself might seem most "direct." But the whole problem we're dealing with is that the original web page doesn't provide affordances for end-user modification, and there's no consistent structure that people can learn to work with across many sites.

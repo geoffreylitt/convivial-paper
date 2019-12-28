@@ -4,7 +4,7 @@ cat html.sections | xargs pandoc \
   --filter pandoc-citeproc \
   -s \
   -o paper.html \
-  --css wildcard/basic.css \
+  --css basic.css \
   --toc \
   --toc-depth=2 \
   --variable=toc-title:"Contents" \

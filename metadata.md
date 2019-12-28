@@ -1,5 +1,5 @@
 ---
-title: "Wildcard: a tool for modifying websites by directly manipulating data tables"
+title: "[DRAFT, please don't distribute] Wildcard: a tool for modifying websites by directly manipulating data tables"
 author: Geoffrey Litt, Daniel Jackson
 bibliography: references.bib
 link-citations: true
@@ -10,3 +10,4 @@ abstract: |
 
   Wildcard is a platform that empowers anyone to build browser extensions and modify websites to meet their own specific needs. Wildcard shows a simplified view of the data in a web page as a familiar table view. People can directly manipulate the table to sort/filter content, add annotations, and even use spreadsheet-style formulas to pull in data from other websites. The key idea is that a table is a powerful, simple, and familiar paradigm for modifying a website.
 ---
+
