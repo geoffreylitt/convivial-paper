@@ -19,6 +19,83 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{beaudouin-lafon2000}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=dae46196f7c8e3fe92d6721c790365cc}{%
+           family={{Beaudouin-Lafon}},
+           familyi={B\bibinitperiod},
+           given={Michel},
+           giveni={M\bibinitperiod}}}%
+        {{hash=2d0cc7c7deb5aa48acdd152ca1a3ebc3}{%
+           family={Mackay},
+           familyi={M\bibinitperiod},
+           given={Wendy\bibnamedelima E.},
+           giveni={W\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{abb1ce12b9515e48810ad43d50a66d66}
+      \strng{fullhash}{abb1ce12b9515e48810ad43d50a66d66}
+      \strng{bibnamehash}{abb1ce12b9515e48810ad43d50a66d66}
+      \strng{authorbibnamehash}{abb1ce12b9515e48810ad43d50a66d66}
+      \strng{authornamehash}{abb1ce12b9515e48810ad43d50a66d66}
+      \strng{authorfullhash}{abb1ce12b9515e48810ad43d50a66d66}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{This paper presents three design principles to support the development of large-scale applications and take advantage of recent research in new interaction techniques: Reification turns concepts into first class objects, polymorphism permits commands to be applied to objects of different types, and reuse makes both user input and system output accessible for later use. We show that the power of these principles lies in their combination. Reification creates new objects that can be acted upon by a small set of polymorphic commands, creating more opportunities for reuse. The result is a simpler yet more powerful interface. To validate these principles, we describe their application in the redesign of a complex interface for editing and simulating Coloured Petri Nets. The cpn2000 interface integrates floating palettes, toolglasses and marking menus in a consistent manner with a new metaphor for managing the workspace. It challenges traditional ideas about user interfaces, getting rid of pull-down menus, scrollbars, and even selection, while providing the same or greater functionality. Preliminary tests with users show that they find the new system both easier to use and more efficient.}
+      \field{booktitle}{Proceedings of the {{Working Conference}} on {{Advanced Visual Interfaces}}}
+      \field{isbn}{978-1-58113-252-6}
+      \field{series}{{{AVI}} '00}
+      \field{shorttitle}{Reification, {{Polymorphism}} and {{Reuse}}}
+      \field{title}{Reification, {{Polymorphism}} and {{Reuse}}: {{Three Principles}} for {{Designing Visual Interfaces}}}
+      \field{year}{2000}
+      \field{pages}{102\bibrangedash 109}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1145/345513.345267
+      \endverb
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/ZUTWDQ9X/Beaudouin-Lafon and Mackay - 2000 - Reification, Polymorphism and Reuse Three Princip.pdf
+      \endverb
+      \keyw{design principles,direct manipulation,instrumental interaction,interaction model,polymorphism,reification,reuse}
+    \endentry
+    \entry{berners-lee2018}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d469e0df304c98f67b55d087ea6187a1}{%
+           family={{Berners-Lee}},
+           familyi={B\bibinitperiod},
+           given={Tim},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{d469e0df304c98f67b55d087ea6187a1}
+      \strng{fullhash}{d469e0df304c98f67b55d087ea6187a1}
+      \strng{bibnamehash}{d469e0df304c98f67b55d087ea6187a1}
+      \strng{authorbibnamehash}{d469e0df304c98f67b55d087ea6187a1}
+      \strng{authornamehash}{d469e0df304c98f67b55d087ea6187a1}
+      \strng{authorfullhash}{d469e0df304c98f67b55d087ea6187a1}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{I've always believed the web is for everyone. That's why I and others fight fiercely to protect it. The changes we've managed to bring have\ldots{}}
+      \field{howpublished}{https://medium.com/@timberners\_lee/one-small-step-for-the-web-87f92217d085}
+      \field{journaltitle}{Medium}
+      \field{month}{9}
+      \field{title}{One {{Small Step}} for the {{Web}}\ldots{}}
+      \field{year}{2018}
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/MSSQR3BL/one-small-step-for-the-web-87f92217d085.html
+      \endverb
+    \endentry
     \entry{bolin2005}{inproceedings}{}
       \name{author}{5}{}{%
         {{hash=3eaac4d2e4e04df16435156d70c52190}{%
@@ -109,6 +186,34 @@
       \field{title}{Changing {{Minds}}: {{Computers}}, {{Learning}}, and {{Literacy}}}
       \field{year}{2000}
     \endentry
+    \entry{inkandswitch2019}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=87586a8fb471d0cb7733d42ec7c41ff0}{%
+           family={{Ink {and} Switch}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en-US}%
+      }
+      \strng{namehash}{87586a8fb471d0cb7733d42ec7c41ff0}
+      \strng{fullhash}{87586a8fb471d0cb7733d42ec7c41ff0}
+      \strng{bibnamehash}{87586a8fb471d0cb7733d42ec7c41ff0}
+      \strng{authorbibnamehash}{87586a8fb471d0cb7733d42ec7c41ff0}
+      \strng{authornamehash}{87586a8fb471d0cb7733d42ec7c41ff0}
+      \strng{authorfullhash}{87586a8fb471d0cb7733d42ec7c41ff0}
+      \field{sortinit}{I}
+      \field{sortinithash}{320bc8fe8101b9376f9f21cd507de0e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A vision for empowered computing that reaches back forty years. Our research lab examines why it has been so hard to achieve.}
+      \field{journaltitle}{Ink and Switch}
+      \field{month}{3}
+      \field{title}{End-User Programming}
+      \field{year}{2019}
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/VN9ZZWVZ/end-user-programming.html
+      \endverb
+    \endentry
     \entry{leshed2008}{inproceedings}{}
       \name{author}{4}{}{%
         {{hash=ba6a17ce749eab992f1434bd8188f50d}{%
@@ -164,6 +269,58 @@
       \verb /Users/geoffreylitt/Zotero/storage/RHE55DIG/Leshed et al. - 2008 - CoScripter Automating & Sharing How-to Knowledge .pdf
       \endverb
       \keyw{automation,knowledge sharing,procedural knowledge,programming-by-demonstration,scripting,user study,wiki}
+    \endentry
+    \entry{streak}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=f4bb7b4d64f470dc5e5aca7aa1cfe624}{%
+           family={Streak},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{f4bb7b4d64f470dc5e5aca7aa1cfe624}
+      \strng{fullhash}{f4bb7b4d64f470dc5e5aca7aa1cfe624}
+      \strng{bibnamehash}{f4bb7b4d64f470dc5e5aca7aa1cfe624}
+      \strng{authorbibnamehash}{f4bb7b4d64f470dc5e5aca7aa1cfe624}
+      \strng{authornamehash}{f4bb7b4d64f470dc5e5aca7aa1cfe624}
+      \strng{authorfullhash}{f4bb7b4d64f470dc5e5aca7aa1cfe624}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://www.inboxsdk.com/}
+      \field{title}{{{InboxSDK}}}
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/TK2FCLM5/www.inboxsdk.com.html
+      \endverb
+    \endentry
+    \entry{talwar2019}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=f85c26b98c8710ac5c18fdbfaf48e210}{%
+           family={Talwar},
+           familyi={T\bibinitperiod},
+           given={Kartik},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{f85c26b98c8710ac5c18fdbfaf48e210}
+      \strng{fullhash}{f85c26b98c8710ac5c18fdbfaf48e210}
+      \strng{bibnamehash}{f85c26b98c8710ac5c18fdbfaf48e210}
+      \strng{authorbibnamehash}{f85c26b98c8710ac5c18fdbfaf48e210}
+      \strng{authornamehash}{f85c26b98c8710ac5c18fdbfaf48e210}
+      \strng{authorfullhash}{f85c26b98c8710ac5c18fdbfaf48e210}
+      \field{sortinit}{T}
+      \field{sortinithash}{6f7aff9db9dcfeb7f95fd5bbd2f78df9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Gmail JavaScript API}
+      \field{howpublished}{https://github.com/KartikTalwar/gmail.js}
+      \field{journaltitle}{GitHub}
+      \field{title}{Gmail.Js}
+      \field{year}{2019}
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/EQIGCWJM/master.html
+      \endverb
     \endentry
   \enddatalist
 \endrefsection

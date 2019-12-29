@@ -10,7 +10,7 @@ cat latex.sections | xargs pandoc \
   --template=templates/pandoc-template-programming.pandoc \
   --biblatex \
   --metadata=format:pdf
-pdflatex -interaction=batchmode paper.tex
+pdflatex paper.tex
 biber paper
 pdflatex -interaction=batchmode paper.tex
 pdflatex -interaction=batchmode paper.tex
