@@ -116,7 +116,7 @@ formulas to fetch data from other websites.
 In 2012, the travel site Airbnb removed the ability to sort listings by
 price. Users could still filter down to a price range, but could no
 longer view the cheapest listings first. Many users complained on online
-message boards that the change seemed hostile to users---``It's so
+message boards that the change seemed hostile to users. ``It's so
 frustrating!..What is the logic behind not having this function?'' says
 one user on the
 \href{https://community.withairbnb.com/t5/Hosting/Sorting-listing-by-price/td-p/559404}{Airbnb
@@ -128,10 +128,10 @@ meet users' needs, their only recourse is to complain to the developers
 and hope someone listens. Sometimes there is a way to use a browser
 extension or user script to fix the issue, but making an extension
 requires sophisticated programming skills. We see this as a waste of the
-pliability of software and the openness of the Web. If users could make
-tweaks to web applications without programming, a vast number of people
-would gain the agency to modify software to meet their unique
-preferences.
+openness of the Web platform, and of the pliability of software in
+general. If users could make tweaks to web applications without
+programming, a vast number of people would gain the agency to modify
+software to meet their unique preferences.
 
 In this paper, we introduce a system called Wildcard\footnote{Wildcard
   was the original internal name for Hypercard, which pioneered both
@@ -144,26 +144,28 @@ vice versa.
 
 In Wildcard, sorting Airbnb listings by price takes just one click on a
 table header, with no programming required by the end user. Beyond
-sorting and filtering data, Wildcard also supports a broad set of other
+sorting and filtering data, Wildcard also supports a variety of other
 use cases like accessing third party APIs, performing small
-computations, recording private user annotations to the page, and using
-alternate UI widgets to enter data.
+computations, recording private user annotations, and using alternate UI
+widgets. While Wildcard does not support all changes someone might want
+to make to a website, the goal of the project is to make a broad subset
+of changes easily accessible to end users.
 
-Wildcard currently requires a programmer to manually define an adapter
-between the original page and the data table using web scraping
-techniques. Even though programming is still required for part of the
-process, this forms an effective collaboration between the programmer
-and the end user, since the end user is able to perform a wide variety
-of modifications to a site once a single adapter is defined. Eventually,
-we envision adapter creation being less of a burden by making it
-automated or making it possible for end users to build adapters.
+Under the hood, there is no magic---Wildcard currently requires a
+programmer to manually define an adapter between the original page and
+the data table using web scraping techniques. While programming is
+required for part of the process, this forms a useful collaboration
+between the programmer and the end user, since the end user is able to
+perform many different modifications once an adapter is defined. We also
+plan to eventually reduce the burden of making adapters (discussed in
+more detail later).
 
 \hypertarget{demo-booking-a-trip-with-wildcard}{%
 \section{Demo: Booking a trip with
 Wildcard}\label{demo-booking-a-trip-with-wildcard}}
 
-Let's see an example of how an end user might modify a website with
-Wildcard in practice.
+To get a sense of the user experience of Wildcard, let's see an example
+of how an end user can modify a website with Wildcard in practice.
 
 For example, in Fig.~\ref{fig:table} we open up a table view that
 corresponds to search results on the Airbnb travel site.

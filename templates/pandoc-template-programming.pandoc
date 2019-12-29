@@ -53,10 +53,10 @@ $endif$
   %% State one or more areas, separated by a comma. (see 2.2)
   %% Please see list of areas in http://programming-journal.org/cfp/
   %% The list is open-ended, so use other areas if yours is/are not listed.
-  area={Social Coding, General-purpose programming},
+  area={Programming environments, Visual and live programming},
   %% You may choose the license for your paper (see 3.)
   %% License options include: cc-by (default), cc-by-nc
-  % license=cc-by,
+  % license=cc-by-sa,
 }
 %%%%%%%%%%%%%%%%%%
 
