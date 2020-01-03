@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+#!/Users/geoffreylitt/.rubies/ruby-2.6.3/bin/ruby
 # Number all figures in a document and prefix the caption with "Figure".
 require "paru/filter"
 

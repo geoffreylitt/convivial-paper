@@ -14,3 +14,4 @@ cat html.sections | xargs pandoc \
 
 cp ./paper.html ~/dev/homepage/source/wildcard/index.html
 cp ./basic.css ~/dev/homepage/source/wildcard
+cp -r ./media ~/dev/homepage/source/wildcard
