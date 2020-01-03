@@ -189,26 +189,58 @@ Wildcard takes advantage of this openness, and does not depend on cooperation fr
 
 Implementing the Wildcard adapter API could help developers by allowing users to fix some of their own issues, particularly idiosyncratic use cases that the first party developer would never plan to prioritize. Supporting Wildcard could be straightforward in a typical client-side application that already has access to a structured version of the data in the page. And while some developers might hesitate to promote extensibility in their clients to avoid unwanted changes, the most common problem of users blocking ads is already ground well trod by existing browser extensions. There is also precedent for first parties implementing an official client extension API in response to user demand: for several years, Google maintained an official extension API in Gmail for Greasemonkey scripts to use. (Incidentally, since then, third parties have continued to maintain Gmail extension APIs used by many Gmail browser extensions [@streak; @talwar2019], illustrating the value of collaboratively maintaining third party adapters.)
 
+Doctorow: [adversarial interoperability](https://www.eff.org/deeplinks/2019/10/adversarial-interoperability/)
+
 ## No magic
 
 * an ecosystem of programmers collaboratively building a platform for end users
+	* relates to Small Matter
 * but still empowering end users to do the creative parts, the final glue
 * less brittle, less confusing and surprising (maybe Chickenfoot or Coscripter had this problem? Find a nugget in those papers to support. I remember Helena had something about auto-scraping breaking... contrast with Gmail.Js stability?)
+	* Small Matter: conversation vs formal languages
 * still leaves the door open for future automation
 * maybe "first party optional" can be included here?
 
 # Related work
 
-_Note: a lot of this was already covered above; how to deal with that?_
+Many projects have explored end user customization of web applications, but it has not become a common activity in the wild. We suspect that so far no system has found the right combination of utility, ease of use, and robustness required for widespread adoption. Wildcard aims to build on lessons learned from this body of work, employing a novel approach of using a familiar spreadsheet table to go about the task of modifying the UI of an existing web application. Here we describe some of the areas of related work, and how Wildcard builds on them.
 
-* Malleable software: Kay, Webstrates
+## Malleable software
+
+In the broadest sense, Wildcard is inspired by systems aiming to make software into a dynamic medium where end users frequently create and modify software to meet their own needs, rather than accepting pre-built applications built by programmers. These systems include Smalltalk [@kay1977], Hypercard [@hypercard2019], Boxer [@disessa1986], Webstrates [@klokmose2015], and Dynamicland [@victor].
+
+These projects generally require building new software from scratch for that environment. This provides a great deal of flexibility, but also means they are not compatible with existing software and require wholesale adoption. In contrast, Wildcard takes a pragmatic approach of enabling people to tweak the software they already use.
+
+## Web augmentation
+
+Wildcard's goals are closely shared with other browser extensions which provide panels to augment and modify a website in the context of using the site.
+
+Sifter [@huynh2006] enables users to sort and filter lists of data on web pages by converting the data into a structured format, providing a result similar to Wildcard's sort and filter functionality. The mechanism is different, though: Sifter uses a combination of automated heuristics and interactive user feedback to extract data, whereas Wildcard currently relies on programmers creating wrappers for extracting structured data, probably leading to higher quality extraction but on fewer sites. Also, Wildcard aims for much broader functionality than just sorting and filtering, and shows the structured table view of the data to facilitate these other interactions, whereas Sifter just shows sort controls and never reveals the underlying data table.
+
+"Sloppy programming" [@little2010] tools like Chickenfoot [@bolin2005] and Coscripter [@leshed2008] enable users to create scripts that perform actions like filling in text boxes and clicking buttons, without directly interacting with the DOM. Users express the desired page elements in natural, informal terms (e.g. writing "the username box" to represent the textbook closest to the label "username"), and then using heuristics to determine which elements most likely match the user's intent. This approach allows for expressing a wide variety of commands with minimal training, but it also has downsides. It is difficult to know whether a command will consistently work over time (in addition to changes to the website, changes to the heuristics can also cause problems), and it is not easy for users to discover the space of possible commands.
+
+Wildcard offers a sharp contrast to sloppy programming, instead choosing to expose a high degree of structure through the familiar spreadsheet table, which offers the reverse set of tradeoffs: more robust behavior, but in a narrower domain. Wildcard offers more consistency (e.g., clicking a sort header will always work correctly as long as the site adapter is maintained) and offers clearer affordances for what types of actions are possible (or, crucially, what actions are _not_ possible, which is very useful for users to know). On the other hand, Wildcard cannot offer coverage of all websites, and has a narrower range of possible actions than sloppy tools. Still, we hope that with enough site adapters and formulas, these downsides can be mitigated, and that the benefits of structure outweigh these costs.
+
+## Spreadsheet-based app builders
+
+It is a powerful realization to notice that a spreadsheet can serve as an end-user-friendly backing data store and computation layer for an interactive web application. Research projects like Quilt [@benson2014], Gneiss [@chang2014], and Marmite [@wong2007], as well as commercial tools like Airtable Blocks [@zotero-79] and Glide [@zotero-81] allow users to view data in a spreadsheet table, compute over the data using formulas, and connect the table to a GUI. Because many users are already familiar with using spreadsheets, this way of creating applications tends to be much easier than traditional software methods; for example, in a user study of Quilt, many people were able to create applications in under 10 minutes, even if they expected it would take them many hours. 
+
+Wildcard builds on this powerful idea, but applies it to modifying existing applications, rather than building new applications from scratch. For many people, we suspect that tweaking existing applications provides more motivation as a starting point for programming than creating a new application from scratch.
+
+An important design decision for tools in this space is how far to deviate from traditional spreadsheets, and in what ways. Quilt and Glide use existing web spreadsheet software as a backend, providing maximum familiarity and compatibility with existing spreadsheets, but other projects branch out in various ways. Gneiss has its own spreadsheet with additional features useful for building GUIs. Marmite provides a live data view that resembles a spreadsheet, but programming is actually done using a separate data flow pane rather than spreadsheet formulas, which led to some confusion in a user study among users who expected behavior more similar to spreadsheets [@wong2007]. Airtable offers a relational database with formula support in a spreadsheet-style direct manipulation interface, a combination which has found commercial success. Wildcard's table is most similar to Airtable, aiming to offer the structure of a relational table, but to keep the notion of pure reactive formulas from spreadsheets rather than introducing a separate programming model outside of the table.
+
+Quilt also raised the hypothetical idea of "web worksheets" in spreadsheets: small HTML UIs inside of a spreadsheet table to help users edit data or formulas in a more domain-specific interface. This is similar to Wildcard's notion of cell editors.
+
+## Web scraping / data extraction
+
+Web scraping tools focus on extracting structured data out of unstructured web pages. Web scraping is closely related to the implementation of Wildcard, but has very different goals: web scraping extracts static data for processing in another environment, whereas Wildcard supports modification of the original page by maintaining a bidirectional connection between the extracted data and the page. 
+
+Web scraping tools differ in how much structure they attempt to map onto the data. Some tools like Rousillon [@chasins2018] extract data in a minimally structured relational format; other tools like Piggy Bank [@huynh2005] or Thresher [@hogue2005] more ambitiously map the data to a Semantic Web schema. In Wildcard, we chose to avoid rich schemas, in order to reduce the work associated with creating a site adapter.
+
+Other related work:
+
+* SOLID, decentralized web: private data architecture, adversarial interoperability.
 * Instrumental interaction, polymorphic UI
-* Web automation: Chickenfoot, CoScripter
-* Wrapper induction: Thresher, Helena
-* Personal data ownership: SOLID
-* Extension helper libraries, e.g. Gmail.js.
-* Doctorow: [adversarial interoperability](https://www.eff.org/deeplinks/2019/10/adversarial-interoperability/)
-* Marmite
 
 # Future work
 * limitations / future ideas
@@ -219,7 +251,7 @@ _Note: a lot of this was already covered above; how to deal with that?_
 	* how much do adapters generalize to many sites? We've built X adapters but need to make more
 	* page boundaries, eg scraping multi page results
 	* how do people save scripts and share them with each other? TBD
-	* nested data? lean on SIEUFERD?
+	* nested data? Joins? lean on SIEUFERD?
 	* reduce the number of primitives?
 * still in early development; note the beta release plan (tentative: target public beta availability at the workshop in March?)
 * Could explore automated wrapper induction, building on prior work
