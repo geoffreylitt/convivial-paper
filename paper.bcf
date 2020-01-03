@@ -1995,14 +1995,15 @@
     <bcf:datasource type="file" datatype="bibtex">references.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">disessa2000</bcf:citekey>
-    <bcf:citekey order="2">bolin2005</bcf:citekey>
-    <bcf:citekey order="3">leshed2008</bcf:citekey>
-    <bcf:citekey order="4">berners-lee2018</bcf:citekey>
-    <bcf:citekey order="5">beaudouin-lafon2000</bcf:citekey>
-    <bcf:citekey order="6">inkandswitch2019</bcf:citekey>
-    <bcf:citekey order="7">streak</bcf:citekey>
-    <bcf:citekey order="7">talwar2019</bcf:citekey>
+    <bcf:citekey order="1">berners-lee2018</bcf:citekey>
+    <bcf:citekey order="2">beaudouin-lafon2000</bcf:citekey>
+    <bcf:citekey order="3">disessa2000</bcf:citekey>
+    <bcf:citekey order="4">disessa2000</bcf:citekey>
+    <bcf:citekey order="5">bolin2005</bcf:citekey>
+    <bcf:citekey order="6">leshed2008</bcf:citekey>
+    <bcf:citekey order="7">inkandswitch2019</bcf:citekey>
+    <bcf:citekey order="8">streak</bcf:citekey>
+    <bcf:citekey order="8">talwar2019</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
