@@ -19,6 +19,65 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{zotero-79}{misc}{}
+      \field{sortinit}{A}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Airtable works like a spreadsheet but gives you the power of a database to organize anything. Sign up for free.}
+      \field{howpublished}{https://airtable.com}
+      \field{journaltitle}{Airtable}
+      \field{shorttitle}{Airtable}
+      \field{title}{Airtable: {{Organize}} Anything You Can Imagine}
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/8UKHXPNG/airtable.com.html
+      \endverb
+    \endentry
+    \entry{bakke2016}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=2cb6331912694ca52ca705953ee10c47}{%
+           family={Bakke},
+           familyi={B\bibinitperiod},
+           given={Eirik},
+           giveni={E\bibinitperiod}}}%
+        {{hash=c583a42e891550b0d55f659f34537f82}{%
+           family={Karger},
+           familyi={K\bibinitperiod},
+           given={David\bibnamedelima R.},
+           giveni={D\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {San Francisco, California, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM Press}%
+      }
+      \strng{namehash}{12020987ce469636564b71ffca88862c}
+      \strng{fullhash}{12020987ce469636564b71ffca88862c}
+      \strng{bibnamehash}{12020987ce469636564b71ffca88862c}
+      \strng{authorbibnamehash}{12020987ce469636564b71ffca88862c}
+      \strng{authornamehash}{12020987ce469636564b71ffca88862c}
+      \strng{authorfullhash}{12020987ce469636564b71ffca88862c}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Despite extensive research on visual query systems, the standard way to interact with relational databases remains to be through SQL queries and tailored form interfaces. We consider three requirements to be essential to a successful alternative: (1) query specification through direct manipulation of results, (2) the ability to view and modify any part of the current query without departing from the direct manipulation interface, and (3) SQL-like expressiveness. This paper presents the first visual query system to meet all three requirements in a single design. By directly manipulating nested relational results, and using spreadsheet idioms such as formulas and filters, the user can express a relationally complete set of query operators plus calculation, aggregation, outer joins, sorting, and nesting, while always remaining able to track and modify the state of the complete query. Our prototype gives the user an experience of responsive, incremental query building while pushing all actual query processing to the database layer. We evaluate our system with formative and controlled user studies on 28 spreadsheet users; the controlled study shows our system significantly outperforming Microsoft Access on the System Usability Scale.}
+      \field{booktitle}{Proceedings of the 2016 {{International Conference}} on {{Management}} of {{Data}} - {{SIGMOD}} '16}
+      \field{isbn}{978-1-4503-3531-7}
+      \field{title}{Expressive {{Query Construction}} through {{Direct Manipulation}} of {{Nested Relational Results}}}
+      \field{year}{2016}
+      \field{pages}{1377\bibrangedash 1392}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1145/2882903.2915210
+      \endverb
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/UAXRC2LC/Bakke and Karger - 2016 - Expressive Query Construction through Direct Manip.pdf
+      \endverb
+    \endentry
     \entry{beaudouin-lafon2000}{inproceedings}{}
       \name{author}{2}{}{%
         {{hash=dae46196f7c8e3fe92d6721c790365cc}{%
@@ -33,7 +92,7 @@
            giveni={W\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
       }
       \list{location}{1}{%
-        {New York, NY, USA}%
+        {Palermo, Italy}%
       }
       \list{publisher}{1}{%
         {ACM}%
@@ -64,6 +123,57 @@
       \verb /Users/geoffreylitt/Zotero/storage/ZUTWDQ9X/Beaudouin-Lafon and Mackay - 2000 - Reification, Polymorphism and Reuse Three Princip.pdf
       \endverb
       \keyw{design principles,direct manipulation,instrumental interaction,interaction model,polymorphism,reification,reuse}
+    \endentry
+    \entry{benson2014}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=b920612914a9a9d46f40c4415071b5a6}{%
+           family={Benson},
+           familyi={B\bibinitperiod},
+           given={Edward},
+           giveni={E\bibinitperiod}}}%
+        {{hash=55594ce723e5771b24852196ad6f6035}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Amy\bibnamedelima X.},
+           giveni={A\bibinitperiod\bibinitdelim X\bibinitperiod}}}%
+        {{hash=c583a42e891550b0d55f659f34537f82}{%
+           family={Karger},
+           familyi={K\bibinitperiod},
+           given={David\bibnamedelima R.},
+           giveni={D\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Honolulu, Hawaii, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM Press}%
+      }
+      \strng{namehash}{146be287a323ff19d60472fe44dece33}
+      \strng{fullhash}{146be287a323ff19d60472fe44dece33}
+      \strng{bibnamehash}{146be287a323ff19d60472fe44dece33}
+      \strng{authorbibnamehash}{146be287a323ff19d60472fe44dece33}
+      \strng{authornamehash}{146be287a323ff19d60472fe44dece33}
+      \strng{authorfullhash}{146be287a323ff19d60472fe44dece33}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Creating and publishing read-write-compute web applications requires programming skills beyond what most end users possess. But many end users know how to make spreadsheets that act as simple information management applications, often with computation. We present a system for creating basic web applications using such spreadsheets in place of a server and using HTML to describe the client UI. Authors connect the two by placing spreadsheet references inside HTML attributes. Data computation is provided by spreadsheet formulas. The result is a reactive read-write-compute web page without a single line of Javascript code. Nearly all of the fifteen HTML novices we studied were able to connect HTML to spreadsheets using our method with minimal instruction. We draw conclusions from their experience and discuss future extensions to this programming model.}
+      \field{booktitle}{Proceedings of the 27th Annual {{ACM}} Symposium on {{User}} Interface Software and Technology - {{UIST}} '14}
+      \field{isbn}{978-1-4503-3069-5}
+      \field{title}{Spreadsheet Driven Web Applications}
+      \field{year}{2014}
+      \field{pages}{97\bibrangedash 106}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1145/2642918.2647387
+      \endverb
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/GGLIRAZC/Benson et al. - 2014 - Spreadsheet driven web applications.pdf
+      \endverb
     \endentry
     \entry{berners-lee2018}{misc}{}
       \name{author}{1}{}{%
@@ -158,6 +268,161 @@
       \endverb
       \keyw{Wildcard}
     \endentry
+    \entry{chang2014}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=192160fc1725d26d61ac18c29d00d38f}{%
+           family={Chang},
+           familyi={C\bibinitperiod},
+           given={Kerry\bibnamedelima Shih-Ping},
+           giveni={K\bibinitperiod\bibinitdelim S\bibinithyphendelim P\bibinitperiod}}}%
+        {{hash=7f3139b9d8c689d2ae47ba9be98a69f0}{%
+           family={Myers},
+           familyi={M\bibinitperiod},
+           given={Brad\bibnamedelima A.},
+           giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Honolulu, Hawaii, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM Press}%
+      }
+      \strng{namehash}{87eef154392ce6d3b626266b2fdee932}
+      \strng{fullhash}{87eef154392ce6d3b626266b2fdee932}
+      \strng{bibnamehash}{87eef154392ce6d3b626266b2fdee932}
+      \strng{authorbibnamehash}{87eef154392ce6d3b626266b2fdee932}
+      \strng{authornamehash}{87eef154392ce6d3b626266b2fdee932}
+      \strng{authorfullhash}{87eef154392ce6d3b626266b2fdee932}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{While more and more data are available through web services, it remains difficult for end-users to create web applications that make use of these data without having to write complex code. We present Gneiss, a live programming environment that extends the spreadsheet metaphor to support creating interactive web applications that dynamically use local and web data from multiple sources. Gneiss closely integrates a spreadsheet editor with a web interface builder to let users demonstrate bindings between properties of web GUI elements and cells in the spreadsheet while working with real web service data. The spreadsheet editor provides two-way connections to web services, to both visualize and retrieve different data based on the user input in the web interface. Gneiss achieves rich interactivity without the need for event-based programming by extending the ``pull model'' of formulas that is familiar to the spreadsheet users. We use a series of examples to demonstrate Gneiss's ability to create a variety of interactive web data applications.}
+      \field{booktitle}{Proceedings of the 27th Annual {{ACM}} Symposium on {{User}} Interface Software and Technology - {{UIST}} '14}
+      \field{isbn}{978-1-4503-3069-5}
+      \field{title}{Creating Interactive Web Data Applications with Spreadsheets}
+      \field{year}{2014}
+      \field{pages}{87\bibrangedash 96}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1145/2642918.2647371
+      \endverb
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/VKRPDATE/Chang and Myers - 2014 - Creating interactive web data applications with sp.pdf
+      \endverb
+    \endentry
+    \entry{chasins2018}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=b611b01487cc4a2285a2e4dee4d131f4}{%
+           family={Chasins},
+           familyi={C\bibinitperiod},
+           given={Sarah\bibnamedelima E.},
+           giveni={S\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=f8b6892df21b4db9eb00cefa1467b758}{%
+           family={Mueller},
+           familyi={M\bibinitperiod},
+           given={Maria},
+           giveni={M\bibinitperiod}}}%
+        {{hash=de8a9ebbb77d302d4b65ca38dd887844}{%
+           family={Bodik},
+           familyi={B\bibinitperiod},
+           given={Rastislav},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Berlin, Germany}%
+      }
+      \list{publisher}{1}{%
+        {ACM Press}%
+      }
+      \strng{namehash}{4f1913c6cf1ffb584bed10e5e1e12208}
+      \strng{fullhash}{4f1913c6cf1ffb584bed10e5e1e12208}
+      \strng{bibnamehash}{4f1913c6cf1ffb584bed10e5e1e12208}
+      \strng{authorbibnamehash}{4f1913c6cf1ffb584bed10e5e1e12208}
+      \strng{authornamehash}{4f1913c6cf1ffb584bed10e5e1e12208}
+      \strng{authorfullhash}{4f1913c6cf1ffb584bed10e5e1e12208}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Programming by Demonstration (PBD) promises to enable data scientists to collect web data. However, in formative interviews with social scientists, we learned that current PBD tools are insufficient for many real-world web scraping tasks. The missing piece is the capability to collect hierarchicallystructured data from across many different webpages. We present Rousillon, a programming system for writing complex web automation scripts by demonstration. Users demonstrate how to collect the first row of a `universal table' view of a hierarchical dataset to teach Rousillon how to collect all rows. To offer this new demonstration model, we developed novel relation selection and generalization algorithms. In a withinsubject user study on 15 computer scientists, users can write hierarchical web scrapers 8 times more quickly with Rousillon than with traditional programming.}
+      \field{booktitle}{The 31st {{Annual ACM Symposium}} on {{User Interface Software}} and {{Technology}} - {{UIST}} '18}
+      \field{isbn}{978-1-4503-5948-1}
+      \field{shorttitle}{Rousillon}
+      \field{title}{Rousillon: {{Scraping Distributed Hierarchical Web Data}}}
+      \field{year}{2018}
+      \field{pages}{963\bibrangedash 975}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1145/3242587.3242661
+      \endverb
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/DJQ79QKU/Chasins et al. - 2018 - Rousillon Scraping Distributed Hierarchical Web D.pdf
+      \endverb
+    \endentry
+    \entry{zotero-81}{misc}{}
+      \list{language}{1}{%
+        {en}%
+      }
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Glide turns spreadsheets into beautiful, easy-to-use apps, without code. Pick a spreadsheet or start with a template, customize your app, then share it instantly with anyone. Start today for free!}
+      \field{howpublished}{https://www.glideapps.com/}
+      \field{title}{Create an {{App}} from a {{Google Sheet}} in {{Minutes}} {$\cdot$} {{Glide}}}
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/YRRWLQM8/www.glideapps.com.html
+      \endverb
+    \endentry
+    \entry{disessa1986}{article}{}
+      \name{author}{2}{}{%
+        {{hash=67592d5b728ccd036d432c9d067c9bff}{%
+           family={{diSessa}},
+           familyi={d\bibinitperiod},
+           given={A.\bibnamedelimi A},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=466eb023f31a73b359386ab2f2ae5864}{%
+           family={Abelson},
+           familyi={A\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{b79b2c4db468910fe99c4e6273f0aaef}
+      \strng{fullhash}{b79b2c4db468910fe99c4e6273f0aaef}
+      \strng{bibnamehash}{b79b2c4db468910fe99c4e6273f0aaef}
+      \strng{authorbibnamehash}{b79b2c4db468910fe99c4e6273f0aaef}
+      \strng{authornamehash}{b79b2c4db468910fe99c4e6273f0aaef}
+      \strng{authorfullhash}{b79b2c4db468910fe99c4e6273f0aaef}
+      \field{sortinit}{d}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{issn}{00010782}
+      \field{journaltitle}{Communications of the ACM}
+      \field{month}{9}
+      \field{number}{9}
+      \field{shorttitle}{Boxer}
+      \field{title}{Boxer: A Reconstructible Computational Medium}
+      \field{volume}{29}
+      \field{year}{1986}
+      \field{pages}{859\bibrangedash 868}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1145/6592.6595
+      \endverb
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/EWBMP8Z2/diSessa and Abelson - 1986 - Boxer a reconstructible computational medium.pdf
+      \endverb
+    \endentry
     \entry{disessa2000}{book}{}
       \name{author}{1}{}{%
         {{hash=a04180e8a28aeb853a34fc7b344474cf}{%
@@ -185,6 +450,212 @@
       \field{shorttitle}{Changing {{Minds}}}
       \field{title}{Changing {{Minds}}: {{Computers}}, {{Learning}}, and {{Literacy}}}
       \field{year}{2000}
+    \endentry
+    \entry{hogue2005}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=9302a8419fe15a03aa454bc07373c396}{%
+           family={Hogue},
+           familyi={H\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ca0d40fd2ed3fc314917b42745659849}{%
+           family={Karger},
+           familyi={K\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Chiba, Japan}%
+      }
+      \list{publisher}{1}{%
+        {ACM Press}%
+      }
+      \strng{namehash}{9547eb35a99bfbb53684f8b004e4f098}
+      \strng{fullhash}{9547eb35a99bfbb53684f8b004e4f098}
+      \strng{bibnamehash}{9547eb35a99bfbb53684f8b004e4f098}
+      \strng{authorbibnamehash}{9547eb35a99bfbb53684f8b004e4f098}
+      \strng{authornamehash}{9547eb35a99bfbb53684f8b004e4f098}
+      \strng{authorfullhash}{9547eb35a99bfbb53684f8b004e4f098}
+      \field{sortinit}{H}
+      \field{sortinithash}{5f15a7bc777ad49ff15aa4d2831b1681}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{We describe Thresher, a system that lets non-technical users teach their browsers how to extract semantic web content from HTML documents on the World Wide Web. Users specify examples of semantic content by highlighting them in a web browser and describing their meaning. We then use the tree edit distance between the DOM subtrees of these examples to create a general pattern, or wrapper, for the content, and allow the user to bind RDF classes and predicates to the nodes of these wrappers. By overlaying matches to these patterns on standard documents inside the Haystack semantic web browser, we enable a rich semantic interaction with existing web pages, ``unwrapping'' semantic data buried in the pages' HTML. By allowing end-users to create, modify, and utilize their own patterns, we hope to speed adoption and use of the Semantic Web and its applications.}
+      \field{booktitle}{Proceedings of the 14th International Conference on {{World Wide Web}} - {{WWW}} '05}
+      \field{isbn}{978-1-59593-046-0}
+      \field{shorttitle}{Thresher}
+      \field{title}{Thresher: Automating the Unwrapping of Semantic Content from the {{World Wide Web}}}
+      \field{year}{2005}
+      \field{pages}{86}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1145/1060745.1060762
+      \endverb
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/SGZ4PK28/Hogue and Karger - 2005 - Thresher automating the unwrapping of semantic co.pdf
+      \endverb
+    \endentry
+    \entry{huynh2006}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=4e45c4ad723587b674b9cdf4d91d6431}{%
+           family={Huynh},
+           familyi={H\bibinitperiod},
+           given={David\bibnamedelima F.},
+           giveni={D\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=7b87d608ec2ce09a14734691e21ed730}{%
+           family={Miller},
+           familyi={M\bibinitperiod},
+           given={Robert\bibnamedelima C.},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=c583a42e891550b0d55f659f34537f82}{%
+           family={Karger},
+           familyi={K\bibinitperiod},
+           given={David\bibnamedelima R.},
+           giveni={D\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Montreux, Switzerland}%
+      }
+      \list{publisher}{1}{%
+        {ACM Press}%
+      }
+      \strng{namehash}{d97c69695099bf326fa2b1807ac2f8f6}
+      \strng{fullhash}{d97c69695099bf326fa2b1807ac2f8f6}
+      \strng{bibnamehash}{d97c69695099bf326fa2b1807ac2f8f6}
+      \strng{authorbibnamehash}{d97c69695099bf326fa2b1807ac2f8f6}
+      \strng{authornamehash}{d97c69695099bf326fa2b1807ac2f8f6}
+      \strng{authorfullhash}{d97c69695099bf326fa2b1807ac2f8f6}
+      \field{sortinit}{H}
+      \field{sortinithash}{5f15a7bc777ad49ff15aa4d2831b1681}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Existing augmentations of web pages are mostly small cosmetic changes (e.g., removing ads) and minor addition of third-party content (e.g., product prices from competing sites). None leverages the structured data presented in web pages. This paper describes Sifter, a web browser extension that can augment a well-structured web site with advanced filtering and sorting functionality. These added features work inside the site's own pages, preserving the site's presentational style and the user's context. Sifter contains an algorithm that scrapes structured data out of well-structured web pages while usually requiring no user intervention. We tested Sifter on real web sites and real users and found that people could use Sifter to perform sophisticated queries and high-level analyses on sizable data collections on the Web. We propose that web sites can be similarly augmented with other sophisticated data-centric functionality, giving users new benefits over the existing Web.}
+      \field{booktitle}{Proceedings of the 19th Annual {{ACM}} Symposium on {{User}} Interface Software and Technology - {{UIST}} '06}
+      \field{isbn}{978-1-59593-313-3}
+      \field{title}{Enabling Web Browsers to Augment Web Sites' Filtering and Sorting Functionalities}
+      \field{year}{2006}
+      \field{pages}{125}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1145/1166253.1166274
+      \endverb
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/8WA9RXE3/Huynh et al. - 2006 - Enabling web browsers to augment web sites' filter.pdf
+      \endverb
+    \endentry
+    \entry{huynh2005}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=9554d4f47a1213905226ca3ab56fe6fc}{%
+           family={Huynh},
+           familyi={H\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=61d11b5e81f0b486c32ae8974821a6de}{%
+           family={Mazzocchi},
+           familyi={M\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ca0d40fd2ed3fc314917b42745659849}{%
+           family={Karger},
+           familyi={K\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \name{editor}{4}{}{%
+        {{hash=03e1f74693d15fabf9e2fd55618c4485}{%
+           family={Gil},
+           familyi={G\bibinitperiod},
+           given={Yolanda},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=32f2e25e4d849ddcc3a9cc11337f4ad6}{%
+           family={Motta},
+           familyi={M\bibinitperiod},
+           given={Enrico},
+           giveni={E\bibinitperiod}}}%
+        {{hash=d8f37ab4d5ba02ef7b90fd41ad8e6a81}{%
+           family={Benjamins},
+           familyi={B\bibinitperiod},
+           given={V.\bibnamedelimi Richard},
+           giveni={V\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=daa3f61cc04957ea4bf038da94584e07}{%
+           family={Musen},
+           familyi={M\bibinitperiod},
+           given={Mark\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{c128aa6df8145ce3385443ac72a393c6}
+      \strng{fullhash}{c128aa6df8145ce3385443ac72a393c6}
+      \strng{bibnamehash}{c128aa6df8145ce3385443ac72a393c6}
+      \strng{authorbibnamehash}{c128aa6df8145ce3385443ac72a393c6}
+      \strng{authornamehash}{c128aa6df8145ce3385443ac72a393c6}
+      \strng{authorfullhash}{c128aa6df8145ce3385443ac72a393c6}
+      \strng{editorbibnamehash}{9067f23b16bbba7ca62d0ad18b2a8206}
+      \strng{editornamehash}{9067f23b16bbba7ca62d0ad18b2a8206}
+      \strng{editorfullhash}{9067f23b16bbba7ca62d0ad18b2a8206}
+      \field{sortinit}{H}
+      \field{sortinithash}{5f15a7bc777ad49ff15aa4d2831b1681}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{The Semantic Web Initiative envisions a Web wherein information is offered free of presentation, allowing more effective exchange and mixing across web sites and across web pages. But without substantial Semantic Web content, few tools will be written to consume it; without many such tools, there is little appeal to publish Semantic Web content.To break this chicken-and-egg problem, thus enabling more flexible informa-tion access, we have created a web browser extension called Piggy Bankthat lets users make use of Semantic Web content within Web content as users browse the Web. Wherever Semantic Web content is not available, Piggy Bank can invoke screenscrapers to re-structure information within web pages into Semantic Web format. Through the use of Semantic Web technologies, Piggy Bank provides direct, immediate benefits to users in their use of the existing Web. Thus, the ex-istence of even just a few Semantic Web-enabled sites or a few scrapers already benefits users. Piggy Bank thereby offers an easy, incremental upgrade path to users without requiring a wholesale adoption of the Semantic Web's vision.To further improve this Semantic Web experience, we have created Semantic Bank, a web server application that lets Piggy Bank users share the Semantic Web information they have collected, enabling collaborative efforts to build so-phisticated Semantic Web information repositories through simple, everyday's use of Piggy Bank.}
+      \field{booktitle}{The {{Semantic Web}} –{} {{ISWC}} 2005}
+      \field{isbn}{978-3-540-32082-1}
+      \field{series}{Lecture {{Notes}} in {{Computer Science}}}
+      \field{shorttitle}{Piggy {{Bank}}}
+      \field{title}{Piggy {{Bank}}: {{Experience}} the {{Semantic Web Inside Your Web Browser}}}
+      \field{year}{2005}
+      \field{pages}{413\bibrangedash 430}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1007/11574620_31
+      \endverb
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/T84CAZ7L/Huynh et al. - 2005 - Piggy Bank Experience the Semantic Web Inside You.pdf
+      \endverb
+      \keyw{Common Data Model,Information Item,Resource Description Framework,Resource Description Framework Data,Temporary Database}
+    \endentry
+    \entry{hypercard2019}{article}{}
+      \name{author}{1}{}{%
+        {{hash=f923f04c3fbf7c9cf4a2a469f0a4a486}{%
+           family={Hypercard},
+           familyi={H\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{f923f04c3fbf7c9cf4a2a469f0a4a486}
+      \strng{fullhash}{f923f04c3fbf7c9cf4a2a469f0a4a486}
+      \strng{bibnamehash}{f923f04c3fbf7c9cf4a2a469f0a4a486}
+      \strng{authorbibnamehash}{f923f04c3fbf7c9cf4a2a469f0a4a486}
+      \strng{authornamehash}{f923f04c3fbf7c9cf4a2a469f0a4a486}
+      \strng{authorfullhash}{f923f04c3fbf7c9cf4a2a469f0a4a486}
+      \field{sortinit}{H}
+      \field{sortinithash}{5f15a7bc777ad49ff15aa4d2831b1681}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{HyperCard is a software application and development kit for Apple Macintosh and Apple IIGS computers. It is among the first successful hypermedia systems predating the World Wide Web. HyperCard combines a flat-file database with a graphical, flexible, user-modifiable interface. HyperCard includes a built-in programming language called HyperTalk for manipulating data and the user interface. This combination of features –{} a database with simple form layout, flexible support for graphics, and ease of programming –{} suits HyperCard for many different projects such as rapid application development of applications and databases, interactive applications with no database requirements, command and control systems, and many examples in the demoscene. HyperCard was originally released in 1987 for \$49.95 and was included for free with all new Macs sold then. It was withdrawn from sale in March 2004, having received its final update in 1998 upon the return of Steve Jobs to Apple. HyperCard runs in the Classic Environment, but was not ported to Mac OS X.}
+      \field{journaltitle}{Wikipedia}
+      \field{month}{12}
+      \field{note}{Page Version ID: 931376685}
+      \field{title}{{{HyperCard}}}
+      \field{year}{2019}
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/XZV548R8/index.html
+      \endverb
     \endentry
     \entry{inkandswitch2019}{misc}{}
       \name{author}{1}{}{%
@@ -214,6 +685,109 @@
       \verb /Users/geoffreylitt/Zotero/storage/VN9ZZWVZ/end-user-programming.html
       \endverb
     \endentry
+    \entry{kay1977}{article}{}
+      \name{author}{2}{}{%
+        {{hash=ee5f1c5c657dc9af306ed48636bb4f0e}{%
+           family={Kay},
+           familyi={K\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d5b92cfa3baf301dbf3b60eea127b66d}{%
+           family={Goldberg},
+           familyi={G\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{8e45524857555cab603e1b3aff2cce5f}
+      \strng{fullhash}{8e45524857555cab603e1b3aff2cce5f}
+      \strng{bibnamehash}{8e45524857555cab603e1b3aff2cce5f}
+      \strng{authorbibnamehash}{8e45524857555cab603e1b3aff2cce5f}
+      \strng{authornamehash}{8e45524857555cab603e1b3aff2cce5f}
+      \strng{authorfullhash}{8e45524857555cab603e1b3aff2cce5f}
+      \field{sortinit}{K}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The Learning Research Group at Xerox Palo Alto Research Center is concerned with all aspects of the communication and manipulation of knowledge. We design, build, and use dynamic media which can be used by human beings of all ages. Several years ago, we crystallized our dreams into a design idea for a personal dynamic medium the size of a notebook (the Dynabook) which could be owned by everyone and could have the power to handle virtually all of its owner's information-related needs. Towards this goal we have designed and built a communications system: the Smalltalk language, implemented on small computers we refer to as "interim Dynabooks." We are exploring the use of this system as a programming and problem solving tool; as an interactive memory for the storage and manipulation of data; as a text editor; and as a medium for expression through drawing, painting, animating pictures, and composing and generating music. (Figure 1 is a view of this interim Dynabook.)}
+      \field{issn}{1558-0814}
+      \field{journaltitle}{Computer}
+      \field{month}{3}
+      \field{number}{3}
+      \field{title}{Personal {{Dynamic Media}}}
+      \field{volume}{10}
+      \field{year}{1977}
+      \field{pages}{31\bibrangedash 41}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1109/C-M.1977.217672
+      \endverb
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/Q3SGCHYI/Kay and Goldberg - 1977 - Personal Dynamic Media.pdf;/Users/geoffreylitt/Zotero/storage/8Q36BUGB/1646405.html
+      \endverb
+      \keyw{Animation,Computational modeling,Crystallization,Embedded computing,Information retrieval,Manipulator dynamics,Problem-solving}
+    \endentry
+    \entry{klokmose2015}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=7914eded0e4a1e4ca519531be62298c7}{%
+           family={Klokmose},
+           familyi={K\bibinitperiod},
+           given={Clemens\bibnamedelima N.},
+           giveni={C\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=b8d7b324759250212ce3bfec7be0c26a}{%
+           family={Eagan},
+           familyi={E\bibinitperiod},
+           given={James\bibnamedelima R.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=ad27b6ab9017cc77d1a658712270c7a2}{%
+           family={Baader},
+           familyi={B\bibinitperiod},
+           given={Siemen},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d47b1c860fcb37dc66f5f35e0de02865}{%
+           family={Mackay},
+           familyi={M\bibinitperiod},
+           given={Wendy},
+           giveni={W\bibinitperiod}}}%
+        {{hash=dae46196f7c8e3fe92d6721c790365cc}{%
+           family={{Beaudouin-Lafon}},
+           familyi={B\bibinitperiod},
+           given={Michel},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Daegu, Kyungpook, Republic of Korea}%
+      }
+      \list{publisher}{1}{%
+        {ACM Press}%
+      }
+      \strng{namehash}{6ef72c9ceff465d90736f6f853eabb63}
+      \strng{fullhash}{6ef72c9ceff465d90736f6f853eabb63}
+      \strng{bibnamehash}{6ef72c9ceff465d90736f6f853eabb63}
+      \strng{authorbibnamehash}{6ef72c9ceff465d90736f6f853eabb63}
+      \strng{authornamehash}{6ef72c9ceff465d90736f6f853eabb63}
+      \strng{authorfullhash}{6ef72c9ceff465d90736f6f853eabb63}
+      \field{sortinit}{K}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{We revisit Alan Kay's early vision of dynamic media that blurs the distinction between documents and applications. We introduce shareable dynamic media that are malleable by users, who may appropriate them in idiosyncratic ways; shareable among users, who collaborate on multiple aspects of the media; and distributable across diverse devices and platforms. We present Webstrates, an environment for exploring shareable dynamic media. Webstrates augment web technology with real-time sharing. They turn web pages into substrates, i.e. software entities that act as applications or documents depending upon use. We illustrate Webstrates with two implemented case studies: users collaboratively author an article with functionally and visually different editors that they can personalize and extend at run-time; and they orchestrate its presentation and audience participation with multiple devices. We demonstrate the simplicity and generative power of Webstrates with three additional prototypes and evaluate it from a systems perspective.}
+      \field{booktitle}{Proceedings of the 28th {{Annual ACM Symposium}} on {{User Interface Software}} \& {{Technology}} - {{UIST}} '15}
+      \field{isbn}{978-1-4503-3779-3}
+      \field{shorttitle}{Webstrates}
+      \field{title}{Webstrates: {{Shareable Dynamic Media}}}
+      \field{year}{2015}
+      \field{pages}{280\bibrangedash 290}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1145/2807442.2807446
+      \endverb
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/PZI6XAMQ/Klokmose et al. - 2015 - iWebstratesi Shareable Dynamic Media.pdf
+      \endverb
+    \endentry
     \entry{leshed2008}{inproceedings}{}
       \name{author}{4}{}{%
         {{hash=ba6a17ce749eab992f1434bd8188f50d}{%
@@ -238,7 +812,7 @@
            giveni={T\bibinitperiod}}}%
       }
       \list{location}{1}{%
-        {New York, NY, USA}%
+        {Florence, Italy}%
       }
       \list{publisher}{1}{%
         {ACM}%
@@ -269,6 +843,104 @@
       \verb /Users/geoffreylitt/Zotero/storage/RHE55DIG/Leshed et al. - 2008 - CoScripter Automating & Sharing How-to Knowledge .pdf
       \endverb
       \keyw{automation,knowledge sharing,procedural knowledge,programming-by-demonstration,scripting,user study,wiki}
+    \endentry
+    \entry{little2010}{incollection}{}
+      \name{author}{6}{}{%
+        {{hash=f053f12002e5862b5ec832cef9b10888}{%
+           family={Little},
+           familyi={L\bibinitperiod},
+           given={Greg},
+           giveni={G\bibinitperiod}}}%
+        {{hash=7b87d608ec2ce09a14734691e21ed730}{%
+           family={Miller},
+           familyi={M\bibinitperiod},
+           given={Robert\bibnamedelima C.},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=c349c7dcb5151656e268ca6502942cd1}{%
+           family={Chou},
+           familyi={C\bibinitperiod},
+           given={Victoria\bibnamedelima H.},
+           giveni={V\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=9c5821708eb9cc9bc6c92c66ada53892}{%
+           family={Bernstein},
+           familyi={B\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=7422eb37c3ab1c8abceb32074e3f8256}{%
+           family={Lau},
+           familyi={L\bibinitperiod},
+           given={Tessa},
+           giveni={T\bibinitperiod}}}%
+        {{hash=f645d29b26a339dc0a1eddaae63411dd}{%
+           family={Cypher},
+           familyi={C\bibinitperiod},
+           given={Allen},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{9f3bc7d53f4ce7e8729f7126ca539ebd}
+      \strng{fullhash}{9f3bc7d53f4ce7e8729f7126ca539ebd}
+      \strng{bibnamehash}{9f3bc7d53f4ce7e8729f7126ca539ebd}
+      \strng{authorbibnamehash}{9f3bc7d53f4ce7e8729f7126ca539ebd}
+      \strng{authornamehash}{9f3bc7d53f4ce7e8729f7126ca539ebd}
+      \strng{authorfullhash}{9f3bc7d53f4ce7e8729f7126ca539ebd}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Modern applications provide interfaces for scripting, but many users do not know how to write script commands. However, many users are familiar with the idea of entering keywords into a Web search engine. Hence, if a user is familiar with the vocabulary of an application domain, we anticipate that they could write a set of keywords expressing a command in that domain. For instance, in the Web browsing domain, a user might enter ``click search button''. We call loosely grammatical commands of this sort ``sloppy commands.'' We discuss several prototypes that implement sloppy programming, translating sloppy commands directly into executable code. We also discuss the algorithms used in these prototypes, expose their limitations, and propose directions for future work.}
+      \field{booktitle}{No {{Code Required}}}
+      \field{isbn}{978-0-12-381541-5}
+      \field{title}{Sloppy Programming}
+      \field{year}{2010}
+      \field{pages}{289\bibrangedash 307}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1016/B978-0-12-381541-5.00015-8
+      \endverb
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/GBFFTC6G/Little et al. - 2010 - Sloppy programming.pdf
+      \endverb
+    \endentry
+    \entry{nardi1990}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=13e20e27a9ef15964e1865c58354530e}{%
+           family={Nardi},
+           familyi={N\bibinitperiod},
+           given={Bonnie\bibnamedelima A.},
+           giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=95e26e4df267de7507dc5765b057aba3}{%
+           family={Miller},
+           familyi={M\bibinitperiod},
+           given={James\bibnamedelima R.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM Press}%
+      }
+      \strng{namehash}{9df3499e5dead8d90b99e9fcb37f9fa8}
+      \strng{fullhash}{9df3499e5dead8d90b99e9fcb37f9fa8}
+      \strng{bibnamehash}{9df3499e5dead8d90b99e9fcb37f9fa8}
+      \strng{authorbibnamehash}{9df3499e5dead8d90b99e9fcb37f9fa8}
+      \strng{authornamehash}{9df3499e5dead8d90b99e9fcb37f9fa8}
+      \strng{authorfullhash}{9df3499e5dead8d90b99e9fcb37f9fa8}
+      \field{sortinit}{N}
+      \field{sortinithash}{f7242c3ed3dc50029fca1be76c497c7c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In contrast to the common view of spreadsheets as ``single-user '' programs, we have found that spreadsheets offer surprisingly strong support for cooperative development of a wide variety of applications. Ethnographic interviews with spreadsheet users showed that nearly all of the spreadsheets used in the work environments studied were the result of collaborative work by people with different levels of programming and domain expertise. Cooperation among spreadsheet users was spontaneous and casual; users activated existing informal social networks to initiate collaboration.}
+      \field{title}{An {{Ethnographic Study}} of {{Distributed Problem Solving}} in {{Spreadsheet Development}}}
+      \field{year}{1990}
+      \field{pages}{197\bibrangedash 208}
+      \range{pages}{12}
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/B9EBINUV/Nardi and Miller - 1990 - An Ethnographic Study of Distributed Problem Solvi.pdf;/Users/geoffreylitt/Zotero/storage/9ERKIFRJ/summary.html
+      \endverb
     \endentry
     \entry{streak}{misc}{}
       \name{author}{1}{}{%
@@ -320,6 +992,78 @@
       \field{year}{2019}
       \verb{file}
       \verb /Users/geoffreylitt/Zotero/storage/EQIGCWJM/master.html
+      \endverb
+    \endentry
+    \entry{victor}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=50dc5904f44334020075cee559d9bd9a}{%
+           family={Victor},
+           familyi={V\bibinitperiod},
+           given={Bret},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{50dc5904f44334020075cee559d9bd9a}
+      \strng{fullhash}{50dc5904f44334020075cee559d9bd9a}
+      \strng{bibnamehash}{50dc5904f44334020075cee559d9bd9a}
+      \strng{authorbibnamehash}{50dc5904f44334020075cee559d9bd9a}
+      \strng{authornamehash}{50dc5904f44334020075cee559d9bd9a}
+      \strng{authorfullhash}{50dc5904f44334020075cee559d9bd9a}
+      \field{sortinit}{V}
+      \field{sortinithash}{75dd7385c90b2252c3ae853a80ca853b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{incubating a humane dynamic medium}
+      \field{howpublished}{https://dynamicland.org/}
+      \field{title}{Dynamicland}
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/JIP78YH7/dynamicland.org.html
+      \endverb
+    \endentry
+    \entry{wong2007}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=eb43bef47fef823ad1317b60fd726cd9}{%
+           family={Wong},
+           familyi={W\bibinitperiod},
+           given={Jeffrey},
+           giveni={J\bibinitperiod}}}%
+        {{hash=a02dbba0b8917170fcac7c0f836417f7}{%
+           family={Hong},
+           familyi={H\bibinitperiod},
+           given={Jason\bibnamedelima I.},
+           giveni={J\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {San Jose, California, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM Press}%
+      }
+      \strng{namehash}{df110a59eb42c2c1cbbeccf2efd8446b}
+      \strng{fullhash}{df110a59eb42c2c1cbbeccf2efd8446b}
+      \strng{bibnamehash}{df110a59eb42c2c1cbbeccf2efd8446b}
+      \strng{authorbibnamehash}{df110a59eb42c2c1cbbeccf2efd8446b}
+      \strng{authornamehash}{df110a59eb42c2c1cbbeccf2efd8446b}
+      \strng{authorfullhash}{df110a59eb42c2c1cbbeccf2efd8446b}
+      \field{sortinit}{W}
+      \field{sortinithash}{ecb89ff85896a47dc313960773ac311d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{There is a tremendous amount of web content available today, but it is not always in a form that supports end-users' needs. In many cases, all of the data and services needed to accomplish a goal already exist, but are not in a form amenable to an end-user. To address this problem, we have developed an end-user programming tool called Marmite, which lets end-users create so-called mashups that repurpose and combine existing web content and services. In this paper, we present the design, implementation, and evaluation of Marmite. An informal user study found that programmers and some spreadsheet users had little difficulty using the system.}
+      \field{booktitle}{Proceedings of the {{SIGCHI Conference}} on {{Human Factors}} in {{Computing Systems}} - {{CHI}} '07}
+      \field{isbn}{978-1-59593-593-9}
+      \field{shorttitle}{Making Mashups with Marmite}
+      \field{title}{Making Mashups with Marmite: Towards End-User Programming for the Web}
+      \field{year}{2007}
+      \field{pages}{1435\bibrangedash 1444}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1145/1240624.1240842
+      \endverb
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/9QWLY8KD/Wong and Hong - 2007 - Making mashups with marmite towards end-user prog.pdf
       \endverb
     \endentry
   \enddatalist

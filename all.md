@@ -4,7 +4,7 @@ In 2012, the travel site Airbnb removed the ability to sort listings by price. U
 
 This is a familiar situation in a world of web applications that are frequently updated without user consent. For most people, when web software does not quite meet their needs, their only recourse is to complain to the developers and hope someone listens. If they know how to program in Javascript, perhaps they can implement a user script or a browser extension to patch the issue, but most people do not have these programming skills. While many have become accustomed to this status quo, we see it as a waste of the openness of the Web platform and the general pliability of software. In _Personal Dynamic Media_, Alan Kay envisioned personal computing as a medium that let a user "mold and channel its power to his own needs," but today's software is far from this vision. 
 
-In this paper, we introduce Wildcard^[Wildcard was the internal pre-release name for Hypercard, which served as an inspiration for this project since it promoted software modification by end users and was a precursor to the modern Web.], a browser extension that aims to make software more malleable by enabling users to tweak web applications without programming. Wildcard adds a panel to the bottom of a web page that shows a structured table view of the main data in the page. The table maintains a bidirectional connection to the original page—when the user manipulates the table, the original page gets modified, and vice versa.
+In this paper, we introduce Wildcard, a browser extension that aims to make software more malleable by enabling users to tweak web applications without programming. Wildcard adds a panel to the bottom of a web page that shows a structured table view of the main data in the page. The table maintains a bidirectional connection to the original page—when the user manipulates the table, the original page gets modified, and vice versa.
 
 In Wildcard, a user can sort Airbnb listings with just one intuitive click on a table header, with no programming required. Beyond sorting and filtering data, Wildcard also supports accessing third party APIs, performing small computations, recording private user annotations, using alternate UI widgets, and other useful changes. While Wildcard does not support all changes someone might want to make to a website, it makes broad subset of changes easily accessible to end users. 
 
@@ -103,35 +103,35 @@ Overall, we think an interactive data table is a natural computation model that 
 
 # System Architecture
 
-![The architecture of the Wildcard system](media/architecture.png)
-
 Wildcard is written in Typescript, and is injected into pages using the [Tampermonkey](https://www.tampermonkey.net/) userscript manager (although in the future we plan to deploy it as a standalone browser extension.) 
 
-In order to maximize extensibility, Wildcard is implemented as a small core program along with several types of plugins: site adapters, formulas, and cell renderers/editors. The core contains functionality for displaying the data table and handling user interactions, and the table implementation is currently built on the [Handsontable](https://handsontable.com/) Javascript library to enable rapid prototyping.
+In order to maximize extensibility by other programmers, Wildcard is implemented as a small core program along with several types of plugins: site adapters, formulas, and cell renderers/editors. The core contains functionality for displaying the data table and handling user interactions, and the table implementation is built using the [Handsontable](https://handsontable.com/) Javascript library.
 
-Site adapters....
 
-Formula functions...
+![The architecture of the Wildcard system](media/architecture-clean.png)
 
-Cell viewers...
+Site adapters specify the bidirectional connection between the web page and its structured data representation.
 
-* Extension points
-	* site adapters
-		* show a snippet of adapter code
-		* discuss how easy it is for programmers to make adapters
-		* discuss possible future automation of adapter creation
-		* Mention the technique of scraping data from AJAX requests
-	* formula functions
-	* cell viewer/editors
+For extracting data from the page and getting it into structured form, Wildcard provides ways to concisely and declaratively express scraping logic. For example, here is a code snippet for extracting the name of an Airbnb listing. It specifies the field name and some metadata properties, and then a function that extracts the name div from a row div.
 
-* future implementation goals
-	* make it easy for programmers to add adapters + plugins, and distribute them to users. (Currently all adapters + plugins are part of the main Wildcard codebase)
+```typescript
+  {
+    fieldName: "name",
+    readOnly: true,
+    type: "text",
+    el: (row) => row.querySelector(`.${titleClass}`),
+  }
+```
+
+The site adapter also needs to support the reverse direction: sending updates from the table to the original page. Most DOM manipulation is not performed directly by the site adapter. To support sorting and filtering, the adapter specifies how to find the divs representing data rows, and the core platform sorts and filters the DOM to reflect the table state. User annotations are handled similarly. Finally, site adapters can also optionally implement site-specific actions (like favoriting in Airbnb) in normal Javascript code that controls the page.
+
+So far we have implemented X (_fill in latest number_) site adapters built into Wildcard. We plan to implement more in the near future to continue to test the limits of the API, and to encourage third party programmers to build, maintain, and distribute adapters for popular sites.
+
+Formulas and cell editors are also implemented as separate modules, so that additional ones could be contributed by third party programmers.
 
 # Design principles
 
-The design of Wildcard is grounded in several principles, informed by prior work and our own experimentation. We hope you find these principles helpful not only for understanding our prototype, but also for designing other systems for end user programming.
-
-_Todo: add diagrams illustrating principles_
+The design of Wildcard is grounded in several principles, informed by prior work and our own experimentation. We think these principles can also more generally inform the design of end user programming, particularly systems enabling users to modify GUI apps.
 
 ## Decouple UI from data
 
@@ -183,23 +183,24 @@ We also try to make simple changes possible with particularly low effort, like b
 
 ## First party cooperation optional
 
-The Web is an unusually extensible platform. On many other platforms (e.g. smartphone operating systems), software is locked down unless first-party developers explicitly provide hooks for plugins and interoperability, but on the Web, all client-side code is available for browser extensions to modify. Application authors can use practices that make it easier to modify their apps (e.g. clean semantic markup), or more difficult (e.g. code obfuscation), but the default state is openness. This gives extensions freedom to modify applications in creative ways that the original developers did not plan for.
+The Web is an unusually extensible platform. On many other platforms (e.g. smartphone operating systems), software is locked down unless first-party developers explicitly provide hooks for plugins and interoperability, but on the Web, all client-side code is available for browser extensions to modify. Application authors can use practices that make it easier to modify their apps (e.g. clean semantic markup), or more difficult (e.g. code obfuscation), but the default state is openness. This gives extensions freedom to modify applications in creative ways that the original developers did not plan for. At the most extreme, this can even include modifications like ad blocking that are hostile to the desires of the original developers (a notion Cory Doctorow calls [adversarial interoperability](https://www.eff.org/deeplinks/2019/10/adversarial-interoperability/)), but there are also many other changes which are not actively hostile, merely falling outside the range of possibilities originally imagined by the developer.
 
 Wildcard takes advantage of this openness, and does not depend on cooperation from first-party website developers. Any programmer can add support for any website to Wildcard by building a third party adapter. This design decision acknowledges the pragmatic need to interoperate with current websites, but we hope that eventually first party website developers will build in Wildcard support to their applications, since this would reduce the burden of maintaining adapters and make Wildcard plugins more stable.
 
 Implementing the Wildcard adapter API could help developers by allowing users to fix some of their own issues, particularly idiosyncratic use cases that the first party developer would never plan to prioritize. Supporting Wildcard could be straightforward in a typical client-side application that already has access to a structured version of the data in the page. And while some developers might hesitate to promote extensibility in their clients to avoid unwanted changes, the most common problem of users blocking ads is already ground well trod by existing browser extensions. There is also precedent for first parties implementing an official client extension API in response to user demand: for several years, Google maintained an official extension API in Gmail for Greasemonkey scripts to use. (Incidentally, since then, third parties have continued to maintain Gmail extension APIs used by many Gmail browser extensions [@streak; @talwar2019], illustrating the value of collaboratively maintaining third party adapters.)
 
-Doctorow: [adversarial interoperability](https://www.eff.org/deeplinks/2019/10/adversarial-interoperability/)
+## Collaboration over automation
 
-## No magic
+The architecture of Wildcard requires site adapters to abstract the low level representation of a web page into a higher-level, structured representation that is easier for end users to work with. Many web scraping research systems have either automated this process entirely using heuristics, or created interactive workflows for end users to specify the translation. In Wildcard, we take a different approach: programmers manually code site adapters.
 
-* an ecosystem of programmers collaboratively building a platform for end users
-	* relates to Small Matter
-* but still empowering end users to do the creative parts, the final glue
-* less brittle, less confusing and surprising (maybe Chickenfoot or Coscripter had this problem? Find a nugget in those papers to support. I remember Helena had something about auto-scraping breaking... contrast with Gmail.Js stability?)
-	* Small Matter: conversation vs formal languages
-* still leaves the door open for future automation
-* maybe "first party optional" can be included here?
+This decision is partially a pragmatic one—we haven't had time to incorporate sophisticated automation yet, and we may choose to do so in the future. But it is also a principled decision. Automated approaches tend to work much of the time but not all of the time [@bolin2005] [@little2010]. In contrast, human programmers have been able to maintain very stable scraping libraries, even for complex sites like Gmail [@streak; @talwar2019]. We are willing to trade off lower site coverage in return for more reliable results on the sites that are covered, because this builds confidence for users about where they can expect Wildcard to work.
+
+We see this architecture as a form of collaboration between programmers and end users. In the wild, spreadsheets are built collaboratively by users with different levels of technical expertise: some users write simple formulas, while others help write more complex formulas or even macros [@nardi1990]. Even though some parts of the collaboration require more expertise, even users with little expertise are still empowered to perform much of the work themselves, which differs radically from custom software development where coding expertise is table stakes for making any contributions. Similarly, we envision multiple layers of Wildcard usage depending on technical expertise:
+
+* only using sorting/filtering/annotation, with no computation of any kind
+* writing simple formulas to fetch new data
+* composing complex formulas that perform more advanced computation
+* using Javascript to create or maintain site adapters, formulas, or cell editors
 
 # Related work
 
@@ -207,7 +208,7 @@ Many projects have explored end user customization of web applications, but it h
 
 ## Malleable software
 
-In the broadest sense, Wildcard is inspired by systems aiming to make software into a dynamic medium where end users frequently create and modify software to meet their own needs, rather than accepting pre-built applications built by programmers. These systems include Smalltalk [@kay1977], Hypercard [@hypercard2019], Boxer [@disessa1986], Webstrates [@klokmose2015], and Dynamicland [@victor].
+In the broadest sense, Wildcard is inspired by systems aiming to make software into a dynamic medium where end users frequently create and modify software to meet their own needs, rather than accepting pre-built applications built by programmers. These systems include Smalltalk [@kay1977], Hypercard [@hypercard2019], Boxer [@disessa1986], Webstrates [@klokmose2015], and Dynamicland [@victor]. (The project's name Wildcard comes from the internal pre-release name for Hypercard, which promoted software modification by end users and was a precursor to the modern Web.)
 
 These projects generally require building new software from scratch for that environment. This provides a great deal of flexibility, but also means they are not compatible with existing software and require wholesale adoption. In contrast, Wildcard takes a pragmatic approach of enabling people to tweak the software they already use.
 
@@ -237,23 +238,21 @@ Web scraping tools focus on extracting structured data out of unstructured web p
 
 Web scraping tools differ in how much structure they attempt to map onto the data. Some tools like Rousillon [@chasins2018] extract data in a minimally structured relational format; other tools like Piggy Bank [@huynh2005] or Thresher [@hogue2005] more ambitiously map the data to a Semantic Web schema. In Wildcard, we chose to avoid rich schemas, in order to reduce the work associated with creating a site adapter.
 
-Other related work:
+# Limitations and future work
 
-* SOLID, decentralized web: private data architecture, adversarial interoperability.
-* Instrumental interaction, polymorphic UI
+Wildcard is still in early development; there are still many limitations to resolve and open questions to explore.
 
-# Future work
-* limitations / future ideas
-	* the spreadsheet language is very primitive, can we make it more expressive? what are the exact semantics of fetching data from APIs? What about making API requests that do mutation, not just fetching data?
-	* only works when the user is browsing. Should we explore triggers, scheduled scraping?
-	* only has spreadsheet-style functional transformations. Should we explore imperative workflows? Injecting buttons into pages that do things? (Eg, imagine a "save to google maps" button that you can inject into a page)
-	* limited options for how to style injected content, could explore styling (eg, maybe you can restyle a table cell and the styling is reflected when it's injected into the page?)
-	* how much do adapters generalize to many sites? We've built X adapters but need to make more
-	* page boundaries, eg scraping multi page results
-	* how do people save scripts and share them with each other? TBD
-	* nested data? Joins? lean on SIEUFERD?
-	* reduce the number of primitives?
-* still in early development; note the beta release plan (tentative: target public beta availability at the workshop in March?)
-* Could explore automated wrapper induction, building on prior work
-* Want to get more real usage of the tool and run usability studies
-* Include a link to sign up for future updates
+The most important question is whether the combination of features provided by Wildcard can actually be combined in enough useful ways to make the system worth using in practice. We plan to test this by first continuing to privately test the system with our own needs, and eventually by shipping the system publicly, once the API is stable enough and we have developed enough site adapters and formulas to support a critical mass of sites and use cases.
+
+Here are a few of the most pressing limitations in the current system:
+
+* Wildcard only extracts data on the page, which means that subsequent pages of results in paginated lists are not included in the table. (Sifter explains [@huynh2006] techniques that might help get around this.)
+* There is no mechanism for end users to express imperative workflows (e.g. "click this button, and then..."); they can only write formulas that return data and then inject the resulting data into the page. While this makes the system simpler, it also may exclude many valuable use cases.
+* Wildcard's data model expresses a single table at a time, without any notion of relationships between tables. A UI like SIEUFERD [@bakke2016] might help to visualize joins between tables.
+* Only allowing site adapters to be manually coded means that the number of supported sites is limited. We may explore also building wrappers using automated heuristics.
+
+# Conclusion
+
+We live in a time of pessimism about the effects of the internet and software. At times it seems like there is no way out of the mess, but we think that one promising solution is to enable more people to have deeper control over the software they use every day. The Web offers an open foundation that browser extensions have capitalized on, but even this has only empowered users within the limited confines of the ideas that programmers have been able to think of.
+
+In this paper, we have presented Wildcard, a general-purpose browser extension that gives end users more freedom to mold web applications to meet their needs. To receive future updates on Wildcard and notifications about a public release, sign up for the email newsletter.

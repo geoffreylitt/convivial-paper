@@ -14,6 +14,45 @@
 \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
 \makesavenoteenv{longtable}
 
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+
 \usepackage[backend=biber]{biblatex}
 \addbibresource{references.bib}
 
@@ -27,12 +66,12 @@ data table}
 \subtitle{}% optional
 
 \author{Geoffrey Litt}
-\authorinfo{is bla bla bla}
+\authorinfo{is a PhD student at MIT, researching programming tools for end users and developers.}
 \author{Daniel Jackson}
-\authorinfo{is bla bla bla}
+\authorinfo{is a professor in the Department of Electrical Engineering and Computer Science at MIT, associate director of CSAIL, and a MacVicar Fellow. He leads the Software Design Group.}
 \affiliation{Massachusetts Institute of Technology}
 
-\keywords{programming journal, paper formatting, submission preparation} % please provide 1--5 keywords
+\keywords{end-user programming, software customization, web browser extensions} % please provide 1--5 keywords
 
 
 %%%%%%%%%%%%%%%%%%
@@ -142,10 +181,7 @@ Kay envisioned personal computing as a medium that let a user ``mold and
 channel its power to his own needs,'' but today's software is far from
 this vision.
 
-In this paper, we introduce Wildcard\footnote{Wildcard was the internal
-  pre-release name for Hypercard, which served as an inspiration for
-  this project since it promoted software modification by end users and
-  was a precursor to the modern Web.}, a browser extension that aims to
+In this paper, we introduce Wildcard, a browser extension that aims to
 make software more malleable by enabling users to tweak web applications
 without programming. Wildcard adds a panel to the bottom of a web page
 that shows a structured table view of the main data in the page. The
@@ -338,78 +374,70 @@ release the tool to allow real end users to discover their own uses.
 \hypertarget{system-architecture}{%
 \section{System Architecture}\label{system-architecture}}
 
-\begin{figure}
-\centering
-\includegraphics{media/architecture.png}
-\caption{The architecture of the Wildcard system}
-\end{figure}
-
 Wildcard is written in Typescript, and is injected into pages using the
 \href{https://www.tampermonkey.net/}{Tampermonkey} userscript manager
 (although in the future we plan to deploy it as a standalone browser
 extension.)
 
-In order to maximize extensibility, Wildcard is implemented as a small
-core program along with several types of plugins: site adapters,
-formulas, and cell renderers/editors. The core contains functionality
-for displaying the data table and handling user interactions, and the
-table implementation is currently built on the
-\href{https://handsontable.com/}{Handsontable} Javascript library to
-enable rapid prototyping.
+In order to maximize extensibility by other programmers, Wildcard is
+implemented as a small core program along with several types of plugins:
+site adapters, formulas, and cell renderers/editors. The core contains
+functionality for displaying the data table and handling user
+interactions, and the table implementation is built using the
+\href{https://handsontable.com/}{Handsontable} Javascript library.
 
-Site adapters\ldots.
+\begin{figure}
+\centering
+\includegraphics{media/architecture-clean.png}
+\caption{The architecture of the Wildcard system}
+\end{figure}
 
-Formula functions\ldots{}
+Site adapters specify the bidirectional connection between the web page
+and its structured data representation.
 
-Cell viewers\ldots{}
+For extracting data from the page and getting it into structured form,
+Wildcard provides ways to concisely and declaratively express scraping
+logic. For example, here is a code snippet for extracting the name of an
+Airbnb listing. It specifies the field name and some metadata
+properties, and then a function that extracts the name div from a row
+div.
 
-\begin{itemize}
-\tightlist
-\item
-  Extension points
+\begin{Shaded}
+\begin{Highlighting}[]
+  \OperatorTok{\{}
+\NormalTok{    fieldName}\OperatorTok{:} \StringTok{"name"}\OperatorTok{,}
+\NormalTok{    readOnly}\OperatorTok{:} \KeywordTok{true}\OperatorTok{,}
+\NormalTok{    type}\OperatorTok{:} \StringTok{"text"}\OperatorTok{,}
+\NormalTok{    el}\OperatorTok{:}\NormalTok{ (row) }\KeywordTok{=>} \VariableTok{row}\OperatorTok{.}\FunctionTok{querySelector}\NormalTok{(}\VerbatimStringTok{\textasciigrave{}.}\SpecialCharTok{$\{}\NormalTok{titleClass}\SpecialCharTok{\}}\VerbatimStringTok{\textasciigrave{}}\NormalTok{)}\OperatorTok{,}
+  \OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
-  \begin{itemize}
-  \tightlist
-  \item
-    site adapters
+The site adapter also needs to support the reverse direction: sending
+updates from the table to the original page. Most DOM manipulation is
+not performed directly by the site adapter. To support sorting and
+filtering, the adapter specifies how to find the divs representing data
+rows, and the core platform sorts and filters the DOM to reflect the
+table state. User annotations are handled similarly. Finally, site
+adapters can also optionally implement site-specific actions (like
+favoriting in Airbnb) in normal Javascript code that controls the page.
 
-    \begin{itemize}
-    \tightlist
-    \item
-      show a snippet of adapter code
-    \item
-      discuss how easy it is for programmers to make adapters
-    \item
-      discuss possible future automation of adapter creation
-    \item
-      Mention the technique of scraping data from AJAX requests
-    \end{itemize}
-  \item
-    formula functions
-  \item
-    cell viewer/editors
-  \end{itemize}
-\item
-  future implementation goals
+So far we have implemented X (\emph{fill in latest number}) site
+adapters built into Wildcard. We plan to implement more in the near
+future to continue to test the limits of the API, and to encourage third
+party programmers to build, maintain, and distribute adapters for
+popular sites.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    make it easy for programmers to add adapters + plugins, and
-    distribute them to users. (Currently all adapters + plugins are part
-    of the main Wildcard codebase)
-  \end{itemize}
-\end{itemize}
+Formulas and cell editors are also implemented as separate modules, so
+that additional ones could be contributed by third party programmers.
 
 \hypertarget{design-principles}{%
 \section{Design principles}\label{design-principles}}
 
 The design of Wildcard is grounded in several principles, informed by
-prior work and our own experimentation. We hope you find these
-principles helpful not only for understanding our prototype, but also
-for designing other systems for end user programming.
-
-\emph{Todo: add diagrams illustrating principles}
+prior work and our own experimentation. We think these principles can
+also more generally inform the design of end user programming,
+particularly systems enabling users to modify GUI apps.
 
 \hypertarget{decouple-ui-from-data}{%
 \subsection{Decouple UI from data}\label{decouple-ui-from-data}}
@@ -606,7 +634,14 @@ browser extensions to modify. Application authors can use practices that
 make it easier to modify their apps (e.g.~clean semantic markup), or
 more difficult (e.g.~code obfuscation), but the default state is
 openness. This gives extensions freedom to modify applications in
-creative ways that the original developers did not plan for.
+creative ways that the original developers did not plan for. At the most
+extreme, this can even include modifications like ad blocking that are
+hostile to the desires of the original developers (a notion Cory
+Doctorow calls
+\href{https://www.eff.org/deeplinks/2019/10/adversarial-interoperability/}{adversarial
+interoperability}), but there are also many other changes which are not
+actively hostile, merely falling outside the range of possibilities
+originally imagined by the developer.
 
 Wildcard takes advantage of this openness, and does not depend on
 cooperation from first-party website developers. Any programmer can add
@@ -633,105 +668,251 @@ third parties have continued to maintain Gmail extension APIs used by
 many Gmail browser extensions \autocite{streak,talwar2019}, illustrating
 the value of collaboratively maintaining third party adapters.)
 
-\hypertarget{no-magic}{%
-\subsection{No magic}\label{no-magic}}
+\hypertarget{collaboration-over-automation}{%
+\subsection{Collaboration over
+automation}\label{collaboration-over-automation}}
+
+The architecture of Wildcard requires site adapters to abstract the low
+level representation of a web page into a higher-level, structured
+representation that is easier for end users to work with. Many web
+scraping research systems have either automated this process entirely
+using heuristics, or created interactive workflows for end users to
+specify the translation. In Wildcard, we take a different approach:
+programmers manually code site adapters.
+
+This decision is partially a pragmatic one---we haven't had time to
+incorporate sophisticated automation yet, and we may choose to do so in
+the future. But it is also a principled decision. Automated approaches
+tend to work much of the time but not all of the time
+\autocite{bolin2005} \autocite{little2010}. In contrast, human
+programmers have been able to maintain very stable scraping libraries,
+even for complex sites like Gmail \autocite{streak,talwar2019}. We are
+willing to trade off lower site coverage in return for more reliable
+results on the sites that are covered, because this builds confidence
+for users about where they can expect Wildcard to work.
+
+We see this architecture as a form of collaboration between programmers
+and end users. In the wild, spreadsheets are built collaboratively by
+users with different levels of technical expertise: some users write
+simple formulas, while others help write more complex formulas or even
+macros \autocite{nardi1990}. Even though some parts of the collaboration
+require more expertise, even users with little expertise are still
+empowered to perform much of the work themselves, which differs
+radically from custom software development where coding expertise is
+table stakes for making any contributions. Similarly, we envision
+multiple layers of Wildcard usage depending on technical expertise:
 
 \begin{itemize}
 \tightlist
 \item
-  an ecosystem of programmers collaboratively building a platform for
-  end users
+  only using sorting/filtering/annotation, with no computation of any
+  kind
 \item
-  but still empowering end users to do the creative parts, the final
-  glue
+  writing simple formulas to fetch new data
 \item
-  less brittle, less confusing and surprising (maybe Chickenfoot or
-  Coscripter had this problem? Find a nugget in those papers to support.
-  I remember Helena had something about auto-scraping breaking\ldots{}
-  contrast with Gmail.Js stability?)
+  composing complex formulas that perform more advanced computation
 \item
-  still leaves the door open for future automation
-\item
-  maybe ``first party optional'' can be included here?
+  using Javascript to create or maintain site adapters, formulas, or
+  cell editors
 \end{itemize}
 
 \hypertarget{related-work}{%
 \section{Related work}\label{related-work}}
 
-\emph{Note: a lot of this was already covered above; how to deal with
-that?}
+Many projects have explored end user customization of web applications,
+but it has not become a common activity in the wild. We suspect that so
+far no system has found the right combination of utility, ease of use,
+and robustness required for widespread adoption. Wildcard aims to build
+on lessons learned from this body of work, employing a novel approach of
+using a familiar spreadsheet table to go about the task of modifying the
+UI of an existing web application. Here we describe some of the areas of
+related work, and how Wildcard builds on them.
+
+\hypertarget{malleable-software}{%
+\subsection{Malleable software}\label{malleable-software}}
+
+In the broadest sense, Wildcard is inspired by systems aiming to make
+software into a dynamic medium where end users frequently create and
+modify software to meet their own needs, rather than accepting pre-built
+applications built by programmers. These systems include Smalltalk
+\autocite{kay1977}, Hypercard \autocite{hypercard2019}, Boxer
+\autocite{disessa1986}, Webstrates \autocite{klokmose2015}, and
+Dynamicland \autocite{victor}. (The project's name Wildcard comes from
+the internal pre-release name for Hypercard, which promoted software
+modification by end users and was a precursor to the modern Web.)
+
+These projects generally require building new software from scratch for
+that environment. This provides a great deal of flexibility, but also
+means they are not compatible with existing software and require
+wholesale adoption. In contrast, Wildcard takes a pragmatic approach of
+enabling people to tweak the software they already use.
+
+\hypertarget{web-augmentation}{%
+\subsection{Web augmentation}\label{web-augmentation}}
+
+Wildcard's goals are closely shared with other browser extensions which
+provide panels to augment and modify a website in the context of using
+the site.
+
+Sifter \autocite{huynh2006} enables users to sort and filter lists of
+data on web pages by converting the data into a structured format,
+providing a result similar to Wildcard's sort and filter functionality.
+The mechanism is different, though: Sifter uses a combination of
+automated heuristics and interactive user feedback to extract data,
+whereas Wildcard currently relies on programmers creating wrappers for
+extracting structured data, probably leading to higher quality
+extraction but on fewer sites. Also, Wildcard aims for much broader
+functionality than just sorting and filtering, and shows the structured
+table view of the data to facilitate these other interactions, whereas
+Sifter just shows sort controls and never reveals the underlying data
+table.
+
+``Sloppy programming'' \autocite{little2010} tools like Chickenfoot
+\autocite{bolin2005} and Coscripter \autocite{leshed2008} enable users
+to create scripts that perform actions like filling in text boxes and
+clicking buttons, without directly interacting with the DOM. Users
+express the desired page elements in natural, informal terms
+(e.g.~writing ``the username box'' to represent the textbook closest to
+the label ``username''), and then using heuristics to determine which
+elements most likely match the user's intent. This approach allows for
+expressing a wide variety of commands with minimal training, but it also
+has downsides. It is difficult to know whether a command will
+consistently work over time (in addition to changes to the website,
+changes to the heuristics can also cause problems), and it is not easy
+for users to discover the space of possible commands.
+
+Wildcard offers a sharp contrast to sloppy programming, instead choosing
+to expose a high degree of structure through the familiar spreadsheet
+table, which offers the reverse set of tradeoffs: more robust behavior,
+but in a narrower domain. Wildcard offers more consistency (e.g.,
+clicking a sort header will always work correctly as long as the site
+adapter is maintained) and offers clearer affordances for what types of
+actions are possible (or, crucially, what actions are \emph{not}
+possible, which is very useful for users to know). On the other hand,
+Wildcard cannot offer coverage of all websites, and has a narrower range
+of possible actions than sloppy tools. Still, we hope that with enough
+site adapters and formulas, these downsides can be mitigated, and that
+the benefits of structure outweigh these costs.
+
+\hypertarget{spreadsheet-based-app-builders}{%
+\subsection{Spreadsheet-based app
+builders}\label{spreadsheet-based-app-builders}}
+
+It is a powerful realization to notice that a spreadsheet can serve as
+an end-user-friendly backing data store and computation layer for an
+interactive web application. Research projects like Quilt
+\autocite{benson2014}, Gneiss \autocite{chang2014}, and Marmite
+\autocite{wong2007}, as well as commercial tools like Airtable Blocks
+\autocite{zotero-79} and Glide \autocite{zotero-81} allow users to view
+data in a spreadsheet table, compute over the data using formulas, and
+connect the table to a GUI. Because many users are already familiar with
+using spreadsheets, this way of creating applications tends to be much
+easier than traditional software methods; for example, in a user study
+of Quilt, many people were able to create applications in under 10
+minutes, even if they expected it would take them many hours.
+
+Wildcard builds on this powerful idea, but applies it to modifying
+existing applications, rather than building new applications from
+scratch. For many people, we suspect that tweaking existing applications
+provides more motivation as a starting point for programming than
+creating a new application from scratch.
+
+An important design decision for tools in this space is how far to
+deviate from traditional spreadsheets, and in what ways. Quilt and Glide
+use existing web spreadsheet software as a backend, providing maximum
+familiarity and compatibility with existing spreadsheets, but other
+projects branch out in various ways. Gneiss has its own spreadsheet with
+additional features useful for building GUIs. Marmite provides a live
+data view that resembles a spreadsheet, but programming is actually done
+using a separate data flow pane rather than spreadsheet formulas, which
+led to some confusion in a user study among users who expected behavior
+more similar to spreadsheets \autocite{wong2007}. Airtable offers a
+relational database with formula support in a spreadsheet-style direct
+manipulation interface, a combination which has found commercial
+success. Wildcard's table is most similar to Airtable, aiming to offer
+the structure of a relational table, but to keep the notion of pure
+reactive formulas from spreadsheets rather than introducing a separate
+programming model outside of the table.
+
+Quilt also raised the hypothetical idea of ``web worksheets'' in
+spreadsheets: small HTML UIs inside of a spreadsheet table to help users
+edit data or formulas in a more domain-specific interface. This is
+similar to Wildcard's notion of cell editors.
+
+\hypertarget{web-scraping-data-extraction}{%
+\subsection{Web scraping / data
+extraction}\label{web-scraping-data-extraction}}
+
+Web scraping tools focus on extracting structured data out of
+unstructured web pages. Web scraping is closely related to the
+implementation of Wildcard, but has very different goals: web scraping
+extracts static data for processing in another environment, whereas
+Wildcard supports modification of the original page by maintaining a
+bidirectional connection between the extracted data and the page.
+
+Web scraping tools differ in how much structure they attempt to map onto
+the data. Some tools like Rousillon \autocite{chasins2018} extract data
+in a minimally structured relational format; other tools like Piggy Bank
+\autocite{huynh2005} or Thresher \autocite{hogue2005} more ambitiously
+map the data to a Semantic Web schema. In Wildcard, we chose to avoid
+rich schemas, in order to reduce the work associated with creating a
+site adapter.
+
+\hypertarget{limitations-and-future-work}{%
+\section{Limitations and future
+work}\label{limitations-and-future-work}}
+
+Wildcard is still in early development; there are still many limitations
+to resolve and open questions to explore.
+
+The most important question is whether the combination of features
+provided by Wildcard can actually be combined in enough useful ways to
+make the system worth using in practice. We plan to test this by first
+continuing to privately test the system with our own needs, and
+eventually by shipping the system publicly, once the API is stable
+enough and we have developed enough site adapters and formulas to
+support a critical mass of sites and use cases.
+
+Here are a few of the most pressing limitations in the current system:
 
 \begin{itemize}
 \tightlist
 \item
-  Malleable software: Kay, Webstrates
+  Wildcard only extracts data on the page, which means that subsequent
+  pages of results in paginated lists are not included in the table.
+  (Sifter explains \autocite{huynh2006} techniques that might help get
+  around this.)
 \item
-  Instrumental interaction, polymorphic UI
+  There is no mechanism for end users to express imperative workflows
+  (e.g.~``click this button, and then\ldots{}''); they can only write
+  formulas that return data and then inject the resulting data into the
+  page. While this makes the system simpler, it also may exclude many
+  valuable use cases.
 \item
-  Web automation: Chickenfoot, CoScripter
+  Wildcard's data model expresses a single table at a time, without any
+  notion of relationships between tables. A UI like SIEUFERD
+  \autocite{bakke2016} might help to visualize joins between tables.
 \item
-  Wrapper induction: Thresher, Helena
-\item
-  Personal data ownership: SOLID
-\item
-  Extension helper libraries, e.g.~Gmail.js.
-\item
-  Doctorow:
-  \href{https://www.eff.org/deeplinks/2019/10/adversarial-interoperability/}{adversarial
-  interoperability}
-\item
-  Marmite
+  Only allowing site adapters to be manually coded means that the number
+  of supported sites is limited. We may explore also building wrappers
+  using automated heuristics.
 \end{itemize}
 
-\hypertarget{future-work}{%
-\section{Future work}\label{future-work}}
+\hypertarget{conclusion}{%
+\section{Conclusion}\label{conclusion}}
 
-\begin{itemize}
-\tightlist
-\item
-  limitations / future ideas
+We live in a time of pessimism about the effects of the internet and
+software. At times it seems like there is no way out of the mess, but we
+think that one promising solution is to enable more people to have
+deeper control over the software they use every day. The Web offers an
+open foundation that browser extensions have capitalized on, but even
+this has only empowered users within the limited confines of the ideas
+that programmers have been able to think of.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    the spreadsheet language is very primitive, can we make it more
-    expressive? what are the exact semantics of fetching data from APIs?
-    What about making API requests that do mutation, not just fetching
-    data?
-  \item
-    only works when the user is browsing. Should we explore triggers,
-    scheduled scraping?
-  \item
-    only has spreadsheet-style functional transformations. Should we
-    explore imperative workflows? Injecting buttons into pages that do
-    things? (Eg, imagine a ``save to google maps'' button that you can
-    inject into a page)
-  \item
-    limited options for how to style injected content, could explore
-    styling (eg, maybe you can restyle a table cell and the styling is
-    reflected when it's injected into the page?)
-  \item
-    how much do adapters generalize to many sites? We've built X
-    adapters but need to make more
-  \item
-    page boundaries, eg scraping multi page results
-  \item
-    how do people save scripts and share them with each other? TBD
-  \item
-    nested data? lean on SIEUFERD?
-  \item
-    reduce the number of primitives?
-  \end{itemize}
-\item
-  still in early development; note the beta release plan (tentative:
-  target public beta availability at the workshop in March?)
-\item
-  Could explore automated wrapper induction, building on prior work
-\item
-  Want to get more real usage of the tool and run usability studies
-\item
-  Include a link to sign up for future updates
-\end{itemize}
+In this paper, we have presented Wildcard, a general-purpose browser
+extension that gives end users more freedom to mold web applications to
+meet their needs. To receive future updates on Wildcard and
+notifications about a public release, sign up for the email newsletter.
 
 \acks
 \printbibliography

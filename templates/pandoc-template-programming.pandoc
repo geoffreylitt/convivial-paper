@@ -24,6 +24,10 @@ $else$
 $endif$
 $endif$
 
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
 \usepackage[backend=biber]{biblatex}
 \addbibresource{$bibliography$}
 
@@ -36,12 +40,12 @@ $endif$
 \subtitle{$subtitle$}% optional
 
 \author{Geoffrey Litt}
-\authorinfo{is bla bla bla}
+\authorinfo{is a PhD student at MIT, researching programming tools for end users and developers.}
 \author{Daniel Jackson}
-\authorinfo{is bla bla bla}
+\authorinfo{is a professor in the Department of Electrical Engineering and Computer Science at MIT, associate director of CSAIL, and a MacVicar Fellow. He leads the Software Design Group.}
 \affiliation{Massachusetts Institute of Technology}
 
-\keywords{programming journal, paper formatting, submission preparation} % please provide 1--5 keywords
+\keywords{end-user programming, software customization, web browser extensions} % please provide 1--5 keywords
 
 
 %%%%%%%%%%%%%%%%%%
