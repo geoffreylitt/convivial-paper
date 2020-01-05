@@ -219,10 +219,10 @@ Here are a few of the largest limitations in the current system:
 
 # Conclusion
 
-We live in a time of pessimism about the effects of the internet. We think that one promising solution is to enable more people to have deeper control over the Web software they use every day. The Web offers the opportunity of an open foundation; browser extensions have capitalized on it to some extent, but even this has only empowered users within the limited confines of the ideas that programmers have decided to build. If users could more flexibly mold web applications to meet their needs, perhaps large corporations would have less centralized control over how everybody experiences software.
+We live in a time of pessimism about the effects of the internet, especially given the degree of centralized control that large corporations wield. We think that one promising solution is to enable more people to have deeper control over the Web software they use every day. The Web offers a promising opportunity of an open foundation, but even the success of browser extensions has only empowered users within the limited confines of the ideas that programmers have decided to build. 
 
-In this paper, we have presented Wildcard, a browser-embedded programming system that aims to enable end users to mold Web software to their needs. We plan to continue developing the system and to eventually deploy it as an open-source tool.
+In this paper, we have presented Wildcard, a browser-embedded programming system that maps websites to a structured data table, enabling end users to modify their behavior. We hope that it contributes to making the web into a more dynamic medium that users can mold to their own needs.
 
-To receive future updates on Wildcard and notifications about a public release, [sign up for the email newsletter]().
+We plan to continue developing the system and to eventually deploy it as an open-source tool. To receive future updates on Wildcard and notifications about a public release, [sign up for the email newsletter]().
 
 We are also looking for private beta testers. If you have an idea for how you might want to use Wildcard, [please contact us](mailto:glitt@mit.edu). We would love to collaborate on building site adapters and formulas to support your use case.
