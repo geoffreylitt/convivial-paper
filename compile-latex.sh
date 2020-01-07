@@ -1,6 +1,6 @@
 set -e
 
-cat latex.sections | xargs pandoc \
+pandoc \
   --filter conditional-render \
   --filter pandoc-crossref \
   --filter pandoc-citeproc \
@@ -9,7 +9,9 @@ cat latex.sections | xargs pandoc \
   paper.tex \
   --template=templates/pandoc-template-programming.pandoc \
   --biblatex \
-  --metadata=format:pdf
+  --metadata=format:pdf \
+  paper.md
+
 pdflatex paper.tex
 biber paper
 pdflatex -interaction=batchmode paper.tex

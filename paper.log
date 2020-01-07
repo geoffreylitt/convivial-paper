@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  4 JAN 2020 17:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  5 JAN 2020 14:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3582,36 +3582,36 @@ LaTeX Font Info:    Font shape `T1/FiraSans-OsF/semibold/n' will be
 LaTeX Font Info:    Font shape `T1/XCharter-TOsF/m/n' will be
 (Font)              scaled to size 8.5pt on input line 137.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/it' will be
-(Font)              scaled to size 8.27998pt on input line 156.
+(Font)              scaled to size 8.27998pt on input line 159.
 LaTeX Font Info:    Try loading font information for TS1+FiraSans-OsF on input 
-line 156.
+line 159.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/fira/TS1FiraSans-OsF.fd
 File: TS1FiraSans-OsF.fd 2019/04/04 (autoinst) Font definitions for TS1/FiraSan
 s-OsF.
 )
 LaTeX Font Info:    Font shape `TS1/FiraSans-OsF/regular/it' will be
-(Font)              scaled to size 8.27998pt on input line 156.
+(Font)              scaled to size 8.27998pt on input line 159.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `FiraSans-OsF' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `TS1/FiraSans-OsF/semibold/n' will be
-(Font)              scaled to size 8.27998pt on input line 156.
+(Font)              scaled to size 8.27998pt on input line 159.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/medium/n' will be
-(Font)              scaled to size 10.07397pt on input line 156.
+(Font)              scaled to size 10.07397pt on input line 159.
 <doclicense-CC-by.pdf, id=7, 121.45375pt x 43.16125pt>
 File: doclicense-CC-by.pdf Graphic file (type pdf)
 <use doclicense-CC-by.pdf>
-Package pdftex.def Info: doclicense-CC-by.pdf  used on input line 156.
+Package pdftex.def Info: doclicense-CC-by.pdf  used on input line 159.
 (pdftex.def)             Requested size: 76.82234pt x 27.30038pt.
 LaTeX Font Info:    Try loading font information for TS1+XCharter-TOsF on input
- line 156.
+ line 159.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/xcharter/TS1XCharter-TOsF.fd
 File: TS1XCharter-TOsF.fd 2017/06/25 (autoinst) Font definitions for TS1/XChart
 er-TOsF.
 )
 LaTeX Font Info:    Font shape `TS1/XCharter-TOsF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 156.
+(Font)              scaled to size 8.0pt on input line 159.
 Package microtype Info: Character `textlbrackdbl ' is missing
 (microtype)             in font `TS1/XCharter-TOsF/m/n/8'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -3622,7 +3622,7 @@ Package microtype Info: Character `texttildelow ' is missing
 (microtype)             in font `TS1/XCharter-TOsF/m/n/8'.
 (microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    Font shape `T1/XCharter-TOsF/m/it' will be
-(Font)              scaled to size 8.0pt on input line 156.
+(Font)              scaled to size 8.0pt on input line 159.
 [1.1
 
 
@@ -3630,49 +3630,46 @@ LaTeX Font Info:    Font shape `T1/XCharter-TOsF/m/it' will be
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </usr/lo
 cal/texlive/2019/texmf-dist/tex/latex/doclicense/images/doclicense-CC-by.pdf>]
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/semibold/n' will be
-(Font)              scaled to size 11.03998pt on input line 160.
+(Font)              scaled to size 11.03998pt on input line 163.
 LaTeX Font Info:    Font shape `T1/XCharter-TOsF/m/it' will be
-(Font)              scaled to size 10.95pt on input line 179.
+(Font)              scaled to size 10.95pt on input line 182.
 [2.2
 
 ] [3.3] [4.4]
-<media/opentable.png, id=59, 436.9926pt x 344.0052pt>
-File: media/opentable.png Graphic file (type png)
-<use media/opentable.png>
-Package pdftex.def Info: media/opentable.png  used on input line 363.
-(pdftex.def)             Requested size: 436.99152pt x 344.00435pt.
-
-Overfull \hbox (38.6529pt too wide) in paragraph at lines 363--363
- [][] 
- []
-
-LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 9.19998pt on input line 363.
-LaTeX Font Info:    Font shape `T1/FiraSans-OsF/semibold/n' will be
-(Font)              scaled to size 9.19998pt on input line 363.
-[5.5 <./media/opentable.png>]
-<media/architecture-clean.png, id=73, 351.2322pt x 237.7683pt>
+<media/architecture-clean.png, id=62, 351.2322pt x 237.7683pt>
 File: media/architecture-clean.png Graphic file (type png)
 <use media/architecture-clean.png>
-Package pdftex.def Info: media/architecture-clean.png  used on input line 391.
+Package pdftex.def Info: media/architecture-clean.png  used on input line 384.
 (pdftex.def)             Requested size: 351.23134pt x 237.7677pt.
+LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
+(Font)              scaled to size 9.19998pt on input line 385.
+LaTeX Font Info:    Font shape `T1/FiraSans-OsF/semibold/n' will be
+(Font)              scaled to size 9.19998pt on input line 385.
+[5.5 <./media/architecture-clean.png>]
 LaTeX Font Info:    Font shape `TS1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 10.07397pt on input line 411.
+(Font)              scaled to size 10.07397pt on input line 404.
 Missing character: There is no ` in font FiraSans-Regular-osf-ts1!
 Missing character: There is no ` in font FiraSans-Regular-osf-ts1!
-[6.6 <./media/architecture-clean.png>] [7.7] [8.8]
-Overfull \hbox (8.14401pt too wide) in alignment at lines 586--588
- [] [] [] 
- []
-
+[6.6]
+<media/structure.png, id=87, 351.2322pt x 203.0787pt>
+File: media/structure.png Graphic file (type png)
+<use media/structure.png>
+Package pdftex.def Info: media/structure.png  used on input line 483.
+(pdftex.def)             Requested size: 351.23134pt x 203.0782pt.
+[7.7 <./media/structure.png>]
 LaTeX Font Info:    Font shape `T1/XCharter-TOsF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 590.
+(Font)              scaled to size 10.95pt on input line 547.
+[8.8] [9.9]
+<media/adapters.png, id=134, 351.2322pt x 238.491pt>
+File: media/adapters.png Graphic file (type png)
+<use media/adapters.png>
+Package pdftex.def Info: media/adapters.png  used on input line 624.
+(pdftex.def)             Requested size: 351.23134pt x 238.4904pt.
+[10.10 <./media/adapters.png>] [11.11] [12.12] [13.13] [14.14]
 
-Overfull \hbox (8.14401pt too wide) in alignment at lines 588--594
- [] [] [] 
- []
+Package hyperref Warning: Suppressing link with empty target on input line 910.
 
-[9.9] [10.10] [11.11] [12.12] [13.13] [14.14]
+
 LaTeX Font Info:    Font shape `T1/XCharter-TOsF/m/sc' will be
 (Font)              scaled to size 10.95pt on input line 918.
 
@@ -3682,21 +3679,21 @@ Overfull \hbox (70.47382pt too wide) in paragraph at lines 919--919
 tps://medium.com/@timberners_lee/one-
  []
 
-
+[15.15]
 Overfull \hbox (22.35602pt too wide) in paragraph at lines 919--919
 []\T1/XCharter-TOsF/m/it/10.95 (-20) Create an App from a Google Sheet in Min-u
 tes $\OMS/mdbch/m/n/10.95 ^^A$ \T1/XCharter-TOsF/m/it/10.95 (-20) Glide\T1/XCha
 rter-TOsF/m/n/10.95 (-20) . en. https://www.glideapps.com/. 
  []
 
-[15.15]
+
 Overfull \hbox (13.84625pt too wide) in paragraph at lines 919--919
 []\T1/XCharter-TOsF/m/n/10.95 (-20) Hypercard. ^^P  Hy-per-Card^^Q. en. In: \T1
 /XCharter-TOsF/m/it/10.95 (-20) Wikipedia \T1/XCharter-TOsF/m/n/10.95 (-20) (De
 c. 2019). Page Ver-sion ID: 931376685. 
  []
 
-[16.16] [17.17
+[16.16] [17.17] [18.18
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 920.
@@ -3712,12 +3709,12 @@ Package logreq Info: Writing requests to 'paper.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  49855 strings out of 492616
- 958816 string characters out of 6129482
- 1469169 words of memory out of 5000000
- 52808 multiletter control sequences out of 15000+600000
- 799716 words of font info for 253 fonts, out of 8000000 for 9000
+ 958857 string characters out of 6129482
+ 1469024 words of memory out of 5000000
+ 52809 multiletter control sequences out of 15000+600000
+ 799767 words of font info for 254 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 64i,21n,102p,9085b,2040s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 64i,21n,102p,9085b,2034s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/xcharter/xch_esnimw.enc}{
 /usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/xcharter/xch_w7odti.enc}{/us
 r/local/texlive/2019/texmf-dist/fonts/enc/dvips/fira/fir_ggqhxd.enc}{/usr/local
@@ -3733,10 +3730,10 @@ xmf-dist/fonts/type1/public/fira/FiraSans-SemiBold.pfb></usr/local/texlive/2019
 019/texmf-dist/fonts/type1/public/xcharter/XCharter-Italic.pfb></usr/local/texl
 ive/2019/texmf-dist/fonts/type1/public/xcharter/XCharter-Roman.pfb></usr/local/
 texlive/2019/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7y.pfb>
-Output written on paper.pdf (17 pages, 774652 bytes).
+Output written on paper.pdf (18 pages, 463431 bytes).
 PDF statistics:
- 387 PDF objects out of 1000 (max. 8388607)
- 350 compressed objects within 4 object streams
- 97 named destinations out of 1000 (max. 500000)
- 38604 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 388 PDF objects out of 1000 (max. 8388607)
+ 348 compressed objects within 4 object streams
+ 95 named destinations out of 1000 (max. 500000)
+ 38593 words of extra memory for PDF output out of 42996 (max. 10000000)
 

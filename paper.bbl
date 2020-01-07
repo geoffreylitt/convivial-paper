@@ -929,6 +929,7 @@
       \strng{authorbibnamehash}{9df3499e5dead8d90b99e9fcb37f9fa8}
       \strng{authornamehash}{9df3499e5dead8d90b99e9fcb37f9fa8}
       \strng{authorfullhash}{9df3499e5dead8d90b99e9fcb37f9fa8}
+      \field{extraname}{1}
       \field{sortinit}{N}
       \field{sortinithash}{f7242c3ed3dc50029fca1be76c497c7c}
       \field{labelnamesource}{author}
@@ -940,6 +941,50 @@
       \range{pages}{12}
       \verb{file}
       \verb /Users/geoffreylitt/Zotero/storage/B9EBINUV/Nardi and Miller - 1990 - An Ethnographic Study of Distributed Problem Solvi.pdf;/Users/geoffreylitt/Zotero/storage/9ERKIFRJ/summary.html
+      \endverb
+    \endentry
+    \entry{nardi1991}{article}{}
+      \name{author}{2}{}{%
+        {{hash=13e20e27a9ef15964e1865c58354530e}{%
+           family={Nardi},
+           familyi={N\bibinitperiod},
+           given={Bonnie\bibnamedelima A.},
+           giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=95e26e4df267de7507dc5765b057aba3}{%
+           family={Miller},
+           familyi={M\bibinitperiod},
+           given={James\bibnamedelima R.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{9df3499e5dead8d90b99e9fcb37f9fa8}
+      \strng{fullhash}{9df3499e5dead8d90b99e9fcb37f9fa8}
+      \strng{bibnamehash}{9df3499e5dead8d90b99e9fcb37f9fa8}
+      \strng{authorbibnamehash}{9df3499e5dead8d90b99e9fcb37f9fa8}
+      \strng{authornamehash}{9df3499e5dead8d90b99e9fcb37f9fa8}
+      \strng{authorfullhash}{9df3499e5dead8d90b99e9fcb37f9fa8}
+      \field{extraname}{2}
+      \field{sortinit}{N}
+      \field{sortinithash}{f7242c3ed3dc50029fca1be76c497c7c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{issn}{00207373}
+      \field{journaltitle}{International Journal of Man-Machine Studies}
+      \field{month}{2}
+      \field{number}{2}
+      \field{shorttitle}{Twinkling Lights and Nested Loops}
+      \field{title}{Twinkling Lights and Nested Loops: Distributed Problem Solving and Spreadsheet Development}
+      \field{volume}{34}
+      \field{year}{1991}
+      \field{pages}{161\bibrangedash 184}
+      \range{pages}{24}
+      \verb{doi}
+      \verb 10.1016/0020-7373(91)90040-E
+      \endverb
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/ZN8KPRHB/Nardi and Miller - 1991 - Twinkling lights and nested loops distributed pro.pdf
       \endverb
     \endentry
     \entry{streak}{misc}{}
