@@ -43,17 +43,19 @@ To get a sense of how it feels to use Wildcard, let's see an example of using it
 
 ## Sorting and filtering
 
-We start by opening up the Airbnb search listings page to look for a place to stay. As mentioned before, this page doesn't let us sort by price, but we can use Wildcard to fix that. First, we open up the Wildcard panel, which shows a table corresponding to the search results in the page. As we click around in the table, the corresponding row in the page is highlighted so we can see the connection between the views. 
+The user starts by opening up the Airbnb search listings page to look for a place to stay. The page looks nice and mostly works well, but is missing some key features. As mentioned before, this page doesn't allow the user to sort by price. It also doesn't let them filter by user rating. Using Wildcard, the user can add these small features, while leaving the page's design and the rest of its functionality unchanged.
+
+First, the user opens up the Wildcard panel, which shows a table corresponding to the search results in the page. As they click around in the table, the corresponding row in the page is highlighted so they can see the connection between the views. 
 
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/table.mp4#t=0.1" muted playsinline controls class>
 </video>
 
-When we click the Price column header in the table, both the table and the original page become sorted by price. We can also filter listings by rating, another feature not offered in the Airbnb site.
+Then, the user can use standard spreadsheet column header features to sort the page by price and filter by rating:
 
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/sort-filter.mp4#t=0.1" muted playsinline controls class>
 </video>
 
-After finishing the sorting and filtering, we can close the table view and continue using the website in its original polished design.
+Notice how after manipulating the data, the user was able to close the table view and continue using the website with its original visual design. The table view offers a way to change the data backing a page, but does not need to replace the original interface entirely.
 
 ## Row actions
 
@@ -63,8 +65,6 @@ For example, it's tedious on Airbnb to click on listings one by one to add them 
 
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/favorite-open.mp4#t=0.1" muted playsinline controls class>
 </video>
-
-Within the site adapter, each action is implemented as a regular Javascript function running in the context of the page. It can simulate clicks on buttons in the UI, launch AJAX requests, navigate to new pages, etc.
 
 ## User annotations
 
@@ -106,9 +106,7 @@ Filling in dates for a flight search typically requires opening up a separate ca
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/datepicker.mp4#t=0.1" muted playsinline controls class>
 </video>
 
-Custom UIs enable people to use a consistent UI to enter common types of data across the web.  They also allow a user to access their own private data as part of a web interface, without needing to expose it to the website server.
-
-Overall, the interactive data table offers a computational model that presents a surprisingly large range of useful possibilities for end user modification of websites, while also remaining familiar and easy to use. Here we’ve presented just a few of these possibilities.
+Here we’ve presented just a few possibilities for how to use Wildcard, but we think the interactive data table offers a flexible computational model that can also support a wide range of other useful modifications, all while remaining familiar and easy to use. 
 
 # System Architecture
 
@@ -131,7 +129,8 @@ For extracting data from the page and getting it into structured form, Wildcard 
   }
 ```
 
-The site adapter also needs to support the reverse direction: sending updates from the table to the original page. Most DOM manipulation is not performed directly by the site adapter: the adapter specifies how to find the divs representing data rows, and the core platform mutates the DOM to reflect the table state. The only exception is site-specific actions (like favoriting in Airbnb) which runs Javascript code that can mutate the DOM or perform other arbitrary behaviors.
+The site adapter also needs to support the reverse direction: sending updates from the table to the original page. Most DOM manipulation is not performed directly by the site adapter: the adapter specifies how to find the divs representing data rows, and the core platform mutates the DOM to reflect the table state. The only exception is site-specific actions (like favoriting in Airbnb): actions are implemented as regular Javascript functions running in the context of the page, which can mutate the DOM, simulate clicks on buttons in the UI, launch AJAX requests, navigate to new pages, etc.
+
 
 # Design principles
 
@@ -165,11 +164,9 @@ In order to serve the widest possible audience, Wildcard is designed for tweakin
 
 We can evaluate a system for tweaking software along two dimensions. First, the technical capability required of the user: is programming knowledge needed? Second, the investment required: how much effort must the user invest to make a change? Can they casually make a small change, or do they need to make a larger project out of it? These dimensions are not orthogonal, but they are distinct. For example, setting up a workflow trigger in an end user programming system like [IFTTT](https://ifttt.com/) does not require much technical skill, but it does require leaving the user's normal software and entering a separate environment. On the other hand, running a Javascript snippet in the browser console requires programming skills, but can be done immediately and casually in the flow of using a website.
 
-In addition to requiring no programming skills, Wildcard also aims to support frequent, small modifications. The Wildcard table appears in the course of normal web browsing, to ensure that the tools for modification are close at hand while using the original software. Ink and Switch refers to this property as having an "in-place toolchain" [@inkandswitch2019]. Wildcard also provides live feedback, immediately editing the page in response to user interaction, which gives users confidence in the changes they are making.
+In addition to requiring no programming skills, Wildcard supports frequent, small modifications. The Wildcard table appears in the course of normal web browsing, to ensure that the tools for modification are close at hand while using the original software. Ink and Switch refers to this property as having an "in-place toolchain" [@inkandswitch2019]. Wildcard also provides live feedback, immediately editing the page in response to user interaction, which gives users confidence in the changes they are making.
 
-Wildcard also aims to make some valuable changes possible with particularly low effort: for example, sorting a table in a single click, or adding an annotation by filling in a cell. We would expect many Wildcard users to start by using these bits of functionality, before possibly moving on to more complex features like formulas. This property is inspired by spreadsheets, which can be used productively even by someone who has learned only a tiny part of their functionality, e.g. for storing tables of numbers or computing simple sums [@nardi1991]. In contrast, many traditional programming systems require someone to spend days or even months learning complex concepts before being able to create a useful piece of software.
-
-
+Spreadsheets can be used in genuinely useful ways even by someone who has learned only a tiny part of their functionality, e.g. for storing tables of numbers or computing simple sums [@nardi1991]. This creates inherent motivation to continue using the tool and eventually learn its more powerful features. In contrast, many traditional programming systems require an enormous time investment before a beginner is able to create any valuable software. Like spreadsheets, Wildcard aims to support genuinely useful actions with little effort: for example, sorting a table with a single click, or adding an annotation by typing into a cell. We would expect many Wildcard users to start by using these bits of functionality, before possibly moving on to more complex features like formulas.
 
 ## Build for multiple tiers of users
 
@@ -213,11 +210,11 @@ Wildcard offers a sharp contrast to sloppy programming, instead choosing to expo
 
 ## Spreadsheet-based app builders
 
-It is a powerful realization to notice that a spreadsheet can serve as an end-user-friendly backing data store and computation layer for an interactive web application. Research projects like Object Spreadsheets [@mccutchen2016], Quilt [@benson2014], Gneiss [@chang2014], and Marmite [@wong2007], as well as commercial tools like Airtable Blocks [@zotero-79] and Glide [@zotero-81] allow users to view data in a spreadsheet table, compute over the data using formulas, and connect the table to a GUI. Because many users are already familiar with using spreadsheets, this way of creating applications tends to be much easier than traditional software methods; for example, in a user study of Quilt, many people were able to create applications in under 10 minutes, even if they expected it would take them many hours. 
+Prior work has made the powerful realization that a spreadsheet can serve as an end-user-friendly backing data store and computation layer for an interactive web application. Research projects like Object Spreadsheets [@mccutchen2016], Quilt [@benson2014], Gneiss [@chang2014], and Marmite [@wong2007], as well as commercial tools like Airtable Blocks [@zotero-79] and Glide [@zotero-81] allow users to view data in a spreadsheet table, compute over the data using formulas, and connect the table to a GUI. Because many users are already familiar with using spreadsheets, this way of creating applications tends to be far easier than traditional software methods; for example, in a user study of Quilt, many people were able to create applications in under 10 minutes, even if they expected it would take them many hours. 
 
-Wildcard builds on this powerful idea, but applies it to modifying existing applications, rather than building new applications from scratch. For many people, we suspect that tweaking existing applications provides more motivation as a starting point for programming than creating a new application from scratch.
+Wildcard builds on this idea, but applies it to modifying existing applications, rather than building new applications from scratch. For many people, we suspect that tweaking existing applications provides more motivation as a starting point for programming than creating a new application from scratch.
 
-An important design decision for tools in this space is how to deviate from traditional spreadsheets. Quilt and Glide use existing web spreadsheet software as a backend, providing maximum familiarity and compatibility with existing spreadsheets. Gneiss has its own spreadsheet implementation, with additional features useful for building GUIs. Marmite provides a live data view that resembles a spreadsheet, but programming is actually done using a separate data flow pane rather than spreadsheet formulas. (Marmite's approach led to some confusion in a user study, because users expected behavior more similar to spreadsheets [@wong2007].) Airtable deviates the furthest from spreadsheets: although the user interface has formulas, shows live feedback and is easy to use, the underlying structure is a relational database with typed columns. Wildcard's table is most similar to Airtable; the structure of a relational table is most appropriate for most data in websites, and we have not yet found a need for arbitrary untyped cells.
+An important design decision for tools in this space is how to deviate from traditional spreadsheets like Microsoft Excel or Google Sheets. Quilt and Glide use existing spreadsheet software as a backend, providing maximum familiarity for users, and even compatibility with existing spreadsheets. Gneiss has its own spreadsheet implementation with additional features useful for building GUIs. Marmite provides a live data view that resembles a spreadsheet, but programming is actually done using a separate data flow pane rather than spreadsheet formulas. (Marmite's approach led to some confusion in a user study, because users expected behavior more similar to spreadsheets [@wong2007].) Airtable deviates the furthest: although the user interface resembles a spreadsheet, the underlying structure is a relational database with typed columns. Wildcard's table is most similar to Airtable; the structure of a relational table is most appropriate for most data in websites, and we have not yet found a need for arbitrary untyped cells.
 
 ## Web scraping / data extraction
 
