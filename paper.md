@@ -37,11 +37,9 @@ _Build for multiple tiers of users_: We aim to make Wildcard as easy as possible
 
 Wildcard is currently an early research prototype, with incomplete features and limited coverage of sites. We plan to continue privately testing the system with our own use cases, and then to release the tool publicly, enabling other programmers to contribute site adapters and other plugins. Ultimately, we hope that Wildcard makes modifying websites into a natural part of using the web, as ubiquitous as using spreadsheets in everyday computing.
 
-# Demos
+# Demo: booking a trip with Wildcard
 
-To get a sense of how it feels to use Wildcard, let's see an example of using it to help with booking a trip using the travel sites Airbnb and Expedia.
-
-## Sorting and filtering
+To get a sense of how it might feel to use Wildcard, let's see an example of someone using it to help with booking a trip on the travel sites Airbnb and Expedia.
 
 The user starts by opening up the Airbnb search listings page to look for a place to stay. The page looks nice and mostly works well, but is missing some key features. As mentioned before, this page doesn't allow the user to sort by price. It also doesn't let them filter by user rating. Using Wildcard, the user can add these small features, while leaving the page's design and the rest of its functionality unchanged.
 
@@ -57,8 +55,6 @@ Then, the user can use standard spreadsheet column header features to sort the p
 
 Notice how after manipulating the data, the user was able to close the table view and continue using the website with its original visual design. The table view offers a way to change the data backing a page, but does not need to replace the original interface entirely.
 
-## Row actions
-
 Most websites that show lists of data also offer actions that can be taken on a row in the table, like adding an item to a shopping cart. Wildcard has the ability to make these actions available in the data table if the site adapter implements them. The main advantage this provides is the ability to easily perform an action in bulk across multiple rows.
 
 For example, it's tedious on Airbnb to click on listings one by one to add them to a list of favorites. Using Wildcard, we can just select multiple rows and favorite all of them with one click. Similarly, we can also open the detailed pages for many listings in new tabs.
@@ -66,47 +62,31 @@ For example, it's tedious on Airbnb to click on listings one by one to add them 
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/favorite-open.mp4#t=0.1" muted playsinline controls class>
 </video>
 
-## User annotations
-
-It's a common practice in spreadsheets to add a column next to a table for recording notes about the item in each row. In Wildcard, this pattern can be used to create private annotations in a website. Here, we use this feature to jot down pros and cons of various listings:
+Now the user would like to jot down some notes on the pros and cons of each listing. To do this, they can simply type notes into an additional column next to each listing, and the notes appear inside the listings in the original UI. These annotations are also persisted in the browser for future retrieval. 
 
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/annotate.mp4#t=0.1" muted playsinline controls class>
 </video>
 
-_drop the implementation part?_
+Wildcard also includes a formula language which enables more sophisticated tweaks that fetch external data and perform computations.
 
-In order to match the annotations with the existing design, the site adapter specifies a reasonable location in each row for injecting new data.
-
-Annotations are persisted in browser local storage so the user can come back and view them later. The site adapter associates each table row with a stable identifier from the original site so that annotations can be displayed with the appropriate item.
-
-Currently annotations are private to the browser of the user that created them, but it could be useful in the future to allow users to share annotations. 
-
-## Computation with formulas
-
-The demos so far have shown straightforward tweaks that provide useful conveniences with little effort. But Wildcard also supports more sophisticated tweaks that fetch external data and perform computations, using a formula language.
-
-When traveling without a car, it's nice to evaluate potential places to stay based on how walkable the surroundings. Using Wildcard formulas, we can integrate Airbnb with Walkscore, an API that can rate the walkability of any location on a 1-100 scale. When we call the `WALKSCORE` formula with the latitude and longitude of the listing, it returns the score as the cell value. Because the cell is shown in the page, the score also shows up in the page body.
+When traveling without a car, it's nice to evaluate potential places to stay based on how walkable the surroundings. Using Wildcard formulas, we can integrate Airbnb with Walkscore, an API that rates the walkability of any location on a 1-100 scale. When we call the `WALKSCORE` formula with the latitude and longitude of the listing, it returns the walk score as the cell value. Because the cell's contents are injected into the page, the score also shows up in the page body.
 
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/walkscore.mp4#t=0.1" muted playsinline controls class>
 </video>
-
-Wildcard formulas are just Javascript functions that take table data as input and return new data. Formulas can have limited side effects like accessing external APIs to fetch data, but do not directly manipulate the page. Instead, they return data into the table, which is then injected into the page with the same mechanism used for injecting user annotations.
-
-## Custom UI elements
 
 It might seem that Wildcard is only useful on websites that display lists of tabular data like search results. But in fact, the table metaphor is flexible enough to represent many types of data. For example, a form can be represented as a single row, with a column for each input.
 
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/expedia-table.mp4#t=0.1" muted playsinline controls class>
 </video>
 
-In previous examples the data extracted from the site was marked as read-only; one cannot change the name of an Airbnb listing for example. In the next case, the cells are marked as writable, so that changes in the table are reflected in the original form. This becomes particularly useful when combined with cell editing UI widgets tailored to the cell's data type.
+In previous examples the data extracted from the site was marked as read-only; users cannot change the name or price of an Airbnb listing. In this next case, the cells are marked as writable, so that changes in the table are reflected in the form inputs. This becomes useful when combined with GUI widgets for editing the value of a table cell.
 
 Filling in dates for a flight search typically requires opening up a separate calendar app to find the right dates, and then manually copying them into the form. In Wildcard, we can make this easier by providing a datepicker widget that has privileged access to the user's calendar information.
 
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/datepicker.mp4#t=0.1" muted playsinline controls class>
 </video>
 
-Here we’ve presented just a few possibilities for how to use Wildcard, but we think the interactive data table offers a flexible computational model that can also support a wide range of other useful modifications, all while remaining familiar and easy to use. 
+Here we’ve presented just a few possibilities for how to use Wildcard. We think the interactive data table offers a flexible computational model that can support a wide range of other useful modifications, all while remaining familiar and easy to use. 
 
 # System Architecture
 
@@ -134,7 +114,7 @@ The site adapter also needs to support the reverse direction: sending updates fr
 
 # Design principles
 
-The design of Wildcard is grounded in several principles, informed by prior work and our own experimentation. We think these principles extend beyond Wildcard itself and might inform the design of other end user programming tools, particularly systems enabling users to modify GUI apps.
+The design of Wildcard is grounded in several principles, informed by prior work and our own experimentation. We think these principles extend beyond Wildcard and might inform the design of other end user programming tools, particularly systems enabling users to modify GUI apps.
 
 ## Expose consistent structure
 
