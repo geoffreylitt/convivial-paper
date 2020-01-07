@@ -1,5 +1,5 @@
 ---
-title: "Wildcard: End user modification of web applications through a data table"
+title: "Wildcard: End user modification of web applications using a live data table"
 author: "[Geoffrey Litt](https://www.geoffreylitt.com/) and [Daniel Jackson](http://people.csail.mit.edu/dnj/)"
 bibliography: references.bib
 link-citations: true
@@ -118,15 +118,15 @@ The design of Wildcard is grounded in several principles, informed by prior work
 
 ## Expose consistent structure
 
-Today, most personal computing consists of using distinct apps, each one an isolated silo of concepts, interfaces, data, and functionality. While there are some shared idioms and limited points of interoperability, the fundamental expectation is that each app operates independently. If a new need emerges, a user must hope "there's an app for that"; creating a new tool to meet the need is often out of the question.
+Today, most personal computing consists of using distinct apps, each one an isolated silo of data and functionality. While there are some shared idioms and limited points of interoperability, apps fundamentally operate independently from one another. Computing does not need to operate this way—for example, UNIX offers a compelling alternate vision: many small tools, all built on the consistent abstraction of text files. Users can invest in deeply mastering a text editor, and then use it for a vast array of tasks, even as an interactive input mechanism in shell programs (e.g. for editing git commit messages). Beaudouin-Lafon and Mackay call this style of interaction _polymorphic_ [@beaudouin-lafon2000], since a single interface widget can be used in many contexts. diSessa  [@disessa2000] has also noted the deep connection between polymorphism and literacy: textual literacy rests on a single rich medium of writing, which once mastered, can be adapted to many different genres and uses. If people needed to relearn from scratch when switching from writing essays to writing emails, the medium would lose most of its potency.
 
-Computing does not need to operate this way. As one example, UNIX offers a compelling alternate vision of small tools connected through a common abstraction of text files. Just like riding a bike with numbered gears, UNIX requires users to build up a structured understanding of the system, which then allows them to flexibly react to new needs not served by existing tools. Users can also deeply master a text editor and use it for a vast array of tasks, even as an interactive input mechanism in shell programs (e.g. for editing git commit messages). Beaudouin-Lafon and Mackay call this style of interaction _polymorphic_ [@beaudouin-lafon2000], since a single interface can be used in many contexts. diSessa  [@disessa2000] notes the deep connection between polymorphism and literacy: textual literacy rests on a single rich medium of writing, which once mastered, can be adapted to many different genres and uses. If people needed to relearn from scratch when switching from writing essays to writing emails, the medium would lose most of its potency; this is the situation in software today.
-
-With Wildcard, we hope to make isolated Web applications work a little bit more like UNIX, by imposing a consistent and simple structure onto many isolated applications. Just as UNIX uses text files to represent all data, Wildcard uses relational tables. This abstraction strikes a balance between being simple and generic: a data table is much simpler than the DOM tree that describes all the details of the UI, but is also generic enough to describe the essence of many different interfaces.
+With Wildcard, we hope to make isolated Web applications work more like UNIX, by imposing a consistent and simple data structure onto many applications. Just as UNIX uses text files to represent all data, Wildcard uses relational tables. This abstraction strikes a balance between being simple and generic: a data table is much simpler than the DOM tree that describes all the details of the UI, but is also generic enough to describe the essence of many different interfaces.
 
 ![Wildcard layers the consistent structure of a data table over different isolated applications.](media/structure.png)
 
-Exposing more structured data to users provides improved quality and consistency of user interfaces. When UI widgets can compete on their merits rather than having a monopoly on a given data silo or application, it creates stronger competition at the interface level. For example, there is competition among email clients which consume an open protocol, but not among Facebook or Twitter clients. Exposing structure also leads to improved UI consistency across apps: UNIX users can reuse their text editor everywhere, but Web users must use a different rich text editor for each site. Tim Berners-Lee has written in more detail about these benefits [@berners-lee2018] in the context of the SOLID project, which envisions user-controlled data as a mechanism for decoupling data from interfaces, e.g. giving users a choice of which client to use to consume a given social media feed. Wildcard has overlapping goals with SOLID, but does not require decentralized user control of data—the data can remain on a centralized server, as long as the interface can be tweaked by end users.
+Exposing structure gives users more choice  When UI widgets can compete on their merits rather than having a monopoly on a given data silo or application, it creates stronger competition at the interface level. For example, there is competition among email clients which consume an open protocol, but not among Facebook or Twitter clients. Exposing structure also leads to improved UI consistency across apps: UNIX users can reuse their text editor everywhere, but Web users must use a different rich text editor for each site. Tim Berners-Lee has written in more detail about these benefits [@berners-lee2018] in the context of the SOLID project, which envisions giving users control of their own data as a mechanism for decoupling data from interfaces (e.g., giving users a choice of which client to use to consume a given social media feed). Wildcard has overlapping goals with SOLID, but does not require decentralized user control of data—the data can remain on a centralized server, as long as the interface can be tweaked by end users.
+
+_todo: move the sloppy contrast, and SOLID, down into related work_
 
 Layering a structured view on top of an existing application is not the only option available. "Sloppy programming" systems like Chickenfoot [@bolin2005] and CoScripter [@leshed2008] forego the intermediate layer of structure, instead allowing users to create scripts in an informal language and then perform fuzzy pattern matching to find elements in the DOM. For example, to find a button after a textbox in Chickenfoot, the user could type `click(find(“button just after textbox”))`. These designs allow for expressing a wide range of operations, but they don't explicitly indicate what operations are possible—the user can only see the original page and imagine the possibilities. In contrast, Wildcard provides affordances that clearly suggest the availability of certain actions (e.g. sorting, editing a cell, adding a column with a derived value), especially to users who are familiar with spreadsheets. In addition to giving users more certainty about whether a modification is possible, these affordances might improve discoverability and give users new ideas for things to try. "Sloppy programming" does give end-users greater access to modify the apps that they use, but does not seem to provide them with a deeper understanding of those apps or how they relate to each other, so the apps are more likely to remain siloed.
 
@@ -134,21 +134,34 @@ One key challenge of making a structured view successful is ensuring a close map
 
 ## Low floor, high ceiling
 
-In order to serve the widest possible audience, Wildcard is designed for tweaking existing software for one's own needs, rather than building from scratch. Not everyone wants to build a new app, but most people have complaints about the software they use, which they might be willing to address themselves if it were easy enough.
+Seymour Papert advocated for programming systems with a "low floor" and a "high ceiling"—making it easy for novices to get started, but also providing possible a large range of possibilities for more sophisticated users [@resnick2016]. Unfortunately, many programming systems only provide either one or the other [@myers2000].
+
+- tweaking vs creation from scratch
+- in-place toolchain
+- easy things easy
+- easy things valuable
+- this seems clearly justified by the demos
+
+rewrite...
 
 ------------------------      ------------------         ----------------------------------------
-                              *Casual*                   *Not casual*
+                              *In-place*                   *Not in-place*
 *End user friendly*           **Wildcard**               IFTTT
 *Requires programming*        browser dev tools          editing open source software
 ------------------------      -----------------          ----------------------------------------
 
-We can evaluate a system for tweaking software along two dimensions. First, the technical capability required of the user: is programming knowledge needed? Second, the investment required: how much effort must the user invest to make a change? Can they casually make a small change, or do they need to make a larger project out of it? These dimensions are not orthogonal, but they are distinct. For example, setting up a workflow trigger in an end user programming system like [IFTTT](https://ifttt.com/) does not require much technical skill, but it does require leaving the user's normal software and entering a separate environment. On the other hand, running a Javascript snippet in the browser console requires programming skills, but can be done immediately and casually in the flow of using a website.
+We can evaluate a system for tweaking software along two dimensions. First, the technical capability required of the user: is programming knowledge needed? Second, whether the change is "in-place" [@inkandswitch2019]: can it be made within the same environment that the software is typically used in? These dimensions are not orthogonal, but they are distinct. For example, setting up a workflow trigger in an end user programming system like [IFTTT](https://ifttt.com/) does not require much technical skill, but it does require leaving the user's normal software and entering a separate environment. On the other hand, running a Javascript snippet in the browser console requires programming skills, but can be done immediately and casually in the flow of using a website.
 
-In addition to requiring no programming skills, Wildcard supports frequent, small modifications. The Wildcard table appears in the course of normal web browsing, to ensure that the tools for modification are close at hand while using the original software. Ink and Switch refers to this property as having an "in-place toolchain" [@inkandswitch2019]. Wildcard also provides live feedback, immediately editing the page in response to user interaction, which gives users confidence in the changes they are making.
+In addition to requiring no programming skills, Wildcard supports frequent, small modifications. The Wildcard table appears in the course of normal web browsing, to ensure that the tools for modification are close at hand while using the original software.Wildcard also provides live feedback, immediately editing the page in response to user interaction, which gives users confidence in the changes they are making.
 
 Spreadsheets can be used in genuinely useful ways even by someone who has learned only a tiny part of their functionality, e.g. for storing tables of numbers or computing simple sums [@nardi1991]. This creates inherent motivation to continue using the tool and eventually learn its more powerful features. In contrast, many traditional programming systems require an enormous time investment before a beginner is able to create any valuable software. Like spreadsheets, Wildcard aims to support genuinely useful actions with little effort: for example, sorting a table with a single click, or adding an annotation by typing into a cell. We would expect many Wildcard users to start by using these bits of functionality, before possibly moving on to more complex features like formulas.
 
+High ceiling?
+
 ## Build for multiple tiers of users
+
+* make things easy for the last tier of users (low floor)
+* expose predictable structure, don't make them participate in data extraction
 
 Some end user programming systems are designed with a single user in mind—a lone non-programmer, needing to achieve a task through some combination of individual skills and a powerful tool. But in fact, real-world usage of end user programming systems is far more collaborative. Spreadsheets are built together by users with different levels of technical expertise: some users just write simple formulas, while their officemates help write more complex formulas or even program macros in traditional languages [@nardi1990]. Our goal with Wildcard is to consider the full ecosystem of users and to design a tool that best combines all of their abilities.
 
@@ -204,9 +217,9 @@ Web scraping tools differ in how much structure they attempt to map onto the dat
 
 In the future, we might be able to integrate web scraping tools to help create more reliable site adapters for Wildcard with less work, and to open up adapter creation to end users. Sifter was built on top of the Piggy Bank scraping library, suggesting precisely this type of architecture where web scraping tools are used to support interactive page modification.
 
-# Limitations and future work
+# Future work
 
-Wildcard is still in early development; there are still many limitations to resolve and open questions to explore.
+Our prototype of Wildcard is still in early development; there are still many limitations to resolve and open questions to explore.
 
 The most important question is whether the combination of features provided by Wildcard can be combined in enough useful ways to make the system worth using in practice. While initial demos are promising, we need to develop more site adapters and use cases to more fully assess this question. We plan to continue privately testing the system with our own needs, and to eventually deploy the tool publicly, once the API is stable enough and can support a critical mass of sites and use cases. We also plan to run usability studies to evaluate and improve the design of the tool.
 

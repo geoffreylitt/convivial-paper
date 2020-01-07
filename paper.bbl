@@ -907,6 +907,101 @@
       \verb /Users/geoffreylitt/Zotero/storage/GBFFTC6G/Little et al. - 2010 - Sloppy programming.pdf
       \endverb
     \endentry
+    \entry{mccutchen2016}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=55d2557653f98b0c9ee554c4fabfbc01}{%
+           family={McCutchen},
+           familyi={M\bibinitperiod},
+           given={Matt},
+           giveni={M\bibinitperiod}}}%
+        {{hash=a910008a0319ca6ab275c9c164b0ce8e}{%
+           family={Itzhaky},
+           familyi={I\bibinitperiod},
+           given={Shachar},
+           giveni={S\bibinitperiod}}}%
+        {{hash=cb6c47b8514016726e35197230c2f7d6}{%
+           family={Jackson},
+           familyi={J\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Amsterdam, Netherlands}%
+      }
+      \list{publisher}{1}{%
+        {ACM Press}%
+      }
+      \strng{namehash}{4de237d2f06549873f9f7bbfdccd4fe4}
+      \strng{fullhash}{4de237d2f06549873f9f7bbfdccd4fe4}
+      \strng{bibnamehash}{4de237d2f06549873f9f7bbfdccd4fe4}
+      \strng{authorbibnamehash}{4de237d2f06549873f9f7bbfdccd4fe4}
+      \strng{authornamehash}{4de237d2f06549873f9f7bbfdccd4fe4}
+      \strng{authorfullhash}{4de237d2f06549873f9f7bbfdccd4fe4}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Spreadsheets offer many advantages as the computational and data-storage engine for applications that are authored by end users. Paradoxically, however, their main failing in this regard is their computational model. Despite being used in almost all cases to represent data that is essentially relational (with some hierarchical structuring), the spreadsheet model treats the two-dimensional grid as largely unstructured, with formulas linking cells in an ad hoc way.}
+      \field{booktitle}{Proceedings of the 2016 {{ACM International Symposium}} on {{New Ideas}}, {{New Paradigms}}, and {{Reflections}} on {{Programming}} and {{Software}} - {{Onward}}! 2016}
+      \field{isbn}{978-1-4503-4076-2}
+      \field{shorttitle}{Object Spreadsheets}
+      \field{title}{Object Spreadsheets: A New Computational Model for End-User Development of Data-Centric Web Applications}
+      \field{year}{2016}
+      \field{pages}{112\bibrangedash 127}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1145/2986012.2986018
+      \endverb
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/8KXJ224J/McCutchen et al. - 2016 - Object spreadsheets a new computational model for.pdf
+      \endverb
+    \endentry
+    \entry{myers2000}{article}{}
+      \name{author}{3}{}{%
+        {{hash=95f3f6e4fd44d355e252aebe61e8a77e}{%
+           family={Myers},
+           familyi={M\bibinitperiod},
+           given={Brad},
+           giveni={B\bibinitperiod}}}%
+        {{hash=ae4afac2712f93803c7d9545f28fa583}{%
+           family={Hudson},
+           familyi={H\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c088121d9ff6d28e0dd80f0846f1670a}{%
+           family={Pausch},
+           familyi={P\bibinitperiod},
+           given={Randy},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{bb60498ee9bc7b1a21d6f3b070c0fd24}
+      \strng{fullhash}{bb60498ee9bc7b1a21d6f3b070c0fd24}
+      \strng{bibnamehash}{bb60498ee9bc7b1a21d6f3b070c0fd24}
+      \strng{authorbibnamehash}{bb60498ee9bc7b1a21d6f3b070c0fd24}
+      \strng{authornamehash}{bb60498ee9bc7b1a21d6f3b070c0fd24}
+      \strng{authorfullhash}{bb60498ee9bc7b1a21d6f3b070c0fd24}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A user interface software tool helps developers design and implement the user interface. Research on past tools has had enormous impact on today's developers---virtually all applications today were built using some form of user interface tool. In this paper, we consider cases of both success and failure in past user interface tools. From these cases we extract a set of themes which can serve as lessons for future work. Using these themes, past tools can be characterized by what aspects of the user interface they addressed, their threshold and ceiling, what path of least resistance they offer, how predictable they are to use, and whether they addressed a target that became irrelevant. We believe the lessons of these past themes are particularly important now, because increasingly rapid technological changes are likely to significantly change user interfaces. We are at the dawn of an era where user interfaces are about to break out of the "desktop" box where they have been stuck for the ...}
+      \field{journaltitle}{ACM Trans. Comput.-Hum. Interact.}
+      \field{month}{3}
+      \field{title}{Past, {{Present}}, and {{Future}} of {{User Interface Software Tools}}}
+      \field{volume}{7}
+      \field{year}{2000}
+      \field{pages}{3\bibrangedash 28}
+      \range{pages}{26}
+      \verb{doi}
+      \verb 10.1145/344949.344959
+      \endverb
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/UL2WV4QQ/Myers et al. - 2000 - Past, Present, and Future of User Interface Softwa.pdf
+      \endverb
+    \endentry
     \entry{nardi1990}{inproceedings}{}
       \name{author}{2}{}{%
         {{hash=13e20e27a9ef15964e1865c58354530e}{%
@@ -985,6 +1080,37 @@
       \endverb
       \verb{file}
       \verb /Users/geoffreylitt/Zotero/storage/ZN8KPRHB/Nardi and Miller - 1991 - Twinkling lights and nested loops distributed pro.pdf
+      \endverb
+    \endentry
+    \entry{resnick2016}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=233322a94fdc535f0974d3219e0defcf}{%
+           family={Resnick},
+           familyi={R\bibinitperiod},
+           given={Mitchel},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{233322a94fdc535f0974d3219e0defcf}
+      \strng{fullhash}{233322a94fdc535f0974d3219e0defcf}
+      \strng{bibnamehash}{233322a94fdc535f0974d3219e0defcf}
+      \strng{authorbibnamehash}{233322a94fdc535f0974d3219e0defcf}
+      \strng{authornamehash}{233322a94fdc535f0974d3219e0defcf}
+      \strng{authorfullhash}{233322a94fdc535f0974d3219e0defcf}
+      \field{sortinit}{R}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{It's not enough to provide a single path from low floor to high ceiling; we need to provide wide walls so that kids can explore multiple pathways from floor to ceiling.}
+      \field{journaltitle}{Design.blog}
+      \field{month}{8}
+      \field{shorttitle}{Mitchel {{Resnick}}}
+      \field{title}{Designing for {{Wide Walls}}}
+      \field{year}{2016}
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/CI562PI7/mitchel-resnick-designing-for-wide-walls.html
       \endverb
     \endentry
     \entry{streak}{misc}{}
