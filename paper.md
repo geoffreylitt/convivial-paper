@@ -110,7 +110,7 @@ The site adapter also needs to support the reverse direction: sending updates fr
 
 # Design principles
 
-The design of Wildcard is grounded in several principles, informed by prior work and our own experimentation. We think these principles extend beyond Wildcard and might inform the design of other end user programming tools, particularly systems enabling users to modify GUI apps.
+The idea of spreadsheet-driven customization is supported by several principles, informed by prior work and our own experimentation. We think these principles extend beyond Wildcard and might inform the design of other end user programming tools, particularly systems enabling users to modify GUI apps.
 
 ## Expose consistent structure
 
