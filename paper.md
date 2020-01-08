@@ -1,18 +1,16 @@
 ---
-title: "Wildcard: End user modification of web applications using a live data table"
+title: "Wildcard: Spreadsheet-Driven Customization of Web Applications"
 author: "[Geoffrey Litt](https://www.geoffreylitt.com/) and [Daniel Jackson](http://people.csail.mit.edu/dnj/)"
 bibliography: references.bib
 link-citations: true
 csl: templates/acm-sig-proceedings.csl
 reference-section-title: References
 abstract: |
-  Many Web applications do not meet the particular needs of their users. Browser extensions and user scripts offer a way to customize web applications, but most people do not have the programming skills to implement their own customizations.
+  Many Web applications do not meet the particular needs of their users. Browser extensions and user scripts offer a way to customize web applications, but most people do not have the programming skills to implement their own extensions.
   
-  In this paper, we present a prototype of Wildcard, an extension framework embedded in the browser that empowers users to casually tweak web applications without needing to program in Javascript or directly interact with the DOM.
+  We present the idea of _spreadsheet-driven customization_: enabling end users to customize existing web applications using a browser-embedded spreadsheet that shows the data inside the application. By manipulating the spreadsheet, users can implement a wide variety of customizations to the application, ranging from sorting lists of search results to displaying related data from other web services, without programming in Javascript or interacting directly with the DOM.
   
-  Wildcard shows the data from a web page in a table, and maintains a live bidirectional connection between the table and the original page. By directly manipulating the table, users can perform a wide variety of modifications: sorting/filtering content, adding private annotations, using spreadsheet formulas to fetch data from other web services, adding custom UI elements to edit form data, and more.
-  
-  We present examples of using Wildcard to solve real world problems, and explain the design principles behind the prototype. In the future, we envision growing Wildcard into a fully deployed system that helps make the web into a more malleable medium for all its users.
+  We built a prototype of a system called Wildcard that implements some of our ideas for spreadsheet-driven customization. Through concrete examples, we demonstrate that Wildcard has both a low barrier to entry for beginners and enough flexibility to solve many useful problems. We also show that Wildcard can work with real existing websites by extracting structured data using web scraping techniques.
 ---
 
 
