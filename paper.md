@@ -25,9 +25,7 @@ In this paper, we present _spreadsheet-driven customization_, a technique for ma
 
 Spreadsheets have proven to be a widely successful computing platform for non-programmers. They provide a low barrier to entry for beginners, while allowing experts to perform complex computations. The 2D grid is simple to grasp, but general enough to represent many types of data. Prior work [@mccutchen2016;@benson2014;@chang2014] has used these benefits to enable end users to easily create web applications that use spreadsheets as a backing data layer.
 
-Spreadsheet-driven customization applies these exact same benefits in a different context: customizing existing software, rather than building new software from scratch. We inherit the low floor and high ceiling of spreadsheets: small tweaks like sorting a list of data in an app can be done with a single click, while more complex customizations, like joining in related data from a web API, are supported by a rich formula system. The tabular data format is versatile, supporting data from a wide range of applications.
-
-Spreadsheet-driven customization does not require that the application is actually backed by a spreadsheet—it merely presents a model of the internal state of the application, which can be exposed by the application itself or derived from the user interface by third parties. This means that spreadsheet-driven customization works with existing applications that people already use. It also allows for exposing a common data abstraction across applications, enabling users to have a consistent mechanism for manipulating data from all of their applications.
+Spreadsheet-driven customization applies these exact same benefits in a different context: customizing existing software, rather than building new software from scratch. We inherit the low floor and high ceiling of spreadsheets: small tweaks like sorting a list of data in an app can be done with a single click, while more complex customizations, like joining in related data from a web API, are supported by a rich formula system. The tabular data format is versatile, supporting data from a wide range of applications. Spreadsheet-driven customization does not require that the application is actually backed by a spreadsheet—it merely presents a model of the internal state of the application, which can be exposed by the application itself or derived from the user interface by third parties. This means that spreadsheet-driven customization works with existing applications that people already use. It also allows for exposing a common data abstraction across applications, enabling users to have a consistent mechanism for manipulating data from all of their applications.
 
 Prior work [@huynh2006] has shown that the process of extracting structured data from existing user interfaces can be confusing and unfamiliar for end users. In order to make the customization experience as straightforward as possible, we envision a tiered architecture that hides this complexity from end users. Wildcard provides a mechanism for programmers to write _site adapters_, which use web scraping techniques to extract structured data from the DOM and AJAX requests of existing applications. End users only interact with the structured spreadsheet, providing a predictable experience with clear affordances for which customizations are possible.
 
@@ -92,34 +90,24 @@ In order to maximize extensibility, Wildcard is implemented as a small core prog
 
 ![The architecture of the Wildcard system](media/architecture-clean.png)
 
-* how do you get the data?
-	* SOLID
-	* local-first software
-	* first party exposes
-	* just scrape it
-
-Scraping:
-
 Site adapters specify the bidirectional connection between the web page and its structured data representation.
 
-For extracting data from the page and getting it into structured form, Wildcard provides ways to concisely and declaratively express scraping logic. For example, here is a code snippet for extracting the name of an Airbnb listing. It specifies the field name and some metadata properties, and then a function that, given the entire listing, returns the DOM element representing the name of the listing.
+For extracting data from the page and getting it into structured form, Wildcard provides ways to concisely express web scraping logic. For example, here is a code snippet for extracting the name of an Airbnb listing:
 
 ```typescript
   {
-    fieldName: "name",
-    readOnly: true,
-    type: "text",
+    fieldName: "name", // The name of the data field
+    readOnly: true,    // Whether the user can edit the field
+    type: "text",      // The type of the field
+    // Given the DOM element for the entire listing,
+    // return the DOM element representing this field
     el: (row) => row.querySelector(`.${titleClass}`),
   }
 ```
 
-The site adapter also needs to support the reverse direction: sending updates from the table to the original page. Most DOM manipulation is not performed directly by the site adapter: the adapter specifies how to find the divs representing data rows, and the core platform mutates the DOM to reflect the table state. The only exception is site-specific actions (like favoriting in Airbnb): actions are implemented as regular Javascript functions running in the context of the page, which can mutate the DOM, simulate clicks on buttons in the UI, launch AJAX requests, navigate to new pages, etc.
+Sometimes important data is not shown in the UI, making it impossible to scrape from the DOM. To address this, we have also prototyped mechanisms for site adapters to observe AJAX requests made by the browser and extract data directly from JSON responses. This mechanism was used to implement the Airbnb Walkscore example, since latitude and longitude aren't shown in the Airbnb UI, but they are available in AJAX responses. We also plan to add the ability for site adapters to scrape data across multiple pages in paginated lists of results (as explored in prior work [@huynh2006]).
 
-* open questions:
-	* sharing adapters?
-	* sharing scripts?
-	* distribution mechanisms
-
+The site adapter also needs to support the reverse direction: sending updates from the table to the original page. Most DOM manipulation is not performed directly by the site adapter; instead, the adapter specifies how to find the divs representing data rows, and the core platform mutates the DOM to reflect the table state. The only exception is row actions (like favoriting an Airbnb listing), which are implemented as imperative Javascript functions that can can mutate the DOM, simulate clicks on buttons, etc.
 
 # Design principles
 
@@ -172,11 +160,13 @@ Another stakeholder to consider is the first party developers of the original so
 
 # Related work
 
-In the broadest sense, Wildcard is inspired by systems aiming to make software into a dynamic medium where end users frequently create and modify software to meet their own needs, rather than only consuming applications built by programmers. These systems include Smalltalk [@kay1977], Hypercard [@hypercard2019], Boxer [@disessa1986], Webstrates [@klokmose2015], and Dynamicland [@victor]. (The project's name Wildcard comes from the internal pre-release name for Hypercard, which doubly inspired our work by promoting both software modification by end users and the ideas behind the Web.)
+## Malleable software
 
-While similar in high-level goals, Wildcard employs a different solution strategy from these projects: whereas they generally require building new software from scratch for that environment, Wildcard instead aims to maximize the malleability of already existing software. This approach has the pragmatic benefit of immediately being useful in a much broader context, although it also requires working within rigid constraints. We also see Wildcard growing beyond its current bounds and becoming more similar in the future to these other systems. With substantial future work, Wildcard could grow from merely being a platform for tweaking existing software into a platform for building new software from scratch, designed from the ground up for end user tweakability.
+In the broadest sense, Wildcard is inspired by systems aiming to make software into a dynamic medium where end users frequently create and modify software to meet their own needs, rather than only consuming applications built by programmers. These systems include Smalltalk [@kay1977], Hypercard [@hypercard2019] , Boxer [@disessa1986], Webstrates [@klokmose2015], and Dynamicland [@victor]. ^[The project's name Wildcard comes from the internal pre-release name for Hypercard, which doubly inspired our work by promoting both software modification by end users and the ideas behind the Web.]
 
-More narrowly, Wildcard builds on three areas of existing work: web augmentation, spreadsheet-based app development, and web scraping. Our contribution in this work is to combine these areas in a new way: extracting structured data from a website and directly exposing it to the user as a live data table, with the end goal of modifying an existing application. We think this combination builds on valuable ideas and learnings from each of the areas, while also overcoming some of the downsides of each.
+While similar in high-level goals, Wildcard employs a different solution strategy from these projects: whereas they generally require building new software from scratch for that environment, Wildcard instead aims to maximize the malleability of already existing software. This approach has the pragmatic benefit of being immediately useful in more situations, although it also requires working within more rigid constraints.
+
+With substantial future work, Wildcard could become more similar to these other projects, growing from a platform for tweaking existing software into a platform for building new software from scratch. This would likely end up resembling existing tools for building spreadsheet-driven applications (discussed more below), but with an extra focus on customizability by end users of the software.
 
 ## Web customization
 
@@ -192,13 +182,9 @@ Thresher [@hogue2005] enables users to create wrappers which map unstructured we
 
 ### Sloppy augmentation
 
-"Sloppy programming" [@little2010] tools like Chickenfoot [@bolin2005] and Coscripter [@leshed2008] enable users to create scripts that perform actions like filling in text boxes and clicking buttons, without directly interacting with the DOM. Users express the desired page elements in natural, informal terms (e.g. writing "the username box" to represent the textbook closest to the label "username"), and then using heuristics to determine which elements most likely match the user's intent. This approach allows for expressing a wide variety of commands with minimal training, but it also has downsides. It is difficult to know whether a command will consistently work over time (in addition to changes to the website, changes to the heuristics can also cause problems), and it is not easy for users to discover the space of possible commands.
+"Sloppy programming" [@little2010] tools like Chickenfoot [@bolin2005] and Coscripter [@leshed2008] enable users to create scripts that perform actions like filling in text boxes and clicking buttons, without directly interacting with the DOM. Users express the desired page elements in natural, informal terms (e.g. writing "the username box" to represent the textbook closest to the label "username"), and then using heuristics to determine which elements most likely match the user's intent. This approach allows for expressing a wide variety of commands with minimal training, but it also has downsides. It is difficult to know whether a command will consistently work over time (in addition to changes to the website, changes to the heuristics can also cause problems), and it is not easy for users to discover the space of possible commands [@little2010].
 
 Wildcard offers a sharp contrast to sloppy programming, instead choosing to expose a high degree of structure through the familiar spreadsheet table. Wildcard offers more consistency: for example, clicking a sort header will always work correctly as long as the site adapter is maintained. Wildcard also offers clearer affordances for what types of actions are possible, or, crucially, what actions are _not_ possible, which is useful to know. On the other hand, Wildcard cannot offer coverage of all websites, and has a narrower range of possible actions than sloppy tools. We expect that with enough site adapters and formulas, these downsides can be mitigated.
-
-*Copy of the sloppy contrast that used to be earlier:*
-
-Layering a structured view on top of an existing application is not the only option available. "Sloppy programming" systems like Chickenfoot [@bolin2005] and CoScripter [@leshed2008] forego the intermediate layer of structure, instead allowing users to create scripts in an informal language and then perform fuzzy pattern matching to find elements in the DOM. For example, to find a button after a textbox in Chickenfoot, the user could type `click(find(“button just after textbox”))`. These designs allow for expressing a wide range of operations, but they don't explicitly indicate what operations are possible—the user can only see the original page and imagine the possibilities. In contrast, Wildcard provides affordances that clearly suggest the availability of certain actions (e.g. sorting, editing a cell, adding a column with a derived value), especially to users who are familiar with spreadsheets. In addition to giving users more certainty about whether a modification is possible, these affordances might improve discoverability and give users new ideas for things to try. "Sloppy programming" does give end-users greater access to modify the apps that they use, but does not seem to provide them with a deeper understanding of those apps or how they relate to each other, so the apps are more likely to remain siloed.
 
 ## Spreadsheet-based app builders
 
@@ -218,23 +204,20 @@ In the future, we might be able to integrate web scraping tools to help create m
 
 # Future work
 
-Our prototype of Wildcard is still in early development; there are still many limitations to resolve and open questions to explore.
+There are still many open questions about spreadsheet-driven customization, which we hope to answer through targeted development and usage of the Wildcard prototype.
 
-The most important question is whether the combination of features provided by Wildcard can be combined in enough useful ways to make the system worth using in practice. While initial demos are promising, we need to develop more site adapters and use cases to more fully assess this question. We plan to continue privately testing the system with our own needs, and to eventually deploy the tool publicly, once the API is stable enough and can support a critical mass of sites and use cases. We also plan to run usability studies to evaluate and improve the design of the tool.
+The most important question is whether the computational model can support a large variety of useful customizations. While initial demos are promising, we need to develop more site adapters and use cases to explore this further. We plan to continue privately testing the system with our own needs, and to eventually deploy the tool publicly, once the API is stable enough and can support a critical mass of sites and use cases. We also plan to run usability studies to evaluate and improve the design of the tool.
 
-Here are a few of the largest limitations in the current system:
+We suspect that two areas of the current model may prove too limiting. First, Wildcard's data model only shows a single table at a time, without any notion of relationships between tables. A richer data model with foreign keys might be necessary to support certain use cases. For designing a tabular interface on top of a richer data model, we could learn from the interface of Airtable which shows related objects in a table cell, or add nested rows as used in other systems [@mccutchen2016; @bakke2016].
 
-* Wildcard only extracts data visible on the page, which means that subsequent pages of results in paginated lists are not included in the table. (Sifter [@huynh2006] uses techniques that might help get around this.)
-* There is no mechanism for end users to express imperative workflows (e.g. "click this button, and then..."); they can only write formulas that return data and then inject the resulting data into the page. While this makes the system simpler, it also may exclude many valuable use cases. We may add a system for expressing workflows like this, although it's not obvious how it would fit together with the existing table view. Gneiss [@chang2014] contains some mechanisms for writing spreadsheet formulas which can handle behaviors like reloading data in response to a user pressing a button, which might prove helpful.
-* Wildcard's data model only shows a single table at a time, without any notion of relationships between tables. A richer data model with foreign keys might be necessary to support certain use cases. For designing a tabular interface on top of a richer data model, we could learn from the interface of Airtable which shows related objects in a table cell, or add nested rows as used in other systems [@mccutchen2016; @bakke2016].
-* Only allowing site adapters to be manually coded means that the number of supported sites is limited. We plan to explore abstractions that make it as easy as possible for programmers to efficiently create new robust adapters, as well as integrating automated heuristics into the adapter creation process.
+Second, there is no mechanism for end users to express imperative workflows (e.g. "click this button, and then..."); they can only write formulas that return data and then inject the resulting data into the page. If it proves useful, we might consider adding a system for expressing workflows like this, although it would substantially alter the computational model and it's not clear how it would fit together with the existing table view.
+
+Another open question is how efficiently site adapters can be created for real websites. By making adapters for sites with different types of data in different domains, we plan to explore how automated heuristics can speed up the adapter creation process, and to create abstractions that make it easier for programmers to efficiently create new robust adapters.
 
 # Conclusion
 
-We live in a time of pessimism about the effects of the internet and the degree of centralized control wielded by large corporations. We think that one promising approach to this problem is to enable people to have deeper control over the Web software they use every day. The Web offers the potential of an open foundation,  but even the success of browser extensions has only empowered users within the limited confines of the ideas that programmers have decided to build.
+In this paper, we have presented _spreadsheet-driven customization_, a way to make software customization more accessible to end users by showing the data inside the application in a spreadsheet. We hope that this technique contributes to making the Web into a more dynamic medium that users can mold to their own needs.
 
-In this paper, we have presented Wildcard, a browser-embedded programming system that maps websites to a structured data table, enabling end users to modify their behavior. We hope that it contributes to making the web into a more dynamic medium that users can mold to their own needs.
+We plan to continue developing the Wildcard prototype and to eventually deploy it as an open-source tool. To receive future updates on Wildcard and notifications about a public release, [sign up for the email newsletter]().
 
-We plan to continue developing the system and to eventually deploy it as an open-source tool. To receive future updates on Wildcard and notifications about a public release, [sign up for the email newsletter]().
-
-We are also looking for private beta testers. If you have an idea for how you might want to use Wildcard, [please contact us](mailto:glitt@mit.edu). We would love to collaborate on building site adapters and formulas to support your use case.
+We are also looking for private beta testers. If you have an idea for how you might want to use Wildcard, please [get in touch](mailto:glitt@mit.edu). We would love to hear about your needs and help find ways to use Wildcard to solve them.

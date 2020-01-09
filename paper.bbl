@@ -175,37 +175,6 @@
       \verb /Users/geoffreylitt/Zotero/storage/GGLIRAZC/Benson et al. - 2014 - Spreadsheet driven web applications.pdf
       \endverb
     \endentry
-    \entry{berners-lee2018}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=d469e0df304c98f67b55d087ea6187a1}{%
-           family={{Berners-Lee}},
-           familyi={B\bibinitperiod},
-           given={Tim},
-           giveni={T\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {en}%
-      }
-      \strng{namehash}{d469e0df304c98f67b55d087ea6187a1}
-      \strng{fullhash}{d469e0df304c98f67b55d087ea6187a1}
-      \strng{bibnamehash}{d469e0df304c98f67b55d087ea6187a1}
-      \strng{authorbibnamehash}{d469e0df304c98f67b55d087ea6187a1}
-      \strng{authornamehash}{d469e0df304c98f67b55d087ea6187a1}
-      \strng{authorfullhash}{d469e0df304c98f67b55d087ea6187a1}
-      \field{sortinit}{B}
-      \field{sortinithash}{276475738cc058478c1677046f857703}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{I've always believed the web is for everyone. That's why I and others fight fiercely to protect it. The changes we've managed to bring have\ldots{}}
-      \field{howpublished}{https://medium.com/@timberners\_lee/one-small-step-for-the-web-87f92217d085}
-      \field{journaltitle}{Medium}
-      \field{month}{9}
-      \field{title}{One {{Small Step}} for the {{Web}}\ldots{}}
-      \field{year}{2018}
-      \verb{file}
-      \verb /Users/geoffreylitt/Zotero/storage/MSSQR3BL/one-small-step-for-the-web-87f92217d085.html
-      \endverb
-    \endentry
     \entry{bolin2005}{inproceedings}{}
       \name{author}{5}{}{%
         {{hash=3eaac4d2e4e04df16435156d70c52190}{%
@@ -907,6 +876,47 @@
       \verb /Users/geoffreylitt/Zotero/storage/GBFFTC6G/Little et al. - 2010 - Sloppy programming.pdf
       \endverb
     \endentry
+    \entry{mackay1991}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=2d0cc7c7deb5aa48acdd152ca1a3ebc3}{%
+           family={Mackay},
+           familyi={M\bibinitperiod},
+           given={Wendy\bibnamedelima E.},
+           giveni={W\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {New Orleans, Louisiana, United States}%
+      }
+      \list{publisher}{1}{%
+        {ACM Press}%
+      }
+      \strng{namehash}{2d0cc7c7deb5aa48acdd152ca1a3ebc3}
+      \strng{fullhash}{2d0cc7c7deb5aa48acdd152ca1a3ebc3}
+      \strng{bibnamehash}{2d0cc7c7deb5aa48acdd152ca1a3ebc3}
+      \strng{authorbibnamehash}{2d0cc7c7deb5aa48acdd152ca1a3ebc3}
+      \strng{authornamehash}{2d0cc7c7deb5aa48acdd152ca1a3ebc3}
+      \strng{authorfullhash}{2d0cc7c7deb5aa48acdd152ca1a3ebc3}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{One of the properties of a user interface is that it both guides and constrains the patterns of interaction between the user and the software application. Application software is increasingly designed to be ``customizable'' by the end user, providing specific mechanisms by which users may specify individual preferences about the software and how they will interact with it over multiple sessions. Users may thus encode and preserve their preferred patterns of use. These customizations, together with choices about which applications to use, make up the unique ``softswue environment'' for each individual.}
+      \field{booktitle}{Proceedings of the {{SIGCHI}} Conference on {{Human}} Factors in Computing Systems {{Reaching}} through Technology - {{CHI}} '91}
+      \field{isbn}{978-0-89791-383-6}
+      \field{title}{Triggers and Barriers to Customizing Software}
+      \field{year}{1991}
+      \field{pages}{153\bibrangedash 160}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1145/108844.108867
+      \endverb
+      \verb{file}
+      \verb /Users/geoffreylitt/Zotero/storage/CEKJFXHF/Mackay - 1991 - Triggers and barriers to customizing software.pdf
+      \endverb
+    \endentry
     \entry{mccutchen2016}{inproceedings}{}
       \name{author}{3}{}{%
         {{hash=55d2557653f98b0c9ee554c4fabfbc01}{%
@@ -957,49 +967,6 @@
       \endverb
       \verb{file}
       \verb /Users/geoffreylitt/Zotero/storage/8KXJ224J/McCutchen et al. - 2016 - Object spreadsheets a new computational model for.pdf
-      \endverb
-    \endentry
-    \entry{myers2000}{article}{}
-      \name{author}{3}{}{%
-        {{hash=95f3f6e4fd44d355e252aebe61e8a77e}{%
-           family={Myers},
-           familyi={M\bibinitperiod},
-           given={Brad},
-           giveni={B\bibinitperiod}}}%
-        {{hash=ae4afac2712f93803c7d9545f28fa583}{%
-           family={Hudson},
-           familyi={H\bibinitperiod},
-           given={Scott},
-           giveni={S\bibinitperiod}}}%
-        {{hash=c088121d9ff6d28e0dd80f0846f1670a}{%
-           family={Pausch},
-           familyi={P\bibinitperiod},
-           given={Randy},
-           giveni={R\bibinitperiod}}}%
-      }
-      \strng{namehash}{bb60498ee9bc7b1a21d6f3b070c0fd24}
-      \strng{fullhash}{bb60498ee9bc7b1a21d6f3b070c0fd24}
-      \strng{bibnamehash}{bb60498ee9bc7b1a21d6f3b070c0fd24}
-      \strng{authorbibnamehash}{bb60498ee9bc7b1a21d6f3b070c0fd24}
-      \strng{authornamehash}{bb60498ee9bc7b1a21d6f3b070c0fd24}
-      \strng{authorfullhash}{bb60498ee9bc7b1a21d6f3b070c0fd24}
-      \field{sortinit}{M}
-      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{A user interface software tool helps developers design and implement the user interface. Research on past tools has had enormous impact on today's developers---virtually all applications today were built using some form of user interface tool. In this paper, we consider cases of both success and failure in past user interface tools. From these cases we extract a set of themes which can serve as lessons for future work. Using these themes, past tools can be characterized by what aspects of the user interface they addressed, their threshold and ceiling, what path of least resistance they offer, how predictable they are to use, and whether they addressed a target that became irrelevant. We believe the lessons of these past themes are particularly important now, because increasingly rapid technological changes are likely to significantly change user interfaces. We are at the dawn of an era where user interfaces are about to break out of the "desktop" box where they have been stuck for the ...}
-      \field{journaltitle}{ACM Trans. Comput.-Hum. Interact.}
-      \field{month}{3}
-      \field{title}{Past, {{Present}}, and {{Future}} of {{User Interface Software Tools}}}
-      \field{volume}{7}
-      \field{year}{2000}
-      \field{pages}{3\bibrangedash 28}
-      \range{pages}{26}
-      \verb{doi}
-      \verb 10.1145/344949.344959
-      \endverb
-      \verb{file}
-      \verb /Users/geoffreylitt/Zotero/storage/UL2WV4QQ/Myers et al. - 2000 - Past, Present, and Future of User Interface Softwa.pdf
       \endverb
     \endentry
     \entry{nardi1990}{inproceedings}{}
