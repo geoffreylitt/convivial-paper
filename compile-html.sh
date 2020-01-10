@@ -5,6 +5,7 @@ set -e
   --filter pandoc-citeproc \
   --metadata=format:html \
   -s \
+  --number-sections \
   -o paper.html \
   --css basic.css \
   --toc \
