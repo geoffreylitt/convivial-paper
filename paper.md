@@ -5,6 +5,7 @@ bibliography: references.bib
 link-citations: true
 csl: templates/acm-sig-proceedings.csl
 reference-section-title: References
+acknowledgements: Thank you to Glen Chiacchieri, Steve Krouse, Daniel Windham, and Maggie Yellen for providing helpful feedback on this work.
 abstract: |
   Many Web applications do not meet the particular needs of their users. Browser extensions and user scripts offer a way to customize web applications, but most people do not have the programming skills to implement their own extensions.
   

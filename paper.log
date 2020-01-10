@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  10 JAN 2020 11:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  10 JAN 2020 13:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3679,138 +3679,143 @@ cal/texlive/2019/texmf-dist/tex/latex/doclicense/images/doclicense-CC-by.pdf>]
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/semibold/n' will be
 (Font)              scaled to size 11.03998pt on input line 161.
 LaTeX Font Info:    Font shape `T1/XCharter-TOsF/m/it' will be
-(Font)              scaled to size 10.95pt on input line 180.
-[2.2
+(Font)              scaled to size 10.95pt on input line 168.
 
-]
-<media/airbnb-demo-300dpi.png, id=49, 433.62pt x 536.0025pt>
+Overfull \hbox (0.63582pt too wide) in paragraph at lines 189--197
+[]\T1/XCharter-TOsF/m/n/10.95 (-20) Prior work [[]4[], []6[], []21[]] has en-ab
+led end users to cre-ate ``spreadsheet-driven ap-pli-ca-tions''
+ []
+
+<media/airbnb-demo-300dpi.png, id=35, 433.62pt x 536.0025pt>
 File: media/airbnb-demo-300dpi.png Graphic file (type png)
 <use media/airbnb-demo-300dpi.png>
-Package pdftex.def Info: media/airbnb-demo-300dpi.png  used on input line 255.
+Package pdftex.def Info: media/airbnb-demo-300dpi.png  used on input line 232.
 (pdftex.def)             Requested size: 433.61894pt x 536.00119pt.
 
-Overfull \hbox (35.28032pt too wide) in paragraph at lines 255--255
+Overfull \hbox (35.28032pt too wide) in paragraph at lines 232--232
  [][] 
  []
 
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 9.19998pt on input line 255.
+(Font)              scaled to size 9.19998pt on input line 232.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/semibold/n' will be
-(Font)              scaled to size 9.19998pt on input line 255.
-[3.3] [4.4 <./media/airbnb-demo-300dpi.png>]
-<media/expedia-demo-300dpi.png, id=72, 433.62pt x 484.4499pt>
+(Font)              scaled to size 9.19998pt on input line 232.
+[2.2
+
+]
+<media/expedia-demo-300dpi.png, id=55, 433.62pt x 484.4499pt>
 File: media/expedia-demo-300dpi.png Graphic file (type png)
 <use media/expedia-demo-300dpi.png>
-Package pdftex.def Info: media/expedia-demo-300dpi.png  used on input line 318.
+Package pdftex.def Info: media/expedia-demo-300dpi.png  used on input line 299.
 
 (pdftex.def)             Requested size: 433.61894pt x 484.44872pt.
 
-Overfull \hbox (35.28032pt too wide) in paragraph at lines 318--318
+Overfull \hbox (35.28032pt too wide) in paragraph at lines 299--299
  [][] 
  []
 
-<media/architecture-clean.png, id=77, 351.2322pt x 237.7683pt>
+[3.3] [4.4 <./media/airbnb-demo-300dpi.png>] [5.5 <./media/expedia-demo-300dpi.
+png>]
+<media/architecture-clean.png, id=83, 351.2322pt x 237.7683pt>
 File: media/architecture-clean.png Graphic file (type png)
 <use media/architecture-clean.png>
-Package pdftex.def Info: media/architecture-clean.png  used on input line 367.
+Package pdftex.def Info: media/architecture-clean.png  used on input line 350.
 (pdftex.def)             Requested size: 351.23134pt x 237.7677pt.
-[5.5] [6.6 <./media/expedia-demo-300dpi.png>]
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/it' will be
-(Font)              scaled to size 10.07397pt on input line 381.
+(Font)              scaled to size 10.07397pt on input line 364.
 LaTeX Font Info:    Font shape `TS1/FiraSans-OsF/regular/n' will be
-(Font)              scaled to size 10.07397pt on input line 384.
+(Font)              scaled to size 10.07397pt on input line 367.
 Missing character: There is no ` in font FiraSans-Regular-osf-ts1!
 Missing character: There is no ` in font FiraSans-Regular-osf-ts1!
-[7.7 <./media/architecture-clean.png>] [8.8]
+[6.6] [7.7 <./media/architecture-clean.png>] [8.8]
 LaTeX Font Info:    Font shape `T1/XCharter-TOsF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 530.
+(Font)              scaled to size 10.95pt on input line 504.
 [9.9]
 LaTeX Font Info:    Try loading font information for T1+XCharter-Sup on input l
-ine 600.
+ine 573.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/xcharter/T1XCharter-Sup.fd
 File: T1XCharter-Sup.fd 2017/06/25 (autoinst) Font definitions for T1/XCharter-
 Sup.
 )
 LaTeX Font Info:    Font shape `T1/XCharter-Sup/m/n' will be
-(Font)              scaled to size 10.95pt on input line 600.
+(Font)              scaled to size 10.95pt on input line 573.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `XCharter-Sup' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 600.
+(Font)              scaled to size 9.60007pt on input line 573.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 600.
+(Font)              scaled to size 6.72005pt on input line 573.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 600.
+(Font)              scaled to size 4.80003pt on input line 573.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 9.60007pt on input line 600.
+(Font)              scaled to size 9.60007pt on input line 573.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 6.72005pt on input line 600.
+(Font)              scaled to size 6.72005pt on input line 573.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 4.80003pt on input line 600.
+(Font)              scaled to size 4.80003pt on input line 573.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 600.
+(Font)              scaled to size 9.60007pt on input line 573.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 600.
+(Font)              scaled to size 6.72005pt on input line 573.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 600.
+(Font)              scaled to size 4.80003pt on input line 573.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 600.
+(Font)              scaled to size 9.60007pt on input line 573.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 600.
+(Font)              scaled to size 6.72005pt on input line 573.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 600.
+(Font)              scaled to size 4.80003pt on input line 573.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 600.
+(Font)              scaled to size 9.60007pt on input line 573.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 600.
+(Font)              scaled to size 6.72005pt on input line 573.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 600.
+(Font)              scaled to size 4.80003pt on input line 573.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 600.
+(Font)              scaled to size 9.60007pt on input line 573.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 600.
+(Font)              scaled to size 6.72005pt on input line 573.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 600.
+(Font)              scaled to size 4.80003pt on input line 573.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 600.
+(Font)              scaled to size 9.60007pt on input line 573.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 600.
+(Font)              scaled to size 6.72005pt on input line 573.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 600.
+(Font)              scaled to size 4.80003pt on input line 573.
 LaTeX Font Info:    Font shape `T1/XCharter-TOsF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 600.
+(Font)              scaled to size 7.0pt on input line 573.
 [10.10] [11.11] [12.12] [13.13]
 
-Package hyperref Warning: Suppressing link with empty target on input line 820.
+Package hyperref Warning: Suppressing link with empty target on input line 802.
 
 
-[14.14]
 LaTeX Font Info:    Font shape `T1/XCharter-TOsF/m/sc' will be
-(Font)              scaled to size 10.95pt on input line 828.
-
-Overfull \hbox (22.35602pt too wide) in paragraph at lines 829--829
+(Font)              scaled to size 10.95pt on input line 813.
+[14.14]
+Overfull \hbox (22.35602pt too wide) in paragraph at lines 814--814
 []\T1/XCharter-TOsF/m/it/10.95 (-20) Create an App from a Google Sheet in Min-u
 tes $\OMS/mdbch/m/n/10.95 ^^A$ \T1/XCharter-TOsF/m/it/10.95 (-20) Glide\T1/XCha
 rter-TOsF/m/n/10.95 (-20) . en. https://www.glideapps.com/. 
  []
 
-[15.15]
-Overfull \hbox (13.84625pt too wide) in paragraph at lines 829--829
+
+Overfull \hbox (13.84625pt too wide) in paragraph at lines 814--814
 []\T1/XCharter-TOsF/m/n/10.95 (-20) Hypercard. ^^P  Hy-per-Card^^Q. en. In: \T1
 /XCharter-TOsF/m/it/10.95 (-20) Wikipedia \T1/XCharter-TOsF/m/n/10.95 (-20) (De
 c. 2019). Page Ver-sion ID: 931376685. 
  []
 
-[16.16] [17.17] [18.18
+[15.15] [16.16] [17.17
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 830.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 830.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 815.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 815.
 (./paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 830.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 830.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 815.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 815.
 Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'paper.run.xml'.
@@ -3818,11 +3823,11 @@ Package logreq Info: Writing requests to 'paper.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 49985 strings out of 492616
- 962193 string characters out of 6129482
- 1470238 words of memory out of 5000000
- 52928 multiletter control sequences out of 15000+600000
- 860264 words of font info for 307 fonts, out of 8000000 for 9000
+ 49989 strings out of 492616
+ 962330 string characters out of 6129482
+ 1469248 words of memory out of 5000000
+ 52927 multiletter control sequences out of 15000+600000
+ 860972 words of font info for 311 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,21n,102p,9085b,2142s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/xcharter/xch_esnimw.enc}{
@@ -3841,10 +3846,10 @@ xmf-dist/fonts/type1/public/xcharter/XCharter-Bold.pfb></usr/local/texlive/2019
 /texmf-dist/fonts/type1/public/xcharter/XCharter-Italic.pfb></usr/local/texlive
 /2019/texmf-dist/fonts/type1/public/xcharter/XCharter-Roman.pfb></usr/local/tex
 live/2019/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7y.pfb>
-Output written on paper.pdf (18 pages, 3320537 bytes).
+Output written on paper.pdf (17 pages, 3318726 bytes).
 PDF statistics:
- 395 PDF objects out of 1000 (max. 8388607)
- 355 compressed objects within 4 object streams
- 94 named destinations out of 1000 (max. 500000)
+ 391 PDF objects out of 1000 (max. 8388607)
+ 352 compressed objects within 4 object streams
+ 93 named destinations out of 1000 (max. 500000)
  44193 words of extra memory for PDF output out of 51595 (max. 10000000)
 

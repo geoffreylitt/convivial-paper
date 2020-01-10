@@ -118,6 +118,8 @@ For an online version of this paper with videos demonstrating the interface, see
 $body$
 
 \acks
+$acknowledgements$
+
 \printbibliography
 
 \end{document}
