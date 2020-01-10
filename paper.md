@@ -33,6 +33,7 @@ Wildcard is currently an early prototype, with incomplete features and limited c
 
 # Demo: booking a trip with Wildcard
 
+<div class="html-only">
 To get a sense of how it might feel to use Wildcard, let's see an example of someone using it to help with booking a trip on the travel sites Airbnb and Expedia.
 
 The user starts by opening up the Airbnb search listings page to look for a place to stay. The page looks nice and mostly works well, but is missing some key features. As mentioned before, this page doesn't allow the user to sort by price. It also doesn't let them filter by user rating. Using Wildcard, the user can add these small features, while leaving the page's design and the rest of its functionality unchanged.
@@ -49,9 +50,9 @@ Then, the user can use standard spreadsheet column header features to sort the p
 
 Notice how after manipulating the data, the user was able to close the table view and continue using the website with its original visual design. The table view offers a way to change the data backing a page, but does not need to replace the original interface entirely.
 
-Most websites that show lists of data also offer actions that can be taken on a row in the table, like adding an item to a shopping cart. Wildcard has the ability to make these actions available in the data table if the site adapter implements them. The main advantage this provides is the ability to easily perform an action in bulk across multiple rows.
+Most websites that show lists of data also offer actions that can be taken on a row in the table, like adding an item to a shopping cart. Wildcard has the ability to make these "row actions" available in the data table if the site adapter implements them. The main advantage this provides is the ability to easily perform a row action in bulk across multiple rows.
 
-For example, it's tedious on Airbnb to click on listings one by one to add them to a list of favorites. Using Wildcard, we can just select multiple rows and favorite all of them with one click. Similarly, we can also open the detailed pages for many listings in new tabs.
+For example, it's tedious on Airbnb to click on listings one by one to add them to a list of favorites. Using Wildcard, the user can just select multiple rows and favorite all of them with one click. Similarly, we can also open the detailed pages for many listings in new tabs.
 
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/favorite-open.mp4#t=0.1" muted playsinline controls class>
 </video>
@@ -80,7 +81,28 @@ Filling in dates for a flight search typically requires opening up a separate ca
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/datepicker.mp4#t=0.1" muted playsinline controls class>
 </video>
 
+</div>
+
+<div class="pdf-only">
+To get a sense of how it might feel to use Wildcard, let's see an example of someone using it to help with booking a trip on the travel sites Airbnb and Expedia. These demos are best viewed in the online version of this paper, which includes videos: \url{https://geoffreylitt.com/wildcard}
+
+![Using Wildcard to augment the Airbnb page for searching travel accommodations](media/airbnb-demo-300dpi.png){#fig:airbnb-demo}
+
+The user starts by opening up the Airbnb search listings page to look for a place to stay. The page looks nice and mostly works well, but is missing some key features. As mentioned before, this page doesn't allow the user to sort by price. It also doesn't let them filter by user rating. Using Wildcard, the user can add these small features, while leaving the page's design and the rest of its functionality unchanged (shown in [@fig:sorting]).
+
+After manipulating the data, the user can close the table view and continue using the website with its original visual design. The table view offers a way to change the data backing a page, but does not need to replace the original interface entirely.
+
+Most websites that show lists of data also offer actions that can be taken on a row in the table, like adding an item to a shopping cart. Wildcard has the ability to make these "row actions" available in the data table if the site adapter implements them. The main advantage this provides is the ability to easily perform a row action in bulk across multiple rows.
+
+For example, it's tedious on Airbnb to click on listings one by one to add them to a list of favorites. Using Wildcard, the user can just select multiple rows and favorite all of them with one click. Similarly, we can also open the detailed pages for many listings in new tabs. (Shown in [@fig:actions])
+
+![Using Wildcard to augment the Expedia page for booking a flight](media/expedia-demo-300dpi.png){#fig:expedia-demo}
+
+</div>
+
 Here we’ve presented just a few possibilities for how to use Wildcard. We think the interactive data table offers a flexible computational model that can support a wide range of other useful modifications, all while remaining familiar and easy to use. 
+
+
 
 # System Architecture
 
@@ -88,7 +110,7 @@ Wildcard is written in Typescript. It is currently injected into pages using the
 
 In order to maximize extensibility, Wildcard is implemented as a small core program along with several types of plugins: site adapters, formulas, and cell renderers/editors. The core contains functionality for displaying the data table and handling user interactions, and the table implementation is built using the [Handsontable](https://handsontable.com/) Javascript library.
 
-![The architecture of the Wildcard system](media/architecture-clean.png)
+![The architecture of the Wildcard system](media/architecture-clean.png){#fig:architecture}
 
 Site adapters specify the bidirectional connection between the web page and its structured data representation.
 

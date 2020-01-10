@@ -128,6 +128,7 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <p>Prior work <span class="citation" data-cites="huynh2006">[<a href="#ref-huynh2006" role="doc-biblioref">10</a>]</span> has shown that the process of extracting structured data from existing user interfaces can be confusing and unfamiliar for end users. In order to make the customization experience as straightforward as possible, we envision a tiered architecture that hides this complexity from end users. Wildcard provides a mechanism for programmers to write <em>site adapters</em>, which use web scraping techniques to extract structured data from the DOM and AJAX requests of existing applications. End users only interact with the structured spreadsheet, providing a predictable experience with clear affordances for which customizations are possible.</p>
 <p>Wildcard is currently an early prototype, with incomplete features and limited coverage of sites. We plan to continue building site adapters and testing the system with our own use cases, to better understand how well the spreadsheet abstraction maps to real websites and customization needs. Eventually we also plan to release the tool publicly, to determine how end users choose to use spreadsheet-driven customization, what usability challenges emerge, and how feasible it is for programmers to build and maintain site adapters.</p>
 <h1 id="demo-booking-a-trip-with-wildcard">Demo: booking a trip with Wildcard</h1>
+<div class="html-only">
 <p>To get a sense of how it might feel to use Wildcard, let’s see an example of someone using it to help with booking a trip on the travel sites Airbnb and Expedia.</p>
 <p>The user starts by opening up the Airbnb search listings page to look for a place to stay. The page looks nice and mostly works well, but is missing some key features. As mentioned before, this page doesn’t allow the user to sort by price. It also doesn’t let them filter by user rating. Using Wildcard, the user can add these small features, while leaving the page’s design and the rest of its functionality unchanged.</p>
 <p>First, the user opens up the Wildcard panel, which shows a table corresponding to the search results in the page. As they click around in the table, the corresponding row in the page is highlighted so they can see the connection between the views.</p>
@@ -137,8 +138,8 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/sort-filter.mp4#t=0.1" muted playsinline controls class>
 </video>
 <p>Notice how after manipulating the data, the user was able to close the table view and continue using the website with its original visual design. The table view offers a way to change the data backing a page, but does not need to replace the original interface entirely.</p>
-<p>Most websites that show lists of data also offer actions that can be taken on a row in the table, like adding an item to a shopping cart. Wildcard has the ability to make these actions available in the data table if the site adapter implements them. The main advantage this provides is the ability to easily perform an action in bulk across multiple rows.</p>
-<p>For example, it’s tedious on Airbnb to click on listings one by one to add them to a list of favorites. Using Wildcard, we can just select multiple rows and favorite all of them with one click. Similarly, we can also open the detailed pages for many listings in new tabs.</p>
+<p>Most websites that show lists of data also offer actions that can be taken on a row in the table, like adding an item to a shopping cart. Wildcard has the ability to make these “row actions” available in the data table if the site adapter implements them. The main advantage this provides is the ability to easily perform a row action in bulk across multiple rows.</p>
+<p>For example, it’s tedious on Airbnb to click on listings one by one to add them to a list of favorites. Using Wildcard, the user can just select multiple rows and favorite all of them with one click. Similarly, we can also open the detailed pages for many listings in new tabs.</p>
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/favorite-open.mp4#t=0.1" muted playsinline controls class>
 </video>
 <p>Now the user would like to jot down some notes on the pros and cons of each listing. To do this, they can simply type notes into an additional column next to each listing, and the notes appear inside the listings in the original UI. These annotations are also persisted in the browser for future retrieval.</p>
@@ -155,12 +156,16 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <p>Filling in dates for a flight search typically requires opening up a separate calendar app to find the right dates, and then manually copying them into the form. In Wildcard, we can make this easier by providing a datepicker widget that has privileged access to the user’s calendar information.</p>
 <video width="100%" controls="controls" preload="auto" muted="muted" src="media/datepicker.mp4#t=0.1" muted playsinline controls class>
 </video>
+</div>
+<div class="pdf-only">
+
+</div>
 <p>Here we’ve presented just a few possibilities for how to use Wildcard. We think the interactive data table offers a flexible computational model that can support a wide range of other useful modifications, all while remaining familiar and easy to use.</p>
 <h1 id="system-architecture">System Architecture</h1>
 <p>Wildcard is written in Typescript. It is currently injected into pages using the <a href="https://www.tampermonkey.net/">Tampermonkey</a> userscript manager, but in the future we plan to deploy it as a standalone browser extension to make it easier to install.</p>
 <p>In order to maximize extensibility, Wildcard is implemented as a small core program along with several types of plugins: site adapters, formulas, and cell renderers/editors. The core contains functionality for displaying the data table and handling user interactions, and the table implementation is built using the <a href="https://handsontable.com/">Handsontable</a> Javascript library.</p>
 <figure>
-<img src="media/architecture-clean.png" alt="" /><figcaption>The architecture of the Wildcard system</figcaption>
+<img src="media/architecture-clean.png" id="fig:architecture" alt="" /><figcaption>The architecture of the Wildcard system</figcaption>
 </figure>
 <p>Site adapters specify the bidirectional connection between the web page and its structured data representation.</p>
 <p>For extracting data from the page and getting it into structured form, Wildcard provides ways to concisely express web scraping logic. For example, here is a code snippet for extracting the name of an Airbnb listing:</p>
