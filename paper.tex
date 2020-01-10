@@ -157,8 +157,8 @@ This paper is best viewed in the online version, which includes videos demonstra
 \end{abstract}
 
 
-\hypertarget{introduction}{%
-\section{Introduction}\label{introduction}}
+\hypertarget{sec:introduction}{%
+\section{Introduction}\label{sec:introduction}}
 
 Web applications often don't match the particular needs of their users.
 Sometimes there is a browser extension available to patch an issue, and
@@ -175,9 +175,10 @@ augment an application's UI with a spreadsheet that is synchronized with
 the application's data. When the user manipulates the spreadsheet, the
 underlying data is modified and the changes are propagated to the UI,
 and vice versa. We have implemented this technique in a prototype
-browser extension called Wildcard. Section 2 presents demos of using
-Wildcard to augment real websites in useful ways, and Section 3
-describes the implementation of the extension.
+browser extension called Wildcard. Section~\ref{sec:demos} presents
+demos of using Wildcard to augment real websites in useful ways, and
+Section~\ref{sec:implementation} describes the implementation of the
+extension.
 
 \begin{figure}
 \hypertarget{fig:overview}{%
@@ -192,8 +193,9 @@ Spreadsheet-driven customization provides an easy entry point for end
 users, since small tweaks can be performed with a single click. At the
 same time, it also supports a variety of richer customizations, like
 adding private annotations to a webpage or joining in related data from
-a web API. In Section 4, we elaborate on this principle of ``low floor,
-high ceiling,'' as well as other design principles guiding our work.
+a web API. In Section~\ref{sec:design-principles}, we elaborate on this
+principle of ``low floor, high ceiling,'' as well as other design
+principles guiding our work.
 
 Prior work \autocite{mccutchen2016,benson2014,chang2014} has enabled end
 users to create ``spreadsheet-driven applications'' which use
@@ -210,10 +212,10 @@ extraction from end users. Programmers write \emph{site adapters} which
 use web scraping techniques to extract structured data from existing
 applications and map them to the spreadsheet table. End users only
 interact with the structured spreadsheet, providing a straightforward
-customization experience. In Section 5, we explain this architecture in
-more depth, and describe how Wildcard relates to existing work on
-malleable software, web customization, spreadsheet-driven applications,
-and web scraping.
+customization experience. In Section~\ref{sec:related-work}, we explain
+this architecture in more depth, and describe how Wildcard relates to
+existing work on malleable software, web customization,
+spreadsheet-driven applications, and web scraping.
 
 The Wildcard extension is currently an early research prototype. We plan
 to continue testing the system with our own use cases to understand
@@ -223,9 +225,8 @@ order to study how end users choose to customize applications, discover
 usability challenges, and to test the feasibility of programmers
 building and maintaining site adapters.
 
-\hypertarget{demo-booking-a-trip-with-wildcard}{%
-\section{Demo: booking a trip with
-Wildcard}\label{demo-booking-a-trip-with-wildcard}}
+\hypertarget{sec:demos}{%
+\section{Demo: booking a trip with Wildcard}\label{sec:demos}}
 
 To get a sense of the user experience of using Wildcard, let's see an
 example of someone using it to help with booking a trip.{ These demos
@@ -241,6 +242,10 @@ accommodations}\label{fig:airbnb-demo}
 }
 \end{figure}
 
+\hypertarget{customizing-search-results}{%
+\subsection{Customizing search
+results}\label{customizing-search-results}}
+
 In 2012, the travel site Airbnb removed the ability to sort
 accommodation listings by price. Users could still filter by price
 range, but could no longer view the cheapest listings first. Many users
@@ -252,7 +257,7 @@ support forum}. Alas, the feature remains missing to this day.
 
 Using Wildcard, the user can fix this omission, while leaving the page's
 design and the rest of its functionality unchanged.{
-fig.~\ref{fig:airbnb-demo} shows an overview of augmenting the Airbnb
+Figure~\ref{fig:airbnb-demo} shows an overview of augmenting the Airbnb
 site.} First, the user opens up the Wildcard panel, which shows a table
 corresponding to the search results in the page. As they click around in
 the table, the corresponding row in the page is highlighted so they can
@@ -260,7 +265,7 @@ see the connection between the views.
 
 Then, the user clicks on the price column header to sort the
 spreadsheet, and the Airbnb UI, by in ascending order by price{
-(fig.~\ref{fig:airbnb-demo}B)}. They can similarly use the column
+(Figure~\ref{fig:airbnb-demo}B)}. They can similarly use the column
 headers to filter to listings with a user rating above 4.5, which the
 original Airbnb UI also doesn't allow.
 
@@ -277,13 +282,13 @@ site adapter.
 In the Airbnb UI, saving multiple listings to a Favorites list requires
 tediously clicking through them one by one. Using Wildcard, the user can
 select multiple rows and favorite all of them with a single click{
-(fig.~\ref{fig:airbnb-demo}D)}. Similarly, the user can also open the
+(Figure~\ref{fig:airbnb-demo}D)}. Similarly, the user can also open the
 detailed pages for many listings at once.
 
 Now the user wants to jot down some notes on the pros and cons of each
 listing. To do this, they type some notes into an additional column in
 each listing row, and the notes appear inside the listings in the
-original UI{ (fig.~\ref{fig:airbnb-demo}A)}. The annotations are saved
+original UI{ (Figure~\ref{fig:airbnb-demo}A)}. The annotations are saved
 in the browser for future sessions.
 
 Wildcard also includes a formula language, which enables more
@@ -297,7 +302,7 @@ rates the walkability of any location on a 1-100 scale. When they type
 in a \texttt{WALKSCORE} formula with the latitude and longitude of the
 listing, it returns the walk score as the cell's value. Because the
 cell's contents are injected into the page, the score also shows up in
-the page body{ (fig.~\ref{fig:airbnb-demo}C)}.
+the page body{ (Figure~\ref{fig:airbnb-demo}C)}.
 
 \begin{figure}
 \hypertarget{fig:expedia-demo}{%
@@ -308,13 +313,16 @@ flight}\label{fig:expedia-demo}
 }
 \end{figure}
 
+\hypertarget{customizing-a-form-input}{%
+\subsection{Customizing a form input}\label{customizing-a-form-input}}
+
 It might seem that Wildcard is only useful on websites that display
 lists of tabular data like search results. But in fact, the table
 metaphor is flexible enough to represent many types of data. For
 example, a flight search form on Expedia can be represented as a single
 row, with a column corresponding to each input. {
-fig.~\ref{fig:expedia-demo} shows an overview of augmenting the Expedia
-site.}
+Figure~\ref{fig:expedia-demo} shows an overview of augmenting the
+Expedia site.}
 
 In previous examples the table cells were read-only; users cannot change
 the name or price of an Airbnb listing. In this next case, the cells are
@@ -326,7 +334,7 @@ Filling in dates for a flight search typically requires opening up a
 separate calendar app to find the right dates and then manually copying
 them into the form. In Wildcard, the user can avoid this cumbersome
 workflow by using a datepicker widget that includes the user's personal
-calendar information{ (fig.~\ref{fig:expedia-demo}B)}. The user can
+calendar information{ (Figure~\ref{fig:expedia-demo}B)}. The user can
 directly click on the right date, and it gets inserted into the
 spreadsheet and the original form.
 
@@ -335,8 +343,8 @@ customization, but we think the interactive data table is flexible
 enough to support a wide range of other useful modifications, all while
 remaining familiar and easy to use.
 
-\hypertarget{system-architecture}{%
-\section{System Architecture}\label{system-architecture}}
+\hypertarget{sec:implementation}{%
+\section{System Implementation}\label{sec:implementation}}
 
 Wildcard is written in Typescript. It is currently injected into pages
 using the \href{https://www.tampermonkey.net/}{Tampermonkey} userscript
@@ -370,10 +378,13 @@ for extracting the name of an Airbnb listing:
 \begin{Shaded}
 \begin{Highlighting}[]
 \OperatorTok{\{}
+  \CommentTok{// Field metadata:}
 \NormalTok{  fieldName}\OperatorTok{:} \StringTok{"name"}\OperatorTok{,} \CommentTok{// The name of the field}
 \NormalTok{  type}\OperatorTok{:} \StringTok{"text"}\OperatorTok{,}      \CommentTok{// The type of the field}
 \NormalTok{  readOnly}\OperatorTok{:} \KeywordTok{true}\OperatorTok{,}    \CommentTok{// Whether the user can edit the field}
-\NormalTok{  el}\OperatorTok{:}\NormalTok{ (row) }\KeywordTok{=>} \VariableTok{row}\OperatorTok{.}\FunctionTok{querySelector}\NormalTok{(}\VerbatimStringTok{\textasciigrave{}.}\SpecialCharTok{$\{}\NormalTok{titleClass}\SpecialCharTok{\}}\VerbatimStringTok{\textasciigrave{}}\NormalTok{)}\OperatorTok{,} \CommentTok{// Extract DOM element}
+  
+  \CommentTok{// Function to extract DOM element:}
+\NormalTok{  el}\OperatorTok{:}\NormalTok{ (row) }\KeywordTok{=>} \VariableTok{row}\OperatorTok{.}\FunctionTok{querySelector}\NormalTok{(}\VerbatimStringTok{\textasciigrave{}.}\SpecialCharTok{$\{}\NormalTok{titleClass}\SpecialCharTok{\}}\VerbatimStringTok{\textasciigrave{}}\NormalTok{)}\OperatorTok{,}
 \OperatorTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -397,8 +408,8 @@ favoriting an Airbnb listing), which are implemented as imperative
 Javascript functions that can can mutate the DOM, simulate clicks on
 buttons, etc.
 
-\hypertarget{design-principles}{%
-\section{Design principles}\label{design-principles}}
+\hypertarget{sec:design-principles}{%
+\section{Design principles}\label{sec:design-principles}}
 
 The idea of spreadsheet-driven customization is guided by several design
 principles, inspired by prior work and our own experimentation. We think
@@ -581,8 +592,8 @@ API in Gmail for Greasemonkey scripts to use.\footnote{Incidentally,
   \autocite{streak,talwar2019}, illustrating the potential of
   collaboratively maintaining third party adapters.}
 
-\hypertarget{related-work}{%
-\section{Related work}\label{related-work}}
+\hypertarget{sec:related-work}{%
+\section{Related work}\label{sec:related-work}}
 
 \hypertarget{malleable-software}{%
 \subsection{Malleable software}\label{malleable-software}}

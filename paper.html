@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700" rel="stylesheet">
   <meta name="author" content="Geoffrey Litt and Daniel Jackson" />
-  <title>Wildcard: Spreadsheet-Driven Customization of Web Applications</title>
+  <title>🃏 Wildcard</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -90,8 +90,9 @@ font-weight: bold;
 padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!</p>
 
 <header id="title-block-header">
-<h1 class="title">Wildcard: Spreadsheet-Driven Customization of Web Applications</h1>
-<p class="author"><a href="https://www.geoffreylitt.com/">Geoffrey Litt</a> and <a href="http://people.csail.mit.edu/dnj/">Daniel Jackson</a></p>
+<h1 class="title">🃏 Wildcard</h1>
+<h2 class="subtitle">Spreadsheet-Driven Customization of Web Applications</h2>
+<p class="author">By <a href="https://www.geoffreylitt.com/">Geoffrey Litt</a> and <a href="http://people.csail.mit.edu/dnj/">Daniel Jackson</a></p>
 </header>
 <p>Many Web applications do not meet the particular needs of their users. Browser extensions and user scripts offer a way to customize web applications, but most people do not have the programming skills to implement their own extensions.</p>
 <p>We present the idea of <em>spreadsheet-driven customization</em>: enabling end users to customize existing applications using a live spreadsheet view of the data inside the application. By manipulating the spreadsheet, users can implement a wide variety of customizations, ranging from sorting lists of search results to displaying related data from other web services, without doing any traditional programming.</p>
@@ -99,20 +100,20 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <nav id="TOC" role="doc-toc">
 <h2 id="toc-title">Contents</h2>
 <ul>
-<li><a href="#introduction"><span class="toc-section-number">1</span> Introduction</a></li>
-<li><a href="#demo-booking-a-trip-with-wildcard"><span class="toc-section-number">2</span> Demo: booking a trip with Wildcard</a>
+<li><a href="#sec:introduction"><span class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#sec:demos"><span class="toc-section-number">2</span> Demo: booking a trip with Wildcard</a>
 <ul>
 <li><a href="#customizing-search-results"><span class="toc-section-number">2.1</span> Customizing search results</a></li>
 <li><a href="#customizing-a-form-input"><span class="toc-section-number">2.2</span> Customizing a form input</a></li>
 </ul></li>
-<li><a href="#system-architecture"><span class="toc-section-number">3</span> System Architecture</a></li>
-<li><a href="#design-principles"><span class="toc-section-number">4</span> Design principles</a>
+<li><a href="#sec:implementation"><span class="toc-section-number">3</span> System Implementation</a></li>
+<li><a href="#sec:design-principles"><span class="toc-section-number">4</span> Design principles</a>
 <ul>
 <li><a href="#expose-a-universal-data-structure"><span class="toc-section-number">4.1</span> Expose a universal data structure</a></li>
 <li><a href="#low-floor-high-ceiling"><span class="toc-section-number">4.2</span> Low floor, high ceiling</a></li>
 <li><a href="#build-for-multiple-tiers-of-users"><span class="toc-section-number">4.3</span> Build for multiple tiers of users</a></li>
 </ul></li>
-<li><a href="#related-work"><span class="toc-section-number">5</span> Related work</a>
+<li><a href="#sec:related-work"><span class="toc-section-number">5</span> Related work</a>
 <ul>
 <li><a href="#malleable-software"><span class="toc-section-number">5.1</span> Malleable software</a></li>
 <li><a href="#web-customization"><span class="toc-section-number">5.2</span> Web customization</a></li>
@@ -124,17 +125,17 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <li><a href="#bibliography">References</a></li>
 </ul>
 </nav>
-<h1 data-number="1" id="introduction" data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<h1 data-number="1" id="sec:introduction" data-number="1"><span class="header-section-number">1</span> Introduction</h1>
 <p>Web applications often don’t match the particular needs of their users. Sometimes there is a browser extension available to patch an issue, and if the user is a programmer they might be able to fix it themselves. But for most people, the only recourse is to complain to the developers, or more likely, to simply give up. Back in 1977, in <em>Personal Dynamic Media</em> <span class="citation" data-cites="kay1977">[<a href="#ref-kay1977" role="doc-biblioref">14</a>]</span>, Alan Kay envisioned personal computing as a medium that let a user “mold and channel its power to his own needs,” but today, software feels more like concrete than clay.</p>
-<p>In this paper, we present <em>spreadsheet-driven customization</em>, a technique that enables end users to customize software. The idea is to augment an application’s UI with a spreadsheet that is synchronized with the application’s data. When the user manipulates the spreadsheet, the underlying data is modified and the changes are propagated to the UI, and vice versa. We have implemented this technique in a prototype browser extension called Wildcard. Section 2 presents demos of using Wildcard to augment real websites in useful ways, and Section 3 describes the implementation of the extension.</p>
+<p>In this paper, we present <em>spreadsheet-driven customization</em>, a technique that enables end users to customize software. The idea is to augment an application’s UI with a spreadsheet that is synchronized with the application’s data. When the user manipulates the spreadsheet, the underlying data is modified and the changes are propagated to the UI, and vice versa. We have implemented this technique in a prototype browser extension called Wildcard. Section 2 presents demos of using Wildcard to augment real websites in useful ways, and Section 3 describes the implementation of the extension.</p>
 <figure>
-<img src="media/overview-300dpi.png" id="fig:overview" alt="" /><figcaption>An overview of spreadsheet-driven customization</figcaption>
+<img src="media/overview-300dpi.png" id="fig:overview" alt="" /><figcaption>Figure 1: An overview of spreadsheet-driven customization</figcaption>
 </figure>
-<p>Spreadsheet-driven customization provides an easy entry point for end users, since small tweaks can be performed with a single click. At the same time, it also supports a variety of richer customizations, like adding private annotations to a webpage or joining in related data from a web API. In Section 4, we elaborate on this principle of “low floor, high ceiling,” as well as other design principles guiding our work.</p>
+<p>Spreadsheet-driven customization provides an easy entry point for end users, since small tweaks can be performed with a single click. At the same time, it also supports a variety of richer customizations, like adding private annotations to a webpage or joining in related data from a web API. In Section 4, we elaborate on this principle of “low floor, high ceiling,” as well as other design principles guiding our work.</p>
 <p>Prior work <span class="citation" data-cites="mccutchen2016 benson2014 chang2014">[<a href="#ref-benson2014" role="doc-biblioref">3</a>, <a href="#ref-chang2014" role="doc-biblioref">5</a>, <a href="#ref-mccutchen2016" role="doc-biblioref">19</a>]</span> has enabled end users to create “spreadsheet-driven applications” which use spreadsheets as a backing data layer. Spreadsheet-driven <em>customization</em> applies this idea in a different context: customizing existing software, rather than building new software from scratch. Our technique does not require that the application actually be backed by a spreadsheet; it merely uses the spreadsheet as an interface for viewing and modifying the internal state of the application.</p>
-<p>This approach requires extracting structured data from the user interfaces of existing applications, but we hide the complexity of data extraction from end users. Programmers write <em>site adapters</em> which use web scraping techniques to extract structured data from existing applications and map them to the spreadsheet table. End users only interact with the structured spreadsheet, providing a straightforward customization experience. In Section 5, we explain this architecture in more depth, and describe how Wildcard relates to existing work on malleable software, web customization, spreadsheet-driven applications, and web scraping.</p>
+<p>This approach requires extracting structured data from the user interfaces of existing applications, but we hide the complexity of data extraction from end users. Programmers write <em>site adapters</em> which use web scraping techniques to extract structured data from existing applications and map them to the spreadsheet table. End users only interact with the structured spreadsheet, providing a straightforward customization experience. In Section 5, we explain this architecture in more depth, and describe how Wildcard relates to existing work on malleable software, web customization, spreadsheet-driven applications, and web scraping.</p>
 <p>The Wildcard extension is currently an early research prototype. We plan to continue testing the system with our own use cases to understand better how well the spreadsheet abstraction maps to real websites and customization needs. Eventually we plan to release the tool publicly, in order to study how end users choose to customize applications, discover usability challenges, and to test the feasibility of programmers building and maintaining site adapters.</p>
-<h1 data-number="2" id="demo-booking-a-trip-with-wildcard" data-number="2"><span class="header-section-number">2</span> Demo: booking a trip with Wildcard</h1>
+<h1 data-number="2" id="sec:demos" data-number="2"><span class="header-section-number">2</span> Demo: booking a trip with Wildcard</h1>
 <p>To get a sense of the user experience of using Wildcard, let’s see an example of someone using it to help with booking a trip.<span class="pdf-only"></span></p>
 <div class="pdf-only">
 
@@ -142,52 +143,55 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <h2 data-number="2.1" id="customizing-search-results" data-number="2.1"><span class="header-section-number">2.1</span> Customizing search results</h2>
 <p>In 2012, the travel site Airbnb removed the ability to sort accommodation listings by price. Users could still filter by price range, but could no longer view the cheapest listings first. Many users complained on online message boards that the change seemed hostile to users. “It’s so frustrating!..What is the logic behind not having this function?” said one user on the <a href="https://community.withairbnb.com/t5/Hosting/Sorting-listing-by-price/td-p/559404">Airbnb support forum</a>. Alas, the feature remains missing to this day.</p>
 <p>Using Wildcard, the user can fix this omission, while leaving the page’s design and the rest of its functionality unchanged.<span class="pdf-only"></span> First, the user opens up the Wildcard panel, which shows a table corresponding to the search results in the page. As they click around in the table, the corresponding row in the page is highlighted so they can see the connection between the views.</p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/table.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" preload="auto" muted="muted" src="media/table.mp4#t=0.1" muted playsinline controls class>
 </video>
 <p>Then, the user clicks on the price column header to sort the spreadsheet, and the Airbnb UI, by in ascending order by price<span class="pdf-only"></span>. They can similarly use the column headers to filter to listings with a user rating above 4.5, which the original Airbnb UI also doesn’t allow.</p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/sort-filter.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" preload="auto" muted="muted" src="media/sort-filter.mp4#t=0.1" muted playsinline controls class>
 </video>
 <p>After manipulating the data, the user closes the table view and continues using the website with its original visual design. The table view offers a way to change the data backing a page, but does not need to replace the original interface entirely.</p>
 <p>Most websites that show lists of data also offer actions on rows in the table, like adding an item to a shopping cart. Wildcard has the ability to make these “row actions” available in the data table through the site adapter.</p>
 <p>In the Airbnb UI, saving multiple listings to a Favorites list requires tediously clicking through them one by one. Using Wildcard, the user can select multiple rows and favorite all of them with a single click<span class="pdf-only"></span>. Similarly, the user can also open the detailed pages for many listings at once.</p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/favorite-open.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" preload="auto" muted="muted" src="media/favorite-open.mp4#t=0.1" muted playsinline controls class>
 </video>
 <p>Now the user wants to jot down some notes on the pros and cons of each listing. To do this, they type some notes into an additional column in each listing row, and the notes appear inside the listings in the original UI<span class="pdf-only"></span>. The annotations are saved in the browser for future sessions.</p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/annotate.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" preload="auto" muted="muted" src="media/annotate.mp4#t=0.1" muted playsinline controls class>
 </video>
 <p>Wildcard also includes a formula language, which enables more sophisticated customizations that fetch external data and perform computations.</p>
 <p>When traveling without a car, it’s useful to evaluate potential places to stay based on how walkable the surroundings are. Using Wildcard formulas, the user can integrate Airbnb with Walkscore, an API that rates the walkability of any location on a 1-100 scale. When they type in a <code>WALKSCORE</code> formula with the latitude and longitude of the listing, it returns the walk score as the cell’s value. Because the cell’s contents are injected into the page, the score also shows up in the page body<span class="pdf-only"></span>.</p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/walkscore.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" preload="auto" muted="muted" src="media/walkscore.mp4#t=0.1" muted playsinline controls class>
 </video>
 <div class="pdf-only">
 
 </div>
 <h2 data-number="2.2" id="customizing-a-form-input" data-number="2.2"><span class="header-section-number">2.2</span> Customizing a form input</h2>
 <p>It might seem that Wildcard is only useful on websites that display lists of tabular data like search results. But in fact, the table metaphor is flexible enough to represent many types of data. For example, a flight search form on Expedia can be represented as a single row, with a column corresponding to each input. <span class="pdf-only"></span></p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/expedia-table.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" preload="auto" muted="muted" src="media/expedia-table.mp4#t=0.1" muted playsinline controls class>
 </video>
 <p>In previous examples the table cells were read-only; users cannot change the name or price of an Airbnb listing. In this next case, the cells are writable, so that changes in the table are reflected in the form inputs. This becomes especially useful when combined with GUI widgets that can edit the value of a table cell.</p>
 <p>Filling in dates for a flight search typically requires opening up a separate calendar app to find the right dates and then manually copying them into the form. In Wildcard, the user can avoid this cumbersome workflow by using a datepicker widget that includes the user’s personal calendar information<span class="pdf-only"></span>. The user can directly click on the right date, and it gets inserted into the spreadsheet and the original form.</p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/datepicker.mp4#t=0.1" muted playsinline controls class>
+<video controls="controls" preload="auto" muted="muted" src="media/datepicker.mp4#t=0.1" muted playsinline controls class>
 </video>
 <p>Here we’ve presented just a few use cases for spreadsheet-driven customization, but we think the interactive data table is flexible enough to support a wide range of other useful modifications, all while remaining familiar and easy to use.</p>
-<h1 data-number="3" id="system-architecture" data-number="3"><span class="header-section-number">3</span> System Architecture</h1>
+<h1 data-number="3" id="sec:implementation" data-number="3"><span class="header-section-number">3</span> System Implementation</h1>
 <p>Wildcard is written in Typescript. It is currently injected into pages using the <a href="https://www.tampermonkey.net/">Tampermonkey</a> userscript manager, but in the future we plan to deploy it as a standalone browser extension to make it easier to install.</p>
 <p>In order to promote extensibility, Wildcard is implemented as a small core program along with several types of plugins: site adapters, formulas, and cell renderers/editors. The core contains functionality for displaying the data table and handling user interactions, and the table implementation is built using the <a href="https://handsontable.com/">Handsontable</a> Javascript library.</p>
 <figure>
-<img src="media/architecture-clean.png" id="fig:architecture" alt="" /><figcaption>The architecture of the Wildcard system</figcaption>
+<img src="media/architecture-clean.png" id="fig:architecture" alt="" /><figcaption>Figure 2: The architecture of the Wildcard system</figcaption>
 </figure>
 <p>Site adapters are a key part of Wildcard, since they specify the bidirectional connection between the web page and its structured data representation.</p>
 <p>Wildcard provides an interface for concisely expressing how the DOM should be mapped to a data table. For example, here is a code snippet for extracting the name of an Airbnb listing:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">{</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>  fieldName<span class="op">:</span> <span class="st">&quot;name&quot;</span><span class="op">,</span> <span class="co">// The name of the field</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>  type<span class="op">:</span> <span class="st">&quot;text&quot;</span><span class="op">,</span>      <span class="co">// The type of the field</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>  readOnly<span class="op">:</span> <span class="kw">true</span><span class="op">,</span>    <span class="co">// Whether the user can edit the field</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a>  el<span class="op">:</span> (row) <span class="kw">=&gt;</span> <span class="va">row</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="vs">`.</span><span class="sc">${</span>titleClass<span class="sc">}</span><span class="vs">`</span>)<span class="op">,</span> <span class="co">// Extract DOM element</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="co">// Field metadata:</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  fieldName<span class="op">:</span> <span class="st">&quot;name&quot;</span><span class="op">,</span> <span class="co">// The name of the field</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>  type<span class="op">:</span> <span class="st">&quot;text&quot;</span><span class="op">,</span>      <span class="co">// The type of the field</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>  readOnly<span class="op">:</span> <span class="kw">true</span><span class="op">,</span>    <span class="co">// Whether the user can edit the field</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>  </span>
+<span id="cb1-7"><a href="#cb1-7"></a>  <span class="co">// Function to extract DOM element:</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>  el<span class="op">:</span> (row) <span class="kw">=&gt;</span> <span class="va">row</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="vs">`.</span><span class="sc">${</span>titleClass<span class="sc">}</span><span class="vs">`</span>)<span class="op">,</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="op">}</span></span></code></pre></div>
 <p>Sometimes important data is not shown in the UI, making it impossible to scrape from the DOM. To address this, we have also prototyped mechanisms for site adapters to observe AJAX requests made by the browser and extract data directly from JSON responses. This mechanism was used to implement the Airbnb Walkscore example, since latitude and longitude aren’t shown in the Airbnb UI, but they are available in AJAX responses. In the future we also plan to add the ability for site adapters to scrape data across multiple pages in paginated lists of results (as explored in prior work <span class="citation" data-cites="huynh2006">[<a href="#ref-huynh2006" role="doc-biblioref">10</a>]</span>).</p>
 <p>The site adapter also needs to support the reverse direction: sending updates from the table to the original page. Most DOM manipulation is not performed directly by the site adapter. Instead, Wildcard automatically mutates the DOM to reflect the table state, using the same declarative spec shown above. The only exception is row actions (like favoriting an Airbnb listing), which are implemented as imperative Javascript functions that can can mutate the DOM, simulate clicks on buttons, etc.</p>
-<h1 data-number="4" id="design-principles" data-number="4"><span class="header-section-number">4</span> Design principles</h1>
+<h1 data-number="4" id="sec:design-principles" data-number="4"><span class="header-section-number">4</span> Design principles</h1>
 <p>The idea of spreadsheet-driven customization is guided by several design principles, inspired by prior work and our own experimentation. We think these principles can also broadly inform the design of tools for end user software customization.</p>
 <h2 data-number="4.1" id="expose-a-universal-data-structure" data-number="4.1"><span class="header-section-number">4.1</span> Expose a universal data structure</h2>
 <p>Today, most personal computing consists of using applications, which bundle together behavior and data to provide some set of functionality. While there are some limited points of interoperability, applications generally are designed to operate independently of one another.</p>
@@ -228,7 +232,7 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <p>The group of users building adapters does not necessarily need to be limited only to programmers. In the future, we plan to explore enabling end users to also create site adapters, drawing on related work in this area <span class="citation" data-cites="chasins2018 huynh2006">[<a href="#ref-chasins2018" role="doc-biblioref">6</a>, <a href="#ref-huynh2006" role="doc-biblioref">10</a>]</span>. But even in that case, we still envision a separation between highly motivated, tech-savvy end users building adapters, and more casual end users just using the spreadsheet view.</p>
 <p>Another stakeholder to consider is the first party developers of the original software. Spreadsheet-driven customization does not depend on cooperation from first-party website developers, but if they were to expose structured data in their web application clients, it would make site adapters unnecessary, producing more robust results with much less work.</p>
 <p>We think there are compelling reasons for first parties to consider doing this. Providing Wildcard support would allow users to build extensions to fulfill their own feature requests. It also would not necessarily require much effort: adding Wildcard support could be made fairly straightforward for a first-party that already has direct access to the structured data in the page. There is also precedent for first parties implementing an official client extension API in response to user demand: for several years, Google maintained an official extension API in Gmail for Greasemonkey scripts to use.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<h1 data-number="5" id="related-work" data-number="5"><span class="header-section-number">5</span> Related work</h1>
+<h1 data-number="5" id="sec:related-work" data-number="5"><span class="header-section-number">5</span> Related work</h1>
 <h2 data-number="5.1" id="malleable-software" data-number="5.1"><span class="header-section-number">5.1</span> Malleable software</h2>
 <p>In the broadest sense, Wildcard is inspired by systems aiming to make software into a dynamic medium where end users frequently create and modify software to meet their own needs, rather than only consuming applications built by programmers. These systems include Smalltalk <span class="citation" data-cites="kay1977">[<a href="#ref-kay1977" role="doc-biblioref">14</a>]</span>, Hypercard <span class="citation" data-cites="hypercard2019">[<a href="#ref-hypercard2019" role="doc-biblioref">12</a>]</span> , Boxer <span class="citation" data-cites="disessa1986">[<a href="#ref-disessa1986" role="doc-biblioref">8</a>]</span>, Webstrates <span class="citation" data-cites="klokmose2015">[<a href="#ref-klokmose2015" role="doc-biblioref">15</a>]</span>, and Dynamicland <span class="citation" data-cites="victor">[<a href="#ref-victor" role="doc-biblioref">25</a>]</span>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <p>While similar in broad goals, Wildcard employs a different solution strategy. These projects generally require building software from scratch in a new environment, whereas Wildcard aims to maximize the malleability of software built with existing tools. This approach has the pragmatic benefit of enabling customization for much more software, although it also imposes more rigid constraints.</p>
@@ -264,6 +268,7 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <p>In this paper, we have presented <em>spreadsheet-driven customization</em>, a technique that enables end users to customize software by augmenting an application’s UI with a spreadsheet. We hope that this technique contributes to making the Web into a more dynamic medium that users can mold to their own needs.</p>
 <p>We plan to continue developing the Wildcard prototype and to eventually deploy it as an open-source tool. To receive future updates on Wildcard and notifications about a public release, <a href="">sign up for the email newsletter</a>.</p>
 <p>We are also looking for private beta testers. If you have an idea for how you might want to use Wildcard, please <a href="mailto:glitt@mit.edu">get in touch</a>. We would love to hear about your needs and help find ways to use Wildcard to solve them.</p>
+<p>Thanks to Glen Chiacchieri, Steve Krouse, Daniel Windham, and Maggie Yellen for providing valuable feedback on this work.</p>
 <h1 class="unnumbered" data-number="" id="bibliography" class="unnumbered" data-number="">References</h1>
 <div id="refs" class="references" role="doc-bibliography">
 <div id="ref-bakke2016">
@@ -358,8 +363,5 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <li id="fn2" role="doc-endnote"><p>The project’s name Wildcard comes from the internal pre-release name for Hypercard, which doubly inspired our work by promoting both software modification by end users and the ideas behind the Web.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
-<h2 id="acks">Acknowledgements</h2>
-Thank you to Glen Chiacchieri, Steve Krouse, Daniel Windham, and Maggie Yellen for providing helpful feedback on this work.
-<br /><br />
 </body>
 </html>

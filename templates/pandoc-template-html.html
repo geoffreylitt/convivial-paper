@@ -45,10 +45,10 @@ $if(title)$
 <header id="title-block-header">
 <h1 class="title">$title$</h1>
 $if(subtitle)$
-<p class="subtitle">$subtitle$</p>
+<h2 class="subtitle">$subtitle$</h2>
 $endif$
 $for(author)$
-<p class="author">$author$</p>
+<p class="author">By $author$</p>
 $endfor$
 $if(date)$
 <p class="date">$date$</p>
@@ -67,9 +67,6 @@ $table-of-contents$
 </nav>
 $endif$
 $body$
-<h2 id="$idprefix$acks">Acknowledgements</h2>
-$acknowledgements$
-<br /><br />
 $for(include-after)$
 $include-after$
 $endfor$

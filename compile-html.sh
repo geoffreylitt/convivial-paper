@@ -4,6 +4,7 @@ convert media/overview.png -density 300 -units pixelsperinch media/overview-300d
 
  pandoc \
   --filter conditional-render \
+  --filter pandoc-crossref \
   --filter pandoc-citeproc \
   --metadata=format:html \
   -s \
