@@ -128,38 +128,39 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 <p>Prior work <span class="citation" data-cites="huynh2006">[<a href="#ref-huynh2006" role="doc-biblioref">10</a>]</span> has shown that the process of extracting structured data from existing user interfaces can be confusing and unfamiliar for end users. In order to make the customization experience as straightforward as possible, we envision a tiered architecture that hides this complexity from end users. Wildcard provides a mechanism for programmers to write <em>site adapters</em>, which use web scraping techniques to extract structured data from the DOM and AJAX requests of existing applications. End users only interact with the structured spreadsheet, providing a predictable experience with clear affordances for which customizations are possible.</p>
 <p>Wildcard is currently an early prototype, with incomplete features and limited coverage of sites. We plan to continue building site adapters and testing the system with our own use cases, to better understand how well the spreadsheet abstraction maps to real websites and customization needs. Eventually we also plan to release the tool publicly, to determine how end users choose to use spreadsheet-driven customization, what usability challenges emerge, and how feasible it is for programmers to build and maintain site adapters.</p>
 <h1 id="demo-booking-a-trip-with-wildcard">Demo: booking a trip with Wildcard</h1>
-<div class="html-only">
-<p>To get a sense of how it might feel to use Wildcard, let’s see an example of someone using it to help with booking a trip on the travel sites Airbnb and Expedia.</p>
-<p>The user starts by opening up the Airbnb search listings page to look for a place to stay. The page looks nice and mostly works well, but is missing some key features. As mentioned before, this page doesn’t allow the user to sort by price. It also doesn’t let them filter by user rating. Using Wildcard, the user can add these small features, while leaving the page’s design and the rest of its functionality unchanged.</p>
-<p>First, the user opens up the Wildcard panel, which shows a table corresponding to the search results in the page. As they click around in the table, the corresponding row in the page is highlighted so they can see the connection between the views.</p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/table.mp4#t=0.1" muted playsinline controls class>
-</video>
-<p>Then, the user can use standard spreadsheet column header features to sort the page by price and filter by rating:</p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/sort-filter.mp4#t=0.1" muted playsinline controls class>
-</video>
-<p>Notice how after manipulating the data, the user was able to close the table view and continue using the website with its original visual design. The table view offers a way to change the data backing a page, but does not need to replace the original interface entirely.</p>
-<p>Most websites that show lists of data also offer actions that can be taken on a row in the table, like adding an item to a shopping cart. Wildcard has the ability to make these “row actions” available in the data table if the site adapter implements them. The main advantage this provides is the ability to easily perform a row action in bulk across multiple rows.</p>
-<p>For example, it’s tedious on Airbnb to click on listings one by one to add them to a list of favorites. Using Wildcard, the user can just select multiple rows and favorite all of them with one click. Similarly, we can also open the detailed pages for many listings in new tabs.</p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/favorite-open.mp4#t=0.1" muted playsinline controls class>
-</video>
-<p>Now the user would like to jot down some notes on the pros and cons of each listing. To do this, they can simply type notes into an additional column next to each listing, and the notes appear inside the listings in the original UI. These annotations are also persisted in the browser for future retrieval.</p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/annotate.mp4#t=0.1" muted playsinline controls class>
-</video>
-<p>Wildcard also includes a formula language which enables more sophisticated tweaks that fetch external data and perform computations.</p>
-<p>When traveling without a car, it’s nice to evaluate potential places to stay based on how walkable the surroundings. Using Wildcard formulas, we can integrate Airbnb with Walkscore, an API that rates the walkability of any location on a 1-100 scale. When we call the <code>WALKSCORE</code> formula with the latitude and longitude of the listing, it returns the walk score as the cell value. Because the cell’s contents are injected into the page, the score also shows up in the page body.</p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/walkscore.mp4#t=0.1" muted playsinline controls class>
-</video>
-<p>It might seem that Wildcard is only useful on websites that display lists of tabular data like search results. But in fact, the table metaphor is flexible enough to represent many types of data. For example, a form can be represented as a single row, with a column for each input.</p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/expedia-table.mp4#t=0.1" muted playsinline controls class>
-</video>
-<p>In previous examples the data extracted from the site was marked as read-only; users cannot change the name or price of an Airbnb listing. In this next case, the cells are marked as writable, so that changes in the table are reflected in the form inputs. This becomes useful when combined with GUI widgets for editing the value of a table cell.</p>
-<p>Filling in dates for a flight search typically requires opening up a separate calendar app to find the right dates, and then manually copying them into the form. In Wildcard, we can make this easier by providing a datepicker widget that has privileged access to the user’s calendar information.</p>
-<video width="100%" controls="controls" preload="auto" muted="muted" src="media/datepicker.mp4#t=0.1" muted playsinline controls class>
-</video>
-</div>
+<p>To get a sense of how it might feel to use Wildcard, let’s see an example of someone using it to help with booking a trip on the travel sites Airbnb and Expedia.<span class="pdf-only"></span></p>
 <div class="pdf-only">
 
 </div>
+<p>The user starts by opening up the Airbnb search listings page to look for a place to stay. The page looks nice and mostly works well, but is missing some key features. As mentioned before, this page doesn’t allow the user to sort by price. It also doesn’t let them filter by user rating. Using Wildcard, the user can add these small features, while leaving the page’s design and the rest of its functionality unchanged.<span class="pdf-only"></span></p>
+<p>First, the user opens up the Wildcard panel, which shows a table corresponding to the search results in the page. As they click around in the table, the corresponding row in the page is highlighted so they can see the connection between the views.</p>
+<video width="100%" controls="controls" preload="auto" muted="muted" src="media/table.mp4#t=0.1" muted playsinline controls class>
+</video>
+<p>Then, the user can use standard spreadsheet column header features to sort the page by price and filter by rating<span class="pdf-only"></span>.</p>
+<video width="100%" controls="controls" preload="auto" muted="muted" src="media/sort-filter.mp4#t=0.1" muted playsinline controls class>
+</video>
+<p>After manipulating the data, the user was able to close the table view and continue using the website with its original visual design. The table view offers a way to change the data backing a page, but does not need to replace the original interface entirely.</p>
+<p>Most websites that show lists of data also offer actions that can be taken on a row in the table, like adding an item to a shopping cart. Wildcard has the ability to make these “row actions” available in the data table if the site adapter implements them. The main advantage this provides is the ability to easily perform a row action in bulk across multiple rows.</p>
+<p>For example, it’s tedious on Airbnb to click on listings one by one to add them to a list of favorites. Using Wildcard, the user can just select multiple rows and favorite all of them with one click<span class="pdf-only"></span>. Similarly, we can also open the detailed pages for many listings in new tabs.</p>
+<video width="100%" controls="controls" preload="auto" muted="muted" src="media/favorite-open.mp4#t=0.1" muted playsinline controls class>
+</video>
+<p>Now the user would like to jot down some notes on the pros and cons of each listing. To do this, they can simply type notes into an additional column next to each listing, and the notes appear inside the listings in the original UI<span class="pdf-only"></span>. These annotations are also persisted in the browser for future retrieval.</p>
+<video width="100%" controls="controls" preload="auto" muted="muted" src="media/annotate.mp4#t=0.1" muted playsinline controls class>
+</video>
+<p>Wildcard also includes a formula language which enables more sophisticated tweaks that fetch external data and perform computations.</p>
+<p>When traveling without a car, it’s nice to evaluate potential places to stay based on how walkable the surroundings. Using Wildcard formulas, we can integrate Airbnb with Walkscore, an API that rates the walkability of any location on a 1-100 scale. When we call the <code>WALKSCORE</code> formula with the latitude and longitude of the listing, it returns the walk score as the cell value. Because the cell’s contents are injected into the page, the score also shows up in the page body<span class="pdf-only"></span>.</p>
+<video width="100%" controls="controls" preload="auto" muted="muted" src="media/walkscore.mp4#t=0.1" muted playsinline controls class>
+</video>
+<div class="pdf-only">
+
+</div>
+<p>It might seem that Wildcard is only useful on websites that display lists of tabular data like search results. But in fact, the table metaphor is flexible enough to represent many types of data. For example, a flight search form on Expedia can be represented as a single row, with a column corresponding to each input. <span class="pdf-only"></span></p>
+<video width="100%" controls="controls" preload="auto" muted="muted" src="media/expedia-table.mp4#t=0.1" muted playsinline controls class>
+</video>
+<p>In previous examples the data extracted from the site was marked as read-only; users cannot change the name or price of an Airbnb listing. In this next case, the cells are marked as writable, so that changes in the table are reflected in the form inputs. This becomes useful when combined with GUI widgets for editing the value of a table cell.</p>
+<p>Filling in dates for a flight search typically requires opening up a separate calendar app to find the right dates, and then manually copying them into the form. In Wildcard, we can make this easier by providing a datepicker widget that has privileged access to the user’s calendar information<span class="pdf-only"></span>.</p>
+<video width="100%" controls="controls" preload="auto" muted="muted" src="media/datepicker.mp4#t=0.1" muted playsinline controls class>
+</video>
 <p>Here we’ve presented just a few possibilities for how to use Wildcard. We think the interactive data table offers a flexible computational model that can support a wide range of other useful modifications, all while remaining familiar and easy to use.</p>
 <h1 id="system-architecture">System Architecture</h1>
 <p>Wildcard is written in Typescript. It is currently injected into pages using the <a href="https://www.tampermonkey.net/">Tampermonkey</a> userscript manager, but in the future we plan to deploy it as a standalone browser extension to make it easier to install.</p>
@@ -169,16 +170,14 @@ padding: 10px; margin: 20px 0 0 0;">In-progress DRAFT. Please don't distribute!<
 </figure>
 <p>Site adapters specify the bidirectional connection between the web page and its structured data representation.</p>
 <p>For extracting data from the page and getting it into structured form, Wildcard provides ways to concisely express web scraping logic. For example, here is a code snippet for extracting the name of an Airbnb listing:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a>  <span class="op">{</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>    fieldName<span class="op">:</span> <span class="st">&quot;name&quot;</span><span class="op">,</span> <span class="co">// The name of the data field</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>    readOnly<span class="op">:</span> <span class="kw">true</span><span class="op">,</span>    <span class="co">// Whether the user can edit the field</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>    type<span class="op">:</span> <span class="st">&quot;text&quot;</span><span class="op">,</span>      <span class="co">// The type of the field</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a>    <span class="co">// Given the DOM element for the entire listing,</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>    <span class="co">// return the DOM element representing this field</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a>    el<span class="op">:</span> (row) <span class="kw">=&gt;</span> <span class="va">row</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="vs">`.</span><span class="sc">${</span>titleClass<span class="sc">}</span><span class="vs">`</span>)<span class="op">,</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a>  <span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>  fieldName<span class="op">:</span> <span class="st">&quot;name&quot;</span><span class="op">,</span> <span class="co">// The name of the field</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  type<span class="op">:</span> <span class="st">&quot;text&quot;</span><span class="op">,</span>      <span class="co">// The type of the field</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>  readOnly<span class="op">:</span> <span class="kw">true</span><span class="op">,</span>    <span class="co">// Whether the user can edit the field</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>  el<span class="op">:</span> (row) <span class="kw">=&gt;</span> <span class="va">row</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="vs">`.</span><span class="sc">${</span>titleClass<span class="sc">}</span><span class="vs">`</span>)<span class="op">,</span> <span class="co">// Extract DOM element</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="op">}</span></span></code></pre></div>
 <p>Sometimes important data is not shown in the UI, making it impossible to scrape from the DOM. To address this, we have also prototyped mechanisms for site adapters to observe AJAX requests made by the browser and extract data directly from JSON responses. This mechanism was used to implement the Airbnb Walkscore example, since latitude and longitude aren’t shown in the Airbnb UI, but they are available in AJAX responses. We also plan to add the ability for site adapters to scrape data across multiple pages in paginated lists of results (as explored in prior work <span class="citation" data-cites="huynh2006">[<a href="#ref-huynh2006" role="doc-biblioref">10</a>]</span>).</p>
-<p>The site adapter also needs to support the reverse direction: sending updates from the table to the original page. Most DOM manipulation is not performed directly by the site adapter; instead, the adapter specifies how to find the divs representing data rows, and the core platform mutates the DOM to reflect the table state. The only exception is row actions (like favoriting an Airbnb listing), which are implemented as imperative Javascript functions that can can mutate the DOM, simulate clicks on buttons, etc.</p>
+<p>The site adapter also needs to support the reverse direction: sending updates from the table to the original page. Most DOM manipulation is not performed directly by the site adapter; instead, the adapter specifies how to find the spans representing data rows, and the core platform mutates the DOM to reflect the table state. The only exception is row actions (like favoriting an Airbnb listing), which are implemented as imperative Javascript functions that can can mutate the DOM, simulate clicks on buttons, etc.</p>
 <h1 id="design-principles">Design principles</h1>
 <p>The idea of spreadsheet-driven customization is guided by several design principles, inspired by prior work and our own experimentation. We think these principles can also broadly inform the design of end user programming tools, especially those that enable users to customize existing software.</p>
 <h2 id="expose-a-universal-data-structure">Expose a universal data structure</h2>

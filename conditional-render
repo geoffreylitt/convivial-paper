@@ -5,6 +5,14 @@ require "paru/filter"
 figure_counter = 0;
 
 Paru::Filter.run do 
+    with "Span.html-only" do |div|
+      div.inner_markdown = "" unless metadata["format"] == "html" 
+    end
+
+    with "Span.pdf-only" do |div|
+      div.inner_markdown = "" unless metadata["format"] == "pdf" 
+    end
+
     with "Div.html-only" do |div|
       div.inner_markdown = "" unless metadata["format"] == "html" 
     end

@@ -242,15 +242,15 @@ Wildcard}\label{demo-booking-a-trip-with-wildcard}}
 
 To get a sense of how it might feel to use Wildcard, let's see an
 example of someone using it to help with booking a trip on the travel
-sites Airbnb and Expedia. These demos are best viewed in the online
-version of this paper, which includes videos:
-\url{https://geoffreylitt.com/wildcard}
+sites Airbnb and Expedia.{ These demos are best viewed as videos in the
+online version of this paper
+(\url{https://www.geoffreylitt.com/wildcard}).}
 
 \begin{figure}
 \hypertarget{fig:airbnb-demo}{%
 \centering
 \includegraphics{media/airbnb-demo-300dpi.png}
-\caption{Using Wildcard to augment the Airbnb page for searching travel
+\caption{Using Wildcard to augment the Airbnb search page for booking
 accommodations}\label{fig:airbnb-demo}
 }
 \end{figure}
@@ -260,13 +260,23 @@ for a place to stay. The page looks nice and mostly works well, but is
 missing some key features. As mentioned before, this page doesn't allow
 the user to sort by price. It also doesn't let them filter by user
 rating. Using Wildcard, the user can add these small features, while
-leaving the page's design and the rest of its functionality unchanged
-(shown in fig.~\ref{fig:sorting}).
+leaving the page's design and the rest of its functionality unchanged.{
+fig.~\ref{fig:airbnb-demo} shows an overview of augmenting the Airbnb
+site.}
 
-After manipulating the data, the user can close the table view and
-continue using the website with its original visual design. The table
-view offers a way to change the data backing a page, but does not need
-to replace the original interface entirely.
+First, the user opens up the Wildcard panel, which shows a table
+corresponding to the search results in the page. As they click around in
+the table, the corresponding row in the page is highlighted so they can
+see the connection between the views.
+
+Then, the user can use standard spreadsheet column header features to
+sort the page by price and filter by rating{
+(fig.~\ref{fig:airbnb-demo}B)}.
+
+After manipulating the data, the user was able to close the table view
+and continue using the website with its original visual design. The
+table view offers a way to change the data backing a page, but does not
+need to replace the original interface entirely.
 
 Most websites that show lists of data also offer actions that can be
 taken on a row in the table, like adding an item to a shopping cart.
@@ -277,9 +287,27 @@ multiple rows.
 
 For example, it's tedious on Airbnb to click on listings one by one to
 add them to a list of favorites. Using Wildcard, the user can just
-select multiple rows and favorite all of them with one click. Similarly,
-we can also open the detailed pages for many listings in new tabs.
-(Shown in fig.~\ref{fig:actions})
+select multiple rows and favorite all of them with one click{
+(fig.~\ref{fig:airbnb-demo}D)}. Similarly, we can also open the detailed
+pages for many listings in new tabs.
+
+Now the user would like to jot down some notes on the pros and cons of
+each listing. To do this, they can simply type notes into an additional
+column next to each listing, and the notes appear inside the listings in
+the original UI{ (fig.~\ref{fig:airbnb-demo}A)}. These annotations are
+also persisted in the browser for future retrieval.
+
+Wildcard also includes a formula language which enables more
+sophisticated tweaks that fetch external data and perform computations.
+
+When traveling without a car, it's nice to evaluate potential places to
+stay based on how walkable the surroundings. Using Wildcard formulas, we
+can integrate Airbnb with Walkscore, an API that rates the walkability
+of any location on a 1-100 scale. When we call the \texttt{WALKSCORE}
+formula with the latitude and longitude of the listing, it returns the
+walk score as the cell value. Because the cell's contents are injected
+into the page, the score also shows up in the page body{
+(fig.~\ref{fig:airbnb-demo}C)}.
 
 \begin{figure}
 \hypertarget{fig:expedia-demo}{%
@@ -289,6 +317,26 @@ we can also open the detailed pages for many listings in new tabs.
 flight}\label{fig:expedia-demo}
 }
 \end{figure}
+
+It might seem that Wildcard is only useful on websites that display
+lists of tabular data like search results. But in fact, the table
+metaphor is flexible enough to represent many types of data. For
+example, a flight search form on Expedia can be represented as a single
+row, with a column corresponding to each input. {
+fig.~\ref{fig:expedia-demo} shows an overview of augmenting the Expedia
+site.}
+
+In previous examples the data extracted from the site was marked as
+read-only; users cannot change the name or price of an Airbnb listing.
+In this next case, the cells are marked as writable, so that changes in
+the table are reflected in the form inputs. This becomes useful when
+combined with GUI widgets for editing the value of a table cell.
+
+Filling in dates for a flight search typically requires opening up a
+separate calendar app to find the right dates, and then manually copying
+them into the form. In Wildcard, we can make this easier by providing a
+datepicker widget that has privileged access to the user's calendar
+information{ (fig.~\ref{fig:expedia-demo}B)}.
 
 Here we've presented just a few possibilities for how to use Wildcard.
 We think the interactive data table offers a flexible computational
@@ -329,14 +377,12 @@ listing:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-  \OperatorTok{\{}
-\NormalTok{    fieldName}\OperatorTok{:} \StringTok{"name"}\OperatorTok{,} \CommentTok{// The name of the data field}
-\NormalTok{    readOnly}\OperatorTok{:} \KeywordTok{true}\OperatorTok{,}    \CommentTok{// Whether the user can edit the field}
-\NormalTok{    type}\OperatorTok{:} \StringTok{"text"}\OperatorTok{,}      \CommentTok{// The type of the field}
-    \CommentTok{// Given the DOM element for the entire listing,}
-    \CommentTok{// return the DOM element representing this field}
-\NormalTok{    el}\OperatorTok{:}\NormalTok{ (row) }\KeywordTok{=>} \VariableTok{row}\OperatorTok{.}\FunctionTok{querySelector}\NormalTok{(}\VerbatimStringTok{\textasciigrave{}.}\SpecialCharTok{$\{}\NormalTok{titleClass}\SpecialCharTok{\}}\VerbatimStringTok{\textasciigrave{}}\NormalTok{)}\OperatorTok{,}
-  \OperatorTok{\}}
+\OperatorTok{\{}
+\NormalTok{  fieldName}\OperatorTok{:} \StringTok{"name"}\OperatorTok{,} \CommentTok{// The name of the field}
+\NormalTok{  type}\OperatorTok{:} \StringTok{"text"}\OperatorTok{,}      \CommentTok{// The type of the field}
+\NormalTok{  readOnly}\OperatorTok{:} \KeywordTok{true}\OperatorTok{,}    \CommentTok{// Whether the user can edit the field}
+\NormalTok{  el}\OperatorTok{:}\NormalTok{ (row) }\KeywordTok{=>} \VariableTok{row}\OperatorTok{.}\FunctionTok{querySelector}\NormalTok{(}\VerbatimStringTok{\textasciigrave{}.}\SpecialCharTok{$\{}\NormalTok{titleClass}\SpecialCharTok{\}}\VerbatimStringTok{\textasciigrave{}}\NormalTok{)}\OperatorTok{,} \CommentTok{// Extract DOM element}
+\OperatorTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -353,7 +399,7 @@ multiple pages in paginated lists of results (as explored in prior work
 The site adapter also needs to support the reverse direction: sending
 updates from the table to the original page. Most DOM manipulation is
 not performed directly by the site adapter; instead, the adapter
-specifies how to find the divs representing data rows, and the core
+specifies how to find the spans representing data rows, and the core
 platform mutates the DOM to reflect the table state. The only exception
 is row actions (like favoriting an Airbnb listing), which are
 implemented as imperative Javascript functions that can can mutate the
