@@ -20,6 +20,8 @@ Web applications often don't match the particular needs of their users. Sometime
 
 In this paper, we present _spreadsheet-driven customization_, a technique that enables end users to customize software. The idea is to augment an application’s UI with a spreadsheet that is synchronized with the application’s data. When the user manipulates the spreadsheet, the underlying data is modified and the changes are propagated to the UI, and vice versa. We have implemented this technique in a prototype browser extension called Wildcard. Section 2 presents demos of using Wildcard to augment real websites in useful ways, and Section 3 describes the implementation of the extension.
 
+![An overview of spreadsheet-driven customization](media/overview-300dpi.png){#fig:overview}
+
 Spreadsheet-driven customization provides an easy entry point for end users, since small tweaks can be performed with a single click. At the same time, it also supports a variety of richer customizations, like adding private annotations to a webpage or joining in related data from a web API. In Section 4, we elaborate on this principle of "low floor, high ceiling," as well as other design principles guiding our work.
 
 Prior work [@mccutchen2016;@benson2014;@chang2014] has enabled end users to create "spreadsheet-driven applications" which use spreadsheets as a backing data layer. Spreadsheet-driven *customization* applies this idea in a different context: customizing existing software, rather than building new software from scratch. Our technique does not require that the application actually be backed by a spreadsheet; it merely uses the spreadsheet as an interface for viewing and modifying the internal state of the application. 
@@ -37,6 +39,8 @@ To get a sense of the user experience of using Wildcard, let's see an example of
 ![Using Wildcard to augment the Airbnb search page for booking accommodations](media/airbnb-demo-300dpi.png){#fig:airbnb-demo}
 
 </div>
+
+## Customizing search results
 
 In 2012, the travel site Airbnb removed the ability to sort accommodation listings by price. Users could still filter by price range, but could no longer view the cheapest listings first. Many users complained on online message boards that the change seemed hostile to users. "It's so frustrating!..What is the logic behind not having this function?" said one user on the [Airbnb support forum](https://community.withairbnb.com/t5/Hosting/Sorting-listing-by-price/td-p/559404). Alas, the feature remains missing to this day.
 
@@ -76,6 +80,8 @@ When traveling without a car, it's useful to evaluate potential places to stay b
 ![Using Wildcard to augment the Expedia page for booking a flight](media/expedia-demo-300dpi.png){#fig:expedia-demo}
 
 </div>
+
+## Customizing a form input
 
 It might seem that Wildcard is only useful on websites that display lists of tabular data like search results. But in fact, the table metaphor is flexible enough to represent many types of data. For example, a flight search form on Expedia can be represented as a single row, with a column corresponding to each input. <span class="pdf-only"> [@fig:expedia-demo] shows an overview of augmenting the Expedia site.</span>
 

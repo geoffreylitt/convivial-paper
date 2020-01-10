@@ -1,5 +1,7 @@
 set -e
 
+convert media/overview.png -density 300 -units pixelsperinch media/overview-300dpi.png
+
  pandoc \
   --filter conditional-render \
   --filter pandoc-citeproc \
