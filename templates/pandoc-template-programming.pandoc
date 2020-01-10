@@ -83,21 +83,14 @@ $endif$
 \begin{CCSXML}
 <ccs2012>
 <concept>
-<concept_id>10002944.10011122.10003459</concept_id>
-<concept_desc>General and reference~Computing standards, RFCs and guidelines</concept_desc>
-<concept_significance>300</concept_significance>
-</concept>
-<concept>
-<concept_id>10010405.10010476.10010477</concept_id>
-<concept_desc>Applied computing~Publishing</concept_desc>
-<concept_significance>300</concept_significance>
+<concept_id>10011007.10011006.10011066.10011069</concept_id>
+<concept_desc>Software and its engineering~Integrated and visual development environments</concept_desc>
+<concept_significance>500</concept_significance>
 </concept>
 </ccs2012>
 \end{CCSXML}
 
-\ccsdesc[300]{General and reference~Computing standards, RFCs and guidelines}
-\ccsdesc[500]{Applied computing~Publishing}
-
+\ccsdesc[500]{Software and its engineering~Integrated and visual development environments}
 % To HERE
 %%%%%%%%%%%%%%%%%%%%%%%
 
@@ -118,7 +111,7 @@ This paper is best viewed in the online version, which includes videos demonstra
 $body$
 
 \acks
-Thanks to Glen Chiacchieri, Steve Krouse, Daniel Windham, and Maggie Yellen for providing valuable feedback on this work.
+Thanks to Glen Chiacchieri, David Karger, Steve Krouse, Rob Miller, Arvind Satyanarayan, Daniel Windham, and Maggie Yellen for providing valuable feedback on this work.
 
 \printbibliography
 

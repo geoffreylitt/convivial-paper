@@ -284,10 +284,6 @@ table td {
   body {
     font-size: 16px;
   }
-
-  video {
-    max-width: 120%;
-  }
 }
 @media print {
   * {
