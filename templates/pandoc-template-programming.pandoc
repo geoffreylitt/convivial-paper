@@ -40,7 +40,7 @@ $endif$
 \subtitle{$subtitle$}% optional
 
 \author{Geoffrey Litt}
-\authorinfo{is a PhD student at MIT, researching programming tools for end users and developers.}
+\authorinfo{is a PhD student at MIT in the Software Design Group. His research focuses on programming tools, especially for live programming and end user programming.}
 \author{Daniel Jackson}
 \authorinfo{is a professor in the Department of Electrical Engineering and Computer Science at MIT, associate director of CSAIL, and a MacVicar Fellow. He leads the Software Design Group.}
 \affiliation{Massachusetts Institute of Technology}

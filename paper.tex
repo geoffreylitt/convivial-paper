@@ -65,7 +65,7 @@
 \subtitle{}% optional
 
 \author{Geoffrey Litt}
-\authorinfo{is a PhD student at MIT, researching programming tools for end users and developers.}
+\authorinfo{is a PhD student at MIT in the Software Design Group. His research focuses on programming tools, especially for live programming and end user programming.}
 \author{Daniel Jackson}
 \authorinfo{is a professor in the Department of Electrical Engineering and Computer Science at MIT, associate director of CSAIL, and a MacVicar Fellow. He leads the Software Design Group.}
 \affiliation{Massachusetts Institute of Technology}
@@ -183,6 +183,14 @@ customization}\label{fig:overview}
 }
 \end{figure}
 
+Spreadsheet-driven customization provides an easy entry point for end
+users, since small tweaks like sorting data can be performed with a
+single click. At the same time, it also supports a variety of richer
+customizations, like adding private annotations to a webpage or joining
+in related data from a web API. In Section~\ref{sec:design-principles},
+we elaborate on this breadth of use cases, as well as other design
+principles guiding our work.
+
 Prior work \autocite{mccutchen2016,benson2014,chang2014} has enabled end
 users to create ``spreadsheet-driven applications'' which use
 spreadsheets as a backing data layer. Spreadsheet-driven
@@ -191,14 +199,6 @@ customizing existing software, rather than building new software from
 scratch. Our technique does not require that the application actually be
 backed by a spreadsheet; it merely uses the spreadsheet as an interface
 for viewing and modifying the internal state of the application.
-
-Spreadsheet-driven customization provides an easy entry point for end
-users, since small tweaks like sorting data can be performed with a
-single click. At the same time, it also supports a variety of richer
-customizations, like adding private annotations to a webpage or joining
-in related data from a web API. In Section~\ref{sec:design-principles},
-we elaborate on this breadth of use cases, as well as other design
-principles guiding our work.
 
 This approach requires extracting structured data from the user
 interfaces of existing applications, but we hide the complexity of data
@@ -221,7 +221,7 @@ of programmers building and maintaining site adapters.
 \hypertarget{sec:demos}{%
 \section{Demo: booking a trip with Wildcard}\label{sec:demos}}
 
-To demonstrate the user experience of Wildcard, here is an example of
+To demonstrate the user experience of Wildcard, here's an example of
 using it to help with booking a trip.{ These demos are best viewed as
 videos in the online version of this paper
 (\url{https://www.geoffreylitt.com/wildcard}).}
@@ -619,7 +619,7 @@ systems also have significant differences:
 \begin{itemize}
 \tightlist
 \item
-  Wildcard aims support a broad set of customizations, but Sifter only
+  Wildcard supports a broad set of customizations, but Sifter only
   supports sorting and filtering.
 \item
   Wildcard shows the structured data table directly to the user. Sifter

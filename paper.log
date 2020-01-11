@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  10 JAN 2020 18:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  11 JAN 2020 10:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3691,7 +3691,7 @@ LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/semibold/n' will be
 (Font)              scaled to size 9.19998pt on input line 183.
 
-Overfull \hbox (0.63582pt too wide) in paragraph at lines 186--194
+Overfull \hbox (0.63582pt too wide) in paragraph at lines 194--202
 []\T1/XCharter-TOsF/m/n/10.95 (-20) Prior work [[]4[], []6[], []21[]] has en-ab
 led end users to cre-ate ``spreadsheet-driven ap-pli-ca-tions''
  []
@@ -3829,11 +3829,11 @@ Package logreq Info: Writing requests to 'paper.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 49994 strings out of 492616
- 962312 string characters out of 6129482
+ 49997 strings out of 492616
+ 962390 string characters out of 6129482
  1469439 words of memory out of 5000000
  52931 multiletter control sequences out of 15000+600000
- 845189 words of font info for 305 fonts, out of 8000000 for 9000
+ 845515 words of font info for 307 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,21n,102p,9085b,2142s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/xcharter/xch_esnimw.enc}{
@@ -3852,7 +3852,7 @@ xmf-dist/fonts/type1/public/xcharter/XCharter-Bold.pfb></usr/local/texlive/2019
 /texmf-dist/fonts/type1/public/xcharter/XCharter-Italic.pfb></usr/local/texlive
 /2019/texmf-dist/fonts/type1/public/xcharter/XCharter-Roman.pfb></usr/local/tex
 live/2019/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7y.pfb>
-Output written on paper.pdf (18 pages, 3346473 bytes).
+Output written on paper.pdf (18 pages, 3346545 bytes).
 PDF statistics:
  411 PDF objects out of 1000 (max. 8388607)
  370 compressed objects within 4 object streams
