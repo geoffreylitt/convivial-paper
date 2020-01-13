@@ -12,7 +12,7 @@ convert media/overview.png -density 300 -units pixelsperinch media/overview-300d
   -o paper.html \
   --css basic.css \
   --toc \
-  --toc-depth=2 \
+  --toc-depth=1 \
   --variable=toc-title:"Contents" \
   --template=templates/pandoc-template-html.html \
   paper.md

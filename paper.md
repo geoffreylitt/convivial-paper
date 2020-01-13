@@ -14,30 +14,32 @@ secPrefix:
 abstract: |
   Many Web applications do not meet the particular needs of their users. Browser extensions and user scripts offer a way to customize web applications, but most people do not have the programming skills to implement their own extensions.
   
-  We present the idea of _spreadsheet-driven customization_: enabling end users to customize existing applications using a live spreadsheet view of the data inside the application. By manipulating the spreadsheet, users can implement a wide variety of customizations, ranging from sorting lists of search results to displaying related data from other web services, without doing any traditional programming.
+  We present the idea of _spreadsheet-driven customization_: enabling end users to customize existing applications using a live spreadsheet view of the data inside the application. By manipulating the spreadsheet, users can implement a variety of customizations without doing any traditional programming.
   
-  We built a prototype system called Wildcard that implements spreadsheet-driven customization as a web browser extension. Through concrete examples, we demonstrate that Wildcard has both a low barrier to entry for beginners and enough flexibility to solve many useful problems. We also show that Wildcard can work with real existing websites, by extracting structured data using web scraping techniques.
+  We have implemented this technique in a prototype browser extension called Wildcard. Through concrete examples, we demonstrate that Wildcard can be used to implement useful customizations with real existing websites.
 ---
 
 # Introduction {#sec:introduction}
 
 Web applications often don't match the particular needs of their users. Sometimes there is a browser extension available to patch an issue, and if the user is a programmer they might be able to fix it themselves. But for most people, the only recourse is to complain to the developers, or more likely, to simply give up. Back in 1977, in _Personal Dynamic Media_ [@kay1977], Alan Kay envisioned personal computing as a medium that let a user "mold and channel its power to his own needs," but today, software behaves more like concrete than clay.
 
-In this paper, we present _spreadsheet-driven customization_, a technique that enables end users to customize software without doing any traditional programming. The idea is to augment an application’s UI with a spreadsheet that is synchronized with the application’s data. When the user manipulates the spreadsheet, the underlying data is modified and the changes are propagated to the UI, and vice versa. We have implemented this technique in a prototype browser extension called Wildcard. [@sec:demos] presents demos of using Wildcard to augment real websites in useful ways, and [@sec:implementation] describes the implementation of the extension.
+In this paper, we present _spreadsheet-driven customization_, a technique that enables end users to customize software without doing any traditional programming. The idea is to augment an application’s UI with a spreadsheet that is synchronized with the application’s data. When the user manipulates the spreadsheet, the underlying data is modified and the changes are propagated to the UI, and vice versa.
+
+We have implemented this technique in a prototype browser extension called Wildcard. We've built demos of using Wildcard (shown in [@sec:demos]) which suggest that this paradigm can support useful customizations, ranging from sorting lists of data to adding whole new features to applications.
 
 ![An overview of spreadsheet-driven customization](media/overview-300dpi.png){#fig:overview}
 
+Our approach requires extracting structured data from the user interfaces of existing applications, but we hide the complexity of data extraction from end users. Programmers write _site adapters_ which use web scraping techniques to extract structured data from existing applications and map them to the spreadsheet table. Our prototype suggests that it is possible to implement site adapters for real websites; [@sec:implementation] describes some of the techniques and challenges involved.
+
 Spreadsheet-driven customization provides an easy entry point for end users, since small tweaks like sorting data can be performed with a single click. At the same time, it also supports a variety of richer customizations, like adding private annotations to a webpage or joining in related data from a web API. In [@sec:design-principles], we elaborate on this breadth of use cases, as well as other design principles guiding our work.
 
-Prior work [@mccutchen2016;@benson2014;@chang2014] has enabled end users to create "spreadsheet-driven applications" which use spreadsheets as a backing data layer. Spreadsheet-driven *customization* applies this idea in a different context: customizing existing software, rather than building new software from scratch. Our technique does not require that the application actually be backed by a spreadsheet; it merely uses the spreadsheet as an interface for viewing and modifying the internal state of the application. 
+Prior work [@mccutchen2016;@benson2014;@chang2014] has enabled end users to create "spreadsheet-driven applications" which use spreadsheets as a backing data layer. Spreadsheet-driven *customization* applies this idea in a different context: customizing existing software, rather than building new software from scratch. Our technique does not require that the application actually be backed by a spreadsheet; it merely uses the spreadsheet as an interface for viewing and modifying the internal state of the application. In [@sec:related-work], we describe how Wildcard relates to existing work on spreadsheet-driven apps, as well as other areas like web customization and web scraping.
 
-This approach requires extracting structured data from the user interfaces of existing applications, but we hide the complexity of data extraction from end users. Programmers write _site adapters_ which use web scraping techniques to extract structured data from existing applications and map them to the spreadsheet table. End users only interact with the structured spreadsheet, providing a straightforward customization experience. In [@sec:related-work], we explain this architecture in more depth, and describe how Wildcard relates to existing work on malleable software, web customization, spreadsheet-driven applications, and web scraping.
+The Wildcard extension is currently an early research prototype. We plan to continue testing the system with our own use cases to explore how the spreadsheet abstraction maps to real websites and customization needs. Eventually we plan to release the tool publicly in order to study real use cases, discover usability challenges, and to test the feasibility of programmers building and maintaining site adapters.
 
-The Wildcard extension is currently an early research prototype. We plan to continue testing the system with our own use cases to explore how the spreadsheet abstraction maps to real websites and customization needs. Eventually we plan to release the tool publicly, in order to study real applications, discover usability challenges, and to test the feasibility of programmers building and maintaining site adapters.
+# Demo {#sec:demos}
 
-# Demo: booking a trip with Wildcard {#sec:demos}
-
-To demonstrate the user experience of Wildcard, here's an example of using it to help with booking a trip.<span class="pdf-only"> These demos are best viewed as videos in the online version of this paper (\url{https://www.geoffreylitt.com/wildcard}).</span>
+Here are some examples of using Wildcard to customize websites in useful ways.<span class="pdf-only"> These demos are best viewed as videos in the online version of this paper (\url{https://www.geoffreylitt.com/wildcard}).</span>
 
 <div class="pdf-only">
 
@@ -71,10 +73,30 @@ Next, the user wants to jot down some notes about each listing. To do this, they
 <video controls="controls" preload="auto" muted="muted" src="media/annotate.mp4#t=0.1" muted playsinline controls class>
 </video>
 
-Wildcard also includes a formula language that enables more sophisticated customizations. When traveling without a car, it's useful to evaluate potential places to stay based on how walkable the surroundings are. Using Wildcard formulas, the user can integrate Airbnb with Walkscore, an API that rates the walkability of any location on a 1-100 scale. When they type in a `walkscore` formula with the latitude and longitude of the listing, it sets the walk score as the value of the cell. Because the cell's contents are injected into the page, the score also shows up in the UI<span class="pdf-only"> ([@fig:airbnb-demo]C)</span>.
+Wildcard also includes a formula language that enables more sophisticated customizations. When traveling without a car, it's useful to evaluate potential places to stay based on how walkable the surroundings are. Using a formula, the user can integrate Airbnb with Walkscore, an API that rates the walkability of any location on a 1-100 scale. When the user uses the `walkscore` function with the listing's latitude and longitude as inputs, it returns the walk score for that location and shows it as the cell value. Because the cell's contents are injected into the page, the score also appears in the UI<span class="pdf-only"> ([@fig:airbnb-demo]C)</span>.
 
 <video controls="controls" preload="auto" muted="muted" src="media/walkscore.mp4#t=0.1" muted playsinline controls class>
 </video>
+
+## Snoozing todos
+
+In addition to fetching data from other sources, Wildcard formulas can also perform computations. In this example, the user wants to augment the TodoMVC todo list app with a "snooze" feature, which will temporarily hide a todo from the list until a certain date.
+
+The user starts by opening the table view, which shows the text and completed status of each todo, and live updates as the list changes. They start the customization by adding a new `snoozeDate` column to store the snooze date for each todo.
+
+<video controls="controls" preload="auto" muted="muted" src="media/todo-date.mp4#t=0.1" muted playsinline controls class>
+</video>
+
+The next step is to hide snoozed todos. The user creates a new `snoozed?` column, which uses a formula to compute whether a todo has a snooze date in the future. Then, they simply filter the table to hide the snoozed todos.
+
+<video controls="controls" preload="auto" muted="muted" src="media/todo-snooze-formula.mp4#t=0.1" muted playsinline controls class>
+</video>
+
+As time passes, the built-in `NOW()` function will return the current date, and snoozed todos will automatically appear at the right time.
+
+Because this implementation of snoozing was built on top of the spreadsheet abstraction, it is completely decoupled from this particular todo list app. We envision that users could package and share these types of customizations as generic browser extensions, which could then be instantly applied to any site supported by Wildcard.
+
+## Customizing a form input
 
 <div class="pdf-only">
 
@@ -82,21 +104,19 @@ Wildcard also includes a formula language that enables more sophisticated custom
 
 </div>
 
-## Customizing a form input
-
-It might seem that Wildcard is only useful on websites that display lists of tabular data like search results. But in fact, the table metaphor is flexible enough to represent many types of data. For example, a flight search form on Expedia can be represented as a single row, with a column corresponding to each input. <span class="pdf-only"> [@fig:expedia-demo] shows an overview of augmenting the Expedia site.</span>
+It might seem that Wildcard is only useful on websites that display lists of tabular data, but in fact, the table metaphor is flexible enough to represent many types of data. For example, a flight search form on Expedia can be represented as a single row, with a column corresponding to each input. <span class="pdf-only"> [@fig:expedia-demo] shows an overview of augmenting the Expedia site.</span>
 
 <video controls="controls" preload="auto" muted="muted" src="media/expedia-table.mp4#t=0.1" muted playsinline controls class>
 </video>
 
-In previous examples the table cells were read-only, since users cannot change the name or price of an Airbnb listing. In this case, the cells are writable, which means that changes in the table are reflected in the form inputs. This becomes especially useful when combined with GUI widgets that can edit the value of a table cell.
+In some of the previous examples, the table cells were read-only (because users can't, for example, change the name or price of an Airbnb listing). In this case, the cells are writable, which means that changes in the table are reflected in the form inputs. This becomes especially useful when combined with GUI widgets that can edit the value of a table cell.
 
-Filling in dates for a flight search typically requires opening up a separate calendar app to find the right dates and then manually copying them into the form. In Wildcard, the user can avoid this cumbersome workflow by using a datepicker widget that includes the user's personal calendar events<span class="pdf-only"> ([@fig:expedia-demo]B)</span>. The user can directly click on the right date, and it gets inserted into the spreadsheet and the original form.
+Filling in dates for a flight search often requires a cumbersome workflow: open up a separate calendar app, find the dates for the trip, and then carefully copy them into the form. In Wildcard, the user can avoid this by using a datepicker widget that shows the user's personal calendar events<span class="pdf-only"> ([@fig:expedia-demo]B)</span>. The user can directly click on the correct date, and it gets inserted into both the spreadsheet and the original form.
 
 <video controls="controls" preload="auto" muted="muted" src="media/datepicker.mp4#t=0.1" muted playsinline controls class>
 </video>
 
-Here we’ve presented just a few use cases for spreadsheet-driven customization. We think the spreadsheet model is flexible enough to support a wide range of other useful modifications, while remaining familiar and easy to use. 
+In this section we’ve presented just a few use cases for spreadsheet-driven customization, to hint at the possibilities of the paradigm. We think the spreadsheet model is flexible enough to support a wide range of other useful modifications, while remaining familiar and easy to use. 
 
 # System Implementation {#sec:implementation}
 
@@ -126,7 +146,7 @@ Sometimes sophisticated scraping techniques are necessary to extract the necessa
 
 The site adapter also needs to support the reverse direction: sending updates from the table to the original page. Most DOM manipulation is not performed directly by the site adapter. Instead, Wildcard automatically mutates the DOM to reflect the spreadsheet state, using the same declarative spec shown above. The only exception is row actions (like favoriting an Airbnb listing), which are implemented as imperative Javascript functions that can can mutate the DOM, simulate clicks on buttons, etc.
 
-# Design principles {#sec:design-principles}
+# Design Principles {#sec:design-principles}
 
 The idea of spreadsheet-driven customization is guided by several design principles, inspired by prior work and our own experimentation. We think these principles can also broadly inform the design of tools for end user software customization.
 
@@ -156,7 +176,7 @@ Another aspect of providing a low floor is providing an "in-place toolchain" [@i
 ------------------------      ------------------         ----------------------------------------
                               *In-place*                   *Not in-place*
 *End user friendly*           **Wildcard**               IFTTT
-*Requires programming*        browser JS console          forking open source software
+*Requires programming*        browser JS console          using Web APIs in Python
 ------------------------      -----------------          ----------------------------------------
 
 Wildcard provides an in-place toolchain because the spreadsheet can be instantly opened in the browser window while using any supported website. Once the user starts editing, Wildcard also provides live feedback, so that even if a user isn't yet totally familiar with Wildcard, they can learn to use the system through experimentation.
@@ -173,7 +193,7 @@ The group of users building adapters does not necessarily need to be limited onl
 
 Another group to consider is the first party developers of the original software. Spreadsheet-driven customization does not depend on cooperation from first-party website developers, but if they were to expose structured data in their web application clients, it would eliminate the need for third party site adapters. We think there are compelling reasons for first parties to consider doing this. Providing Wildcard support would allow users to build extensions to fulfill their own feature requests. It also would not necessarily require much effort, since adding Wildcard support could be fairly straightforward for a first-party that already has direct access to the structured data in the page. There is also precedent for first parties implementing an official client extension API: for several years, Google maintained an official extension API in Gmail for Greasemonkey scripts to use. ^[Incidentally, since then, third parties have continued to maintain stable Gmail extension APIs used by many browser extensions [@streak; @talwar2019], illustrating the potential of collaboratively maintaining third party adapters.]
 
-# Related work {#sec:related-work}
+# Related Work {#sec:related-work}
 
 ## Malleable software
 
@@ -224,7 +244,7 @@ Web scraping tools differ in how much structure they attempt to map onto the dat
 
 In the future, we might try to integrate existing web scraping tools, to help create more reliable site adapters for Wildcard with less work, and to open up adapter creation to end users. 
 
-# Future work
+# Future Work
 
 There are still many open questions about spreadsheet-driven customization which we hope to answer through targeted development and usage of the Wildcard prototype.
 

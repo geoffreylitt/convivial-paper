@@ -118,14 +118,18 @@ video {
   max-width: 100%;
 }
 
-.header-section-number {
+span.header-section-number {
   font-size: 0.7em;
   font-weight: bold;
   margin-right: 8px;
+  vertical-align: top;
+}
+
+
+h1 span.header-section-number {
   background-color: #82bbdd;
   color: #fff;
   padding: 2px 8px;
-  vertical-align: top;
 }
 
 blockquote {
