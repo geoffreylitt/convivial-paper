@@ -40,9 +40,9 @@ $endif$
 \subtitle{$subtitle$}% optional
 
 \author{Geoffrey Litt}
-\authorinfo{is a PhD student at MIT in the Software Design Group. His research focuses on programming tools, especially for live programming and end user programming.}
+\authorinfo{is a PhD student at MIT in the Software Design Group. His research focuses on programming tools, especially for live programming and end user programming. Contact him at \email{glitt@mit.edu}.}
 \author{Daniel Jackson}
-\authorinfo{is a professor in the Department of Electrical Engineering and Computer Science at MIT, associate director of CSAIL, and a MacVicar Fellow. He leads the Software Design Group.}
+\authorinfo{is Professor in the Department of Electrical Engineering and Computer Science at MIT,  a MacVicar teaching fellow, and Associate Director of the Computer Science and Artificial Intelligence Laboratory. He leads the Software Design Group. Contact him at \email{dnj@csail.mit.edu}.}
 \affiliation{Massachusetts Institute of Technology}
 
 \keywords{end-user programming, software customization, web browser extensions} % please provide 1--5 keywords
