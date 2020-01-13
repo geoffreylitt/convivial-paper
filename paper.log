@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  13 JAN 2020 17:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  13 JAN 2020 17:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3410,15 +3410,7 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'paper.bbl' found.
-(./paper.bbl
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                inkandswitch2019
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-)
+(./paper.bbl)
 Package biblatex Info: Reference section=0 on input line 62.
 Package biblatex Info: Reference segment=0 on input line 62.
 \AtBeginShipoutBox=\box71
@@ -3698,6 +3690,12 @@ LaTeX Font Info:    Font shape `T1/FiraSans-OsF/regular/n' will be
 (Font)              scaled to size 9.19998pt on input line 187.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/semibold/n' will be
 (Font)              scaled to size 9.19998pt on input line 187.
+
+Overfull \hbox (0.63582pt too wide) in paragraph at lines 207--218
+[]\T1/XCharter-TOsF/m/n/10.95 (-20) Prior work [[]4[], []6[], []21[]] has en-ab
+led end users to cre-ate ``spreadsheet-driven ap-pli-ca-tions''
+ []
+
 [2.2
 
  <./media/overview-300dpi.png>]
@@ -3750,13 +3748,7 @@ Missing character: There is no ` in font FiraSans-Regular-osf-ts1!
 Missing character: There is no ` in font FiraSans-Regular-osf-ts1!
 [9.9] [10.10]
 LaTeX Font Info:    Font shape `T1/XCharter-TOsF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 545.
-
-Overfull \hbox (54.694pt too wide) in paragraph at lines 544--555
-[]\T1/XCharter-TOsF/m/n/10.95 (-20) Another as-pect of pro-vid-ing a low floor 
-is pro-vid-ing an ``in-place toolchain'' [[]]:
- []
-
+(Font)              scaled to size 10.95pt on input line 560.
 [11.11] [12.12] [13.13] [14.14] [15.15]
 LaTeX Font Info:    Font shape `T1/XCharter-TOsF/m/sc' will be
 (Font)              scaled to size 10.95pt on input line 871.
@@ -3800,6 +3792,10 @@ Package microtype Info: Character `textrbrackdbl ' is missing
 Package microtype Info: Character `texttildelow ' is missing
 (microtype)             in font `TS1/XCharter-TOsF/m/it/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
+
+Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
+(biblatex)                Please use '\mkdaterangeiso'.
+
 
 Package biblatex Warning: '\mkdaterangeedtf' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
@@ -3885,11 +3881,11 @@ Package logreq Info: Writing requests to 'paper.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 49956 strings out of 492616
- 961587 string characters out of 6129482
- 1473497 words of memory out of 5000000
- 52869 multiletter control sequences out of 15000+600000
- 833024 words of font info for 301 fonts, out of 8000000 for 9000
+ 49959 strings out of 492616
+ 961711 string characters out of 6129482
+ 1473500 words of memory out of 5000000
+ 52870 multiletter control sequences out of 15000+600000
+ 833181 words of font info for 302 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,21n,102p,9085b,2050s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/xcharter/xch_3v4tq3.enc}{
@@ -3907,10 +3903,10 @@ ist/fonts/type1/public/fira/FiraSans-Regular.pfb></usr/local/texlive/2019/texmf
 xmf-dist/fonts/type1/public/xcharter/XCharter-Bold.pfb></usr/local/texlive/2019
 /texmf-dist/fonts/type1/public/xcharter/XCharter-Italic.pfb></usr/local/texlive
 /2019/texmf-dist/fonts/type1/public/xcharter/XCharter-Roman.pfb>
-Output written on paper.pdf (20 pages, 3915482 bytes).
+Output written on paper.pdf (20 pages, 3916664 bytes).
 PDF statistics:
- 463 PDF objects out of 1000 (max. 8388607)
- 418 compressed objects within 5 object streams
- 102 named destinations out of 1000 (max. 500000)
+ 468 PDF objects out of 1000 (max. 8388607)
+ 423 compressed objects within 5 object streams
+ 103 named destinations out of 1000 (max. 500000)
  41155 words of extra memory for PDF output out of 42996 (max. 10000000)
 

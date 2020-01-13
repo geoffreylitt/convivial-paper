@@ -510,6 +510,31 @@
       \field{year}{2000}
       \field{dateera}{ce}
     \endentry
+    \entry{2019}{online}{}
+      \field{sortinit}{E}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A vision for empowered computing that reaches back forty years. Our research lab examines why it has been so hard to achieve.}
+      \field{langid}{american}
+      \field{month}{3}
+      \field{title}{End-user programming}
+      \field{titleaddon}{Ink and Switch}
+      \field{urlday}{28}
+      \field{urlmonth}{12}
+      \field{urlyear}{2019}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/Users/geoffreylitt/Zotero/storage/VN9ZZWVZ/end-user-programming.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.inkandswitch.com/end-user-programming.html
+      \endverb
+      \verb{url}
+      \verb https://www.inkandswitch.com/end-user-programming.html
+      \endverb
+    \endentry
     \entry{hogue2005}{inproceedings}{}
       \name{author}{2}{}{%
         {{hash=9302a8419fe15a03aa454bc07373c396}{%
@@ -1374,7 +1399,6 @@
       \endverb
     \endentry
   \enddatalist
-  \missing{inkandswitch2019}
 \endrefsection
 \endinput
 

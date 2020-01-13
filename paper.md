@@ -42,7 +42,7 @@ The Wildcard extension is currently an early research prototype. We plan to cont
 
 # Demos {#sec:demos}
 
-Here are some examples of using Wildcard to customize websites in useful ways.<span class="pdf-only"> These demos are best viewed as videos in the online version of this paper (\url{https://www.geoffreylitt.com/wildcard/convivial}).</span>
+Here are some examples of using Wildcard to customize websites in useful ways.<span class="pdf-only"> These demos are best viewed as videos in the online version of this paper (\url{https://www.geoffreylitt.com/wildcard/salon2020}).</span>
 
 <div class="pdf-only">
 
@@ -181,7 +181,7 @@ One of the most interesting properties of spreadsheets is that users familiar wi
 
 As part of ensuring a low floor, we have focused on including features that have immediate value for novices. For example, a user can sort a table with a single click, or simply type in some annotations. We would expect many Wildcard users to start by using these simpler features before potentially moving on to more sophisticated features like formulas.
 
-Another aspect of providing a low floor is providing an "in-place toolchain" [@inkandswitch2019]: minimizing the effort of moving from using to customizing, by making customization tools available in the same environment where the user is already using the software. This quality is distinct from the level of technical skill needed to use the tool. For example, setting up a workflow trigger in an end user programming system like [IFTTT](https://ifttt.com/) does not require much technical skill, but does require leaving the user's normal software and entering a separate environment; conversely, running a Javascript snippet in the browser console requires programming skills, but can be done immediately and casually in the flow of using a website.
+Another aspect of providing a low floor is providing an "in-place toolchain" [@2019]: minimizing the effort of moving from using to customizing, by making customization tools available in the same environment where the user is already using the software. This quality is distinct from the level of technical skill needed to use the tool. For example, setting up a workflow trigger in an end user programming system like [IFTTT](https://ifttt.com/) does not require much technical skill, but does require leaving the user's normal software and entering a separate environment; conversely, running a Javascript snippet in the browser console requires programming skills, but can be done immediately and casually in the flow of using a website.
 
 
 ------------------------      ------------------         ----------------------------------------
