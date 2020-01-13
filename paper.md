@@ -42,7 +42,7 @@ The Wildcard extension is currently an early research prototype. We plan to cont
 
 # Demos {#sec:demos}
 
-Here are some examples of using Wildcard to customize websites in useful ways.<span class="pdf-only"> These demos are best viewed as videos in the online version of this paper (\url{https://www.geoffreylitt.com/wildcard}).</span>
+Here are some examples of using Wildcard to customize websites in useful ways.<span class="pdf-only"> These demos are best viewed as videos in the online version of this paper (\url{https://www.geoffreylitt.com/wildcard/convivial}).</span>
 
 <div class="pdf-only">
 
