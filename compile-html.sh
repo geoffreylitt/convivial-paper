@@ -17,6 +17,6 @@ convert media/overview.png -density 300 -units pixelsperinch media/overview-300d
   --template=templates/pandoc-template-html.html \
   paper.md
 
-cp ./paper.html ~/dev/homepage/source/wildcard/index.html
-cp ./basic.css ~/dev/homepage/source/wildcard
-cp -r ./media ~/dev/homepage/source/wildcard
+cp ./paper.html ~/dev/homepage/source/wildcard/convivial/index.html
+cp ./basic.css ~/dev/homepage/source/wildcard/convivial
+cp -r ./media ~/dev/homepage/source/wildcard/convivial

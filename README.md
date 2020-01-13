@@ -17,4 +17,6 @@ To compile to PDF through Latex: `./compile-latex.sh && open paper.pdf`
 
 ## notes
 
-* image sizes and Latex output interact weirdly. I use high-res pngs exported from Sketch at 72dpi, and then in the latex compile script I use ImageMagick to set higher dpi so that the final size comes out correctly in the pdf.
+* image sizes and Latex output interact weirdly. I use high-res pngs exported from Sketch at 72dpi, and then in the latex compile script I use ImageMagick to convert to 300dpi so that the final size comes out correctly in the pdf.
+
+* references.bib is produced by the Better BibLatex Zotero plugin which doesn't export website accessed dates. So I made references2.bib into the references source; it's produced by the normal Zotero BibLatex exporter.

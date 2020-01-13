@@ -79,7 +79,7 @@
       <file>paper.bcf</file>
     </requires>
     <requires type="editable">
-      <file>references.bib</file>
+      <file>references2.bib</file>
     </requires>
   </external>
 </requests>
