@@ -2032,8 +2032,6 @@
     <bcf:citekey order="32">huynh2005</bcf:citekey>
     <bcf:citekey order="33">mccutchen2016</bcf:citekey>
     <bcf:citekey order="33">bakke2016</bcf:citekey>
-    <bcf:citekey order="34">bolin2005</bcf:citekey>
-    <bcf:citekey order="34">leshed2008</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

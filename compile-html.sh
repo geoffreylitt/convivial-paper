@@ -1,6 +1,7 @@
 set -e
 
 convert media/overview.png -density 300 -units pixelsperinch media/overview-300dpi.png
+convert media/architecture.png -density 300 -units pixelsperinch media/architecture-300dpi.png
 
  pandoc \
   --filter conditional-render \
