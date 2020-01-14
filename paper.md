@@ -242,7 +242,7 @@ Thresher [@hogue2005] enables users to create wrappers which map unstructured we
 "Sloppy programming" [@little2010] tools like Chickenfoot [@bolin2005] and Coscripter [@leshed2008] enable users to create web automation scripts without directly interacting with the DOM. The scripts can perform actions like filling in text boxes and clicking on buttons. Users express the desired page elements in natural, informal terms (e.g. writing "the username box" to represent the textbox closest to the label "username"), and then the system uses a set of heuristics to determine which elements most likely match the user's intent. This approach allows for expressing a wide variety of commands with minimal training, but it also has downsides [@little2010]:
 
 * *Reliability*: It can be difficult to know whether a command will consistently work over time. Changes to the website or to the system's heuristics can cause unexpected changes in behavior.
-* *Discoverability*: it can be difficult for users to find explore the space of possible commands.
+* *Discoverability*: it can be difficult for users to explore the space of possible commands.
 
 Wildcard offers a sharp contrast to sloppy programming, instead choosing to expose a high degree of structure through the spreadsheet table. Wildcard offers more consistency; for example, clicking a sort header will always work correctly as long as the site adapter is maintained. Wildcard also offers clearer affordances for what types of actions are possible. On the other hand, Wildcard's explicit site adapter approach means that fewer websites can be customized, and also that users can't perform customizations if the relevant data is not exposed in the spreadsheet.
 

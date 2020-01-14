@@ -1,15 +1,15 @@
 [0] Config.pm:304> INFO - This is Biber 2.12
 [0] Config.pm:307> INFO - Logfile is 'paper.blg'
-[34] biber-darwin:315> INFO - === Tue Jan 14, 2020, 14:42:20
-[52] Biber.pm:371> INFO - Reading 'paper.bcf'
-[126] Biber.pm:889> INFO - Found 27 citekeys in bib section 0
-[136] Biber.pm:4093> INFO - Processing section 0
-[145] Biber.pm:4254> INFO - Looking for bibtex format file 'references2.bib' for section 0
-[151] bibtex.pm:1523> INFO - LaTeX decoding ...
-[268] bibtex.pm:1340> INFO - Found BibTeX data source 'references2.bib'
-[453] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[453] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[453] Biber.pm:3921> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[453] Biber.pm:3927> INFO - No sort tailoring available for locale 'en-US'
-[478] bbl.pm:636> INFO - Writing 'paper.bbl' with encoding 'UTF-8'
-[488] bbl.pm:739> INFO - Output to paper.bbl
+[58] biber-darwin:315> INFO - === Tue Jan 14, 2020, 14:45:27
+[91] Biber.pm:371> INFO - Reading 'paper.bcf'
+[189] Biber.pm:889> INFO - Found 27 citekeys in bib section 0
+[206] Biber.pm:4093> INFO - Processing section 0
+[219] Biber.pm:4254> INFO - Looking for bibtex format file 'references2.bib' for section 0
+[227] bibtex.pm:1523> INFO - LaTeX decoding ...
+[369] bibtex.pm:1340> INFO - Found BibTeX data source 'references2.bib'
+[559] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[559] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[559] Biber.pm:3921> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[559] Biber.pm:3927> INFO - No sort tailoring available for locale 'en-US'
+[596] bbl.pm:636> INFO - Writing 'paper.bbl' with encoding 'UTF-8'
+[609] bbl.pm:739> INFO - Output to paper.bbl

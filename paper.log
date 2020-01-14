@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  14 JAN 2020 14:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  14 JAN 2020 14:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3961,7 +3961,7 @@ st/fonts/type1/public/fira/FiraSans-SemiBold.pfb></usr/local/texlive/2019/texmf
 -dist/fonts/type1/public/xcharter/XCharter-Bold.pfb></usr/local/texlive/2019/te
 xmf-dist/fonts/type1/public/xcharter/XCharter-Italic.pfb></usr/local/texlive/20
 19/texmf-dist/fonts/type1/public/xcharter/XCharter-Roman.pfb>
-Output written on paper.pdf (20 pages, 3957428 bytes).
+Output written on paper.pdf (20 pages, 3957427 bytes).
 PDF statistics:
  467 PDF objects out of 1000 (max. 8388607)
  422 compressed objects within 5 object streams
