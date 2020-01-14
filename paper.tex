@@ -620,10 +620,10 @@ adapters, and more casual end users just using the spreadsheet view.
 
 The first party developers of the original software can also play a role
 in enabling customization. Although spreadsheet-driven customization
-does not depend on cooperation from first-party website developers,
+does not depend on cooperation from first party website developers,
 their participation in exposing structured data would eliminate the need
 for third party site adapters. The first parties could themselves
-benefit from such a system, since providing Wildcard support---a fairly
+benefit from such a system; providing Wildcard support---a fairly
 low-effort undertaking for a developer with direct access to the
 structured data---would allow users to build extensions to fulfill some
 of their own feature requests. There is also precedent for first parties
@@ -744,12 +744,11 @@ commands with minimal training, but it also has downsides
 \tightlist
 \item
   \emph{Reliability}: It can be difficult to know whether a command will
-  consistently work over time. In addition to changes to the website,
-  changes to the system's heuristics can also cause unexpected changes
-  in behavior.
+  consistently work over time. Changes to the website or to the system's
+  heuristics can cause unexpected changes in behavior.
 \item
-  \emph{Discoverability}: it can be hard for users to find discover
-  possible commands.
+  \emph{Discoverability}: it can be difficult for users to find explore
+  the space of possible commands.
 \end{itemize}
 
 Wildcard offers a sharp contrast to sloppy programming, instead choosing
@@ -766,10 +765,10 @@ Another difference between Wildcard and these tools is that there is no
 way for users to express imperative workflows with sequences of actions
 in Wildcard. Chickenfoot and Coscripter have shown these types of
 workflows to be useful in practice so it might be worth considering how
-to support them, but it's not clear how such workflows could fit into
-Wildcard. Spreadsheets have a fundamentally different computation model,
-and site adapters created by programmers cannot easily account for every
-possible action a user might want to perform in a page.
+to incorporate them, but it's not obvious how such workflows could fit
+into Wildcard. Spreadsheets have a fundamentally different computation
+model, and site adapters created by programmers cannot easily account
+for every possible action a user might want to perform in a page.
 
 \hypertarget{spreadsheet-driven-applications}{%
 \subsection{Spreadsheet-driven
@@ -785,9 +784,9 @@ projects like Object Spreadsheets \autocite{mccutchen2016}, Quilt
 \autocite{zotero-79} and Glide \autocite{zotero-81} allow users to view
 data in a spreadsheet table, compute over the data using formulas, and
 then connect the table to a GUI. Because many users are already familiar
-with using spreadsheets, this way of creating applications tends to be
-much easier than traditional software methods; for example, in a user
-study of Quilt, many users were able to create applications in under 10
+with spreadsheets, this way of creating applications tends to be much
+easier than traditional software methods; for example, in a user study
+of Quilt, many users were able to create applications in under 10
 minutes, even if they expected it would take them many hours.
 
 Wildcard builds on this idea, but applies it to modifying existing
@@ -878,12 +877,12 @@ assist with the adapter creation process and developing new abstractions
 that make it easier for programmers to efficiently create robust
 adapters.
 
-We hope that spreadsheet-driven customization can help the Web reach its
-full potential as a dynamic medium that users can mold to their own
-needs.
+Ultimately, we hope that spreadsheet-driven customization helps the Web
+reach its full potential as a dynamic medium that users can mold to
+their own needs.
 
 \acks
-Thanks to Glen Chiacchieri, David Karger, Steve Krouse, Rob Miller, Arvind Satyanarayan, Daniel Windham, and Maggie Yellen for providing valuable feedback on this work.
+Thanks to Tarfah Alrashed, Glen Chiacchieri, David Karger, Steve Krouse, Rob Miller, Santiago Perez De Rosso, Arvind Satyanarayan, Daniel Windham, and Maggie Yellen for providing valuable feedback on this work.
 
 \printbibliography
 
