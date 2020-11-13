@@ -1,8 +1,13 @@
 #!/Users/geoffreylitt/.rubies/ruby-2.6.3/bin/ruby
-# Number all figures in a document and prefix the caption with "Figure".
-require "paru/filter"
+# conditional output to html and pdf, by interpreting a special class name on divs in markdown
 
-figure_counter = 0;
+# to use in a markdown doc:
+ 
+#  Here is some normal text.
+#  <div class="html-only">Some text for only html</div>
+#  <div class="pdf-only">Some text for only pdf</div>
+
+require "paru/filter"
 
 Paru::Filter.run do 
     with "Div.html-only" do |div|
